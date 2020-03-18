@@ -58,7 +58,6 @@ header {
 #bottombar{
 width: 100%;
 height: 50px;
-/*border-bottom: 5px solid rgb(8, 76, 130);*/
 background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.4));
 }
  
@@ -66,35 +65,9 @@ background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 255, 255
 width: 100%;
 height: 500px;
 background-image: linear-gradient(to left, rgba(0, 0, 0, .8), rgba(0, 0, 0, .9));
-/*border-bottom: 5px solid rgb(8, 76, 130);*/
 color: white !important;
 padding-top: 20vh;
 }
-
-
-.infoBlock{
-width: 100%;
-height: 500px;
-background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.4));
-
-}
-
-
-body {
-  /*background-repeat:repeat;*/
-  background-position:center top;
-  background: url(../img/Hilbsert.png) repeat center center; 
-  background-attachment: fixed;
-  -webkit-background-size: 100% auto;
-  -moz-background-size:100% auto;
-  -o-background-size: 100% auto;
-  background-size:100% auto;
-
-
-
-
-}
-
 
 
 
@@ -238,20 +211,19 @@ body {
 
 }
 
+  #logo{
 
-.container {
-    margin-right: auto;
-    margin-left: 15%; 
-    padding-left: 0px;
-    padding-right: 0px;
-}
+        display: none;
+
+       }
 
 
 
 @media(max-width:825px) {
+
   #HilbertBack
       {
-        
+        display: none;
         margin-left:3vh;
         height: 500px;
 
@@ -261,13 +233,47 @@ body {
       {
         margin-left:3vh;
         height: 500px;
+        display: none;
+
       }
 
+  #logo{
+        display: inline;
+        margin-left:1vh;
+        margin-top:-3vh;
+        margin-bottom:2vh;
+
+        height: 70px;
+  }
+
+  body 
+      {
+        background-repeat: no-repeat;
+        background-position: right top;
+        background: url(../img/logoback.png); 
+        background-attachment: scroll;
+        -webkit-background-size: 100% auto;
+        -moz-background-size:100% auto;
+        -o-background-size: 100% auto;
+        background-size:auto 100vh;
+      }
+
+  header 
+      {
+        padding-left: 0px;
+        padding-top: 0px;
+        position: relative;
+        height:95vh;
+        color: black;
+        font-family: 'Khula',  'sans-serif';
+      }
 
   h2
       {
         font-size: 15px !important;
       }
+
+
 
   .container2
       {
