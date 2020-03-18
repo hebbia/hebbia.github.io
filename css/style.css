@@ -68,7 +68,6 @@ height: 500px;
 background-image: linear-gradient(to left, rgba(0, 0, 0, .8), rgba(0, 0, 0, .9));
 /*border-bottom: 5px solid rgb(8, 76, 130);*/
 color: white !important;
-padding-left: 30px;
 padding-top: 20vh;
 }
 
@@ -219,12 +218,16 @@ body {
   margin-left:15%;
   top:400px;
   margin-top: 20px;
-  background-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.4));
+  /*background-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.4));*/
 }
 
 
 
+.container2{
+  margin-left:15%;
 
+
+}
 
 
 .tttle{
@@ -249,24 +252,32 @@ body {
   #HilbertBack
       {
         
-        margin-left:6vh;
+        margin-left:3vh;
         height: 500px;
 
       }
 
   #Hilbert
       {
-        
-        margin-left:6vh;
+        margin-left:3vh;
         height: 500px;
-
       }
 
+
+  h2
+      {
+        font-size: 15px !important;
+      }
+
+  .container2
+      {
+        margin-left:3vh;
+      }
 
   #HelvLight{
     font-family: '';
     font-weight: 300;
-    margin-left: 6vh;
+    margin-left: 3vh;
     top:500px;
 
   }
