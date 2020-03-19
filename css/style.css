@@ -13,7 +13,12 @@
 
 
   
+.name{
+    font-family: 'Khula', 'sans-serif';
+    font-family: 'IBM Plex Mono', 'sans-serif';
+    font-weight: 400;
 
+}
 
 h1 {
   font-family: 'IBM Plex Mono', 'sans-serif';
@@ -278,6 +283,8 @@ header {
   position:relative;
   z-index: 2;
   scroll-behavior: smooth;
+  font-family: 'Khula',  'sans-serif';
+
 
 
 }
@@ -438,13 +445,6 @@ footer{
 
 
 
-
-
-.name{
-  font-family: 'IBM Plex Mono',  'sans-serif' !important;
-  font-weight: 400;
-
-} 
 
 
 
