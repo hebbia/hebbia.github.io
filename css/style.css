@@ -294,6 +294,16 @@ h2{
 
  }
 
+footer{
+
+        background: black;
+        color:white;
+        padding: 35px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+
+}
+
+
 @media(max-width:825px) {
 
   #HilbertBack
@@ -344,10 +354,20 @@ h2{
         font-family: 'Khula',  'sans-serif';
       }
 
+
+
+
+
+
   h2
       {
         font-size: 30px !important;
       }
+
+
+
+
+
 
   #CTA{
 
@@ -384,19 +404,6 @@ h2{
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
