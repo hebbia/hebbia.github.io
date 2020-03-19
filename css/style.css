@@ -38,7 +38,32 @@ h1 {
  }
 
  
+#CTA{
+  padding: 10px 30px;
+  margin-top:20px;
+  font-size:16px;
+  color: rgba(200,200,200, .8);
+  color: white;
+  font-family: 'Helvetica', 'sans-serif';
 
+  border: 0px;
+  background-color: rgba(150,150,150, .1);
+  background-color: rgba(146,180,243 , .7);
+
+
+}
+
+.emails{
+  padding: 10px 30px;
+  margin-top:50px;
+  font-size:16px;
+  color: grey;
+
+  border: 0px;
+  background-color: rgba(150,150,150, .6);
+
+
+}
 
  .bold{
   font-weight: 400;
@@ -56,19 +81,47 @@ header {
 }
 
 #bottombar{
-width: 100%;
-height: 50px;
-background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.4));
+  width: 100%;
+  height: 50px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.4));
 }
  
 #About{
-width: 100%;
-height: 500px;
-background-image: linear-gradient(to left, rgba(0, 0, 0, .8), rgba(0, 0, 0, .9));
-color: white !important;
-padding-top: 20vh;
+  width: 100%;
+  height: auto;
+  padding-bottom:75px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, .7));
+  color: white !important;
+  padding-top: 20vh;
 }
 
+#GetPaid{
+
+  width: 100%;
+  height: auto;
+  /*text-align: center;*/
+  padding-bottom:200px;
+  background-image: linear-gradient(to right, rgba(255,255,255, 1), rgba(255,255,255, 1));
+  color: black !important;
+  padding-top: 20vh;
+}
+
+
+
+#ThreeSteps{
+  width: 100%;
+  height: 500px;
+  background-image: linear-gradient(rgba(255,255,255, 0.5), rgba(255,255,255, 1));
+  color: black !important;
+  padding-top: 20vh;
+  font-family: 'Khula',  'sans-serif';
+
+}
+
+
+.StepIcons{
+  height: 125px;
+}
 
 
 
@@ -219,20 +272,42 @@ padding-top: 20vh;
 
 
 
+ .threestep{
+    font-family: 'Khula',  'sans-serif';
+
+    font-size:30px;
+    font-weight: 200;
+    margin-top:100px;
+
+ }
+
+
+
+h2{
+  margin-top: 10px;
+
+
+}
+ li{
+  padding-bottom: 100px;
+
+
+ }
+
 @media(max-width:825px) {
 
   #HilbertBack
       {
         display: none;
         margin-left:3vh;
-        height: 500px;
+        height: 400px;
 
       }
 
   #Hilbert
       {
         margin-left:3vh;
-        height: 500px;
+        height: 400px;
         display: none;
 
       }
@@ -242,7 +317,6 @@ padding-top: 20vh;
         margin-left:1vh;
         margin-top:-3vh;
         margin-bottom:2vh;
-
         height: 70px;
   }
 
@@ -258,6 +332,8 @@ padding-top: 20vh;
         background-size:auto 100vh;
       }
 
+
+
   header 
       {
         padding-left: 0px;
@@ -270,8 +346,27 @@ padding-top: 20vh;
 
   h2
       {
-        font-size: 15px !important;
+        font-size: 30px !important;
       }
+
+  #CTA{
+
+    display:none;
+  }
+
+  #About{
+    padding: 75px 15px;
+
+  }
+
+  .threestep{
+    font-family: 'Khula',  'sans-serif';
+
+    font-size:20px;
+    font-weight: 200;
+    margin-top:100px;
+
+  }
 
 
 
@@ -284,7 +379,7 @@ padding-top: 20vh;
     font-family: '';
     font-weight: 300;
     margin-left: 3vh;
-    top:500px;
+    top:400px;
 
   }
 
