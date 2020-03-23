@@ -138,7 +138,7 @@ header {
   /*text-align: center;*/
   padding-bottom:200px;
   background-image: linear-gradient(to right, rgba(255,255,255, 1), rgba(255,255,255, 1));
-  color: black !important;
+  color: black;
   padding-top: 20vh;
 }
 
@@ -443,6 +443,7 @@ footer{
 
 
 
+
   .container2
       {
         margin-left:3vh;
@@ -460,6 +461,12 @@ footer{
 
 
 
+
+  .greytext{
+
+
+    color: rgba(0, 0, 0, .7);
+  }
 
 
 
