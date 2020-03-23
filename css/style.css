@@ -365,7 +365,7 @@ footer{
   #logo{
         display: inline;
         margin-left:1vh;
-        margin-top:-3vh;
+        margin-top:-8vh;
         margin-bottom:2vh;
         height: 70px;
   }
@@ -393,7 +393,7 @@ footer{
         padding-left: 0px;
         padding-top: 0px;
         position: relative;
-        height:95vh;
+        height:90vh;
         color: black;
         font-family: 'Khula',  'sans-serif';
       }
