@@ -65,7 +65,9 @@ h1 {
 
   border: 0px;
   border-radius: 4px;
+    background-color: rgba(219,198,221 , .7 );
   background-color: rgba(150,150,150, .1);
+  background-color: rgba(253,242,208 , 1);
   background-color: rgba(146,180,243 , .7);
 
 
