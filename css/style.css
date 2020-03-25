@@ -100,17 +100,22 @@ h1{
 
 .emails{
   padding-top: 10px;
-  padding-right: 30px;
+  padding-right: 35px;
   padding-bottom: 5px;
   padding-left: 3px;
   margin-top:50px;
   font-size:20px;
-  color: rgba(150,150,150, .6);
+  
   border: 0px;
   border-bottom: 2px black solid;
   /*background-color: rgba(150,150,150, .6);*/
+  color: rgba(64,118,205, 1);
 
+}
 
+::placeholder {
+  color: rgba(146,180,243, .7);
+  
 }
 
  .bold{
