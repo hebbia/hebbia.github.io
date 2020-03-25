@@ -78,7 +78,11 @@
 
     <title>Hebbia.ai - Summarize the web</title>
 
-    <!-- Bootstrap Nav Bar CSS -->
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+
+
+    <!-- Nav Bar CSS -->
     <link href="css/navbarboot.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
@@ -94,10 +98,37 @@
     <!--<link rel="stylesheet" href="lib/simple-line-icons/css/simple-line-icons.css">-->
     <!--<link rel="stylesheet" href="lib/device-mockups/device-mockups.min.css">-->
 
-    <!-- Theme CSS -->
-    <link href="css/style.css" rel="stylesheet">
+
 
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+    
+        /* Every time the window is scrolled ... */
+        $(window).scroll( function(){
+        
+            /* Check the location of each desired element */
+            $('.scrollfade').each(function(i){
+                
+                var bottom_of_object = $(this).position().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+                
+                /* If the object is completely visible in the window, fade it it */
+                if( bottom_of_window > bottom_of_object ){
+                    
+                    $(this).animate({'opacity':'1'},750);
+                    
+                }
+                
+            }); 
+        
+        });
+        
+      });
+    </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157284380-2"></script>
@@ -176,7 +207,7 @@
         <h1 class="name"> Hebbia.AI </h1>
 
         <h2 class="subtitle">Replace any
-          <span class="typer" id="main" data-words="text,email,article,Wikipedia page,text" data-delay="100" data-deleteDelay="1500" data-loop="1"></span>
+          <span class="typer" id="main" data-words="text, email,article,Wikipedia page,text" data-delay="100" data-deleteDelay="1800" data-loop=""></span>
           on the web with a TL;DR.
         </h2>
         <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
@@ -199,17 +230,17 @@
 
           <li class="stepsLi"> Click the Hebbia icon in your browser toolbar. <br />
           <!--step1W -->
-          <img src="img/step1W.png" class="StepIcons"> </img>
+          <img src="img/step1W.png" class="StepIcons scrollfade"> </img>
           </li> 
 
 
           <li class="stepsLi"> Select the webpage element to summarize.<br />
-          <img src="img/step2nbW.png" class="StepIcons"> </img>
+          <img src="img/step2nbW.png" class="StepIcons scrollfade"> </img>
           </li>
 
 
           <li class="stepsLi"> Read and edit 3 crisp, formatted bullet points.<br />
-          <img src="img/step3nbW.png" class="StepIcons"></img>
+          <img src="img/step3nbW.png" class="StepIcons scrollfade"></img>
           </li>
 
         </ol>

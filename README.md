@@ -1,1 +1,1 @@
-<h1>Hebbia.ai Website</h1>
+<h1>Hebbia.AI Website</h1>
