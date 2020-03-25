@@ -98,6 +98,9 @@ h1{
 
 }
 
+
+
+
 .emails{
   padding-top: 10px;
   padding-right: 35px;
@@ -413,6 +416,13 @@ footer{
 
 @media(max-width:825px) {
 
+
+  nav{
+
+    display:none;
+  }
+
+  
   #HilbertBack
       {
         display: none;
