@@ -1,4 +1,11 @@
 
+#cover {position: fixed; height: 100%; width: 100%; top:0; left: 0; background: #fff; z-index:9999;}
+
+
+#cover2 {display:none;}
+
+
+
 
 
 .navbar-custom {

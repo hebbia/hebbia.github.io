@@ -129,6 +129,13 @@
       });
     </script>
 
+    <!-- Show site once loaded -->
+    <script> 
+      $(window).on('load', function() {
+        $("#cover").hide();
+      });
+    </script>
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157284380-2"></script>
@@ -146,6 +153,8 @@
 
   <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+
+  <div id="cover"></div>
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
     <div class="containerNav container-fluid">
