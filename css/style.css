@@ -87,17 +87,21 @@ h1{
   color: rgba(200,200,200, .8);
   color: white;
   font-family: 'Khula', 'sans-serif';
-
   border: 0px;
   border-radius: 0px;
   background-color: rgba(219,198,221, .7 );
   background-color: rgba(150,150,150, .1);
   background-color: rgba(253,242,208, 1);
-  background-color: rgba(146,180,243, .7);
-
+  background-color: rgba(146,180,243, .7) ;
 
   -webkit-appearance: button;
   cursor: pointer;
+
+  opacity: 0;
+}
+
+
+#FormerCTAfade{
   animation: fadein 4s;
   -moz-animation: fadein 4s; /* Firefox */
   -webkit-animation: fadein 4s; /* Safari and Chrome */
@@ -306,12 +310,18 @@ header {
       scroll-behavior: smooth;
       margin-left:15%;
       margin-top: 0%;
-      height: 400px;
-      animation: fadein 2s;
-      -moz-animation: fadein 2s; /* Firefox */
-      -webkit-animation: fadein 2s; /* Safari and Chrome */
-      -o-animation: fadein 2s; /* Opera */
+      height: 400px; 
+      opacity: 0;
+
 }
+
+.formerfade {
+      animation: fadein 2s;
+      -moz-animation: fadein 2s;  /* Firefox */
+      -webkit-animation: fadein 2s;  /* Safari and Chrome */
+      -o-animation: fadein 2s;  /* Opera */
+}
+
 
 @keyframes fadein {
     from {
