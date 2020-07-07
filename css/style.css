@@ -29,6 +29,33 @@
 
 }
 
+#submit_button_boi{
+  border: 0px;
+  padding:7px 25px;
+  margin: 0px 10px;
+  background: rgba(0,0,0,0);
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  color: rgba(146,180,243, .7);
+  font-weight: bolder;
+
+}
+
+#submit_button_boi:hover{
+  /*-moz-box-shadow:    inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  box-shadow:         inset 0 0 10px #000000;*/
+  border-bottom: 2px solid #696969;
+  border-right: 2px solid #696969;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  color: #696969;
+
+}
+
+
 h1 {
   font-family: 'IBM Plex Mono', 'sans-serif';
   font-family: 'Futura', 'Khula', 'sans-serif';

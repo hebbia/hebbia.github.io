@@ -293,9 +293,27 @@
           Join our mailing list:
         </h2>
 
-        <form action=""> <!--action="/action_page.php" -->
-          <input class="emails" placeholder=".edu email here" type="text">
+        <form name="submit-to-google-sheet">
+          <input class="emails" name="email" type="email" placeholder="Email here" required>
+          <!--<input class="emails" name="message" type="text" placeholder="text here" required> -->
+
+          <button id="submit_button_boi" type="submit">>></button>
         </form>
+
+        <script>
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJAmhcbt46gCf_zr0MZtuZKNTLHkcFhQ/exec'
+          const form = document.forms['submit-to-google-sheet']
+
+          form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              .then(response => console.log('Success!', response))
+              .catch(error => console.error('Error!', error.message))
+          })
+        </script>
+
+
+
 
       </div>
     </div>
