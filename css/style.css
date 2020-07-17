@@ -146,12 +146,16 @@ h1{
   padding-left: 3px;
   margin-top:50px;
   font-size:20px;
-  
+  outline-width: 0;
   border: 0px;
   border-bottom: 2px black solid;
   /*background-color: rgba(150,150,150, .6);*/
   color: rgba(64,118,205, 1);
 
+}
+
+input.middle:focus {
+    outline-width: 0;
 }
 
 ::placeholder {
