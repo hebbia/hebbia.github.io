@@ -225,8 +225,9 @@
 
         <h1 class="name"> Hebbia.AI</h1>
 
-        <h2 class="subtitle">The intelligence analyst pipeline that
-          <span class="typer" id="main" data-words="searches for meaning., visualizes entities in text.,summarizes doccuments." data-delay="75" data-deleteDelay="1800" data-loop=""></span>
+        <h2 class="subtitle">Forget Ctrl-F, 
+          <span class="typer" id="main" data-words="search for meaning." data-delay="75" data-deleteDelay="1800" data-loop="false"></span> 
+          <!--<span class="typer" id="main" data-words="searches for meaning., visualize entities in text.,summarize doccuments." data-delay="75" data-deleteDelay="1800" data-loop="false"></span> -->
         </h2>
     
         <!--<h2 class="subtitle">Replace any
@@ -235,7 +236,8 @@
         </h2>-->
         <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
 
-        <button id="CTA"> ADD TO CHROME - COMING SOON</button> 
+        <button id="CTA" class='glow-on-hover' onclick="location.href='http://google.com';"> <b> ADD TO CHROME </b> - SEMANTIC SEARCH </button> 
+        <button id="CTA" class='glow-on-hover disabled' onclick="location.href='#';"> <b> COMING SOON </b>- PDF TOOLKIT </button> 
 
       </div>
     </header>
@@ -246,25 +248,23 @@
 
     <div id="About">
       <div class="container2"> 
-        <h2 class="bigger"> State-of-the-art summarization technology. </h2> 
-        <!--<h2> Accessible to <span class="bold"> everyone: </span> </h2>-->
-          <h2> Built for the Intelligence Community. </h2>
+        <h2 class="bigger"> SMART SEARCH </h2> <h2 class="subtitle">Find <i> exactly </i> what you're looking for in 3 steps:</h2>
 
         <ol class="threestep">
 
-          <li class="stepsLi"> Click the Hebbia icon in your browser toolbar. <br />
+          <li class="stepsLi"> Click the Hebbia icon in your toolbar, or press <b> &#8997; </b> + <b> F </b> <br /> 
           <!--step1W -->
-          <img src="img/step1W.png" class="StepIcons scrollfade"> </img>
+          <img src="img/step1W3.png" class="StepIcons scrollfade"> </img>
           </li> 
 
 
-          <li class="stepsLi"> Select the text element to summarize.<br /> <!-- webpage -->
-          <img src="img/step2nbW.png" class="StepIcons scrollfade"> </img>
+          <li class="stepsLi"> Enter the statment or hypthesis you want to support. <br /> <!-- webpage -->
+          <img src="img/step2W2_1.png" class="StepIcons scrollfade"> </img>
           </li>
 
 
-          <li class="stepsLi"> Read and edit 3 crisp, formatted bullet points, catered to your specific mission.<br />
-          <img src="img/step3nbW.png" class="StepIcons scrollfade"></img>
+          <li class="stepsLi"> Double-click the best matches to save and share. <br />
+          <img src="img/step3W2.png" class="StepIcons scrollfade"></img>
           </li>
 
         </ol>
@@ -282,16 +282,33 @@
     <div id="GetPaid">
       <div class="container2"> 
 
-        <h2 class="center"> 
-          <span class="bold bigger"> Get paid while learning faster.  </span>
+
+        <h2>
+          
+           <span class="bigger bold"> State-of-the-art NLP, <i> for everybody. </i> </span>
+
         </h2>
+
+        <h2 class="center"> 
+          <span class="subtitle"> - PDF toolkit,<br /> - Catered summarization,<br /> - Entity extraction...</span>
+
+        </h2>
+
+
 
         <br />
+        <br />
+        <br />        
+        <br />
 
-        <h2 class="center greytext">
-          Are you a student interested in helping improve our beta product? <br />
+
+        <h3 class="center subtitle greytext smaller">
+          Interested in the future of machine learning text tools? 
+          <br />
+        </h3>
+        <h3 class="center subtitle greytext smaller">
           Join our mailing list:
-        </h2>
+        </h3>
 
         <form name="submit-to-google-sheet">
           <input class="emails" name="email" type="email" placeholder="Email here" required>
@@ -355,7 +372,7 @@
             © 
             <script type="text/javascript">
               document.write(new Date().getFullYear());
-            </script>, Hebbia LLC
+            </script>, Hebbia
           </p>
         </center>
       </div>
