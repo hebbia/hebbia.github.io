@@ -309,7 +309,7 @@
           <br />
         </h3>
         <h3 class="center subtitle greytext smaller">
-          Join our mailing list:
+          Join our beta:
         </h3>
 
         <form name="submit-to-google-sheet">
@@ -333,6 +333,7 @@
             fetch(scriptURL, { method: 'POST', body: new FormData(form)})
               .then(response => console.log('Success!', response))
               .catch(error => console.error('Error!', error.message))
+            form.reset()
           })
         </script>
 
