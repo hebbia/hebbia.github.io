@@ -47,31 +47,70 @@
 
 }
 
+
+
 #submit_button_boi{
   border: 0px;
   padding:7px 25px;
   margin: 0px 10px;
+  
   background: rgba(0,0,0,0);
+  
   border-bottom: 2px solid black;
   border-right: 2px solid black;
-  border-top: 2px solid white;
-  border-left: 2px solid white;
-  color: rgba(117, 206, 250, 1);
   font-weight: bolder;
+  font-size: 20px;
+  color: #5ee4fe;
+  font-weight: 800;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
 }
+
+
 
 #submit_button_boi:hover{
   /*-moz-box-shadow:    inset 0 0 10px #000000;
   -webkit-box-shadow: inset 0 0 10px #000000;
   box-shadow:         inset 0 0 10px #000000;*/
-  border-bottom: 2px solid rgba(117, 206, 250, 1);
-  border-right: 2px solid rgba(117, 206, 250, 1);
-  border-top: 2px solid white;
-  border-left: 2px solid white;
-  color: rgba(117, 206, 250, 1);
+
+  color: #5ee4fe;
 
 }
+
+#submit_button_boi {
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#submit_button_boi span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#submit_button_boi span:after {
+  content: '\FF1E';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#submit_button_boi:hover span {
+  padding-right: 10px;
+}
+
+#submit_button_boi:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
 
 
 h1 {
@@ -296,7 +335,7 @@ input.middle:focus {
 }
 
 ::placeholder {
-  color:rgba(117, 206, 250, 1);
+  color:#5ee4fe;
   font-weight: bolder;
   
 }
@@ -488,6 +527,8 @@ header {
         background: white;
     }
 }
+
+
 
 
 
