@@ -9,6 +9,12 @@
 
 }
 
+.lighter:hover {
+
+    color: rgba(117, 206, 250, 1);
+    font-weight: bolder;
+}
+
 
 .margin-clock {
   margin-left: 5px;
@@ -291,6 +297,8 @@ input.middle:focus {
 
 ::placeholder {
   color:rgba(117, 206, 250, 1);
+  font-weight: bolder;
+  font-family: 'Futura';
   
 }
 
@@ -420,7 +428,8 @@ header {
 
 .navbar-custom .nav li a:hover {
     outline: 0;
-    color: rgba(117, 206, 250, 1);
+    color: black;
+    font-weight: bold;
     background-color: transparent;
 }
 
@@ -435,11 +444,15 @@ header {
 }
 
 .navbar-custom .nav li.active a {
-    color: rgba(117, 206, 250, 1);
+    color:black;
+        font-weight: bold;
+
 }
 
 .navbar-custom .nav li.active a:hover {
-    color: rgba(117, 206, 250, 1);
+    color: black;
+        font-weight: bold;
+
 }
 
 
