@@ -4,9 +4,21 @@
 
 #cover2 {display:none;}
 
+.lighter {
+    color: rgba(117, 206, 250, 1);
+
+}
 
 
+.margin-clock {
+  margin-left: 5px;
+  margin-top: 25px;
 
+}
+
+#thanks {
+  display: none;
+}
 
 .navbar-custom {
 	  color: black;

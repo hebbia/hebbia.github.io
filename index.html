@@ -243,7 +243,7 @@
         <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
 
         <button id="CTA" class='glow-on-hover' onclick="location.href='#GetPaid';"> <b> COMING SOON </b> - SEMANTIC SEARCH </button> 
-        <button id="CTA" class='glow-on-hover disabled' onclick="location.href='#';"> <b> COMING SOON </b>- PDF TOOLKIT </button> 
+        <button id="CTA" class='glow-on-hover disabled' onclick="location.href='#';"> <b> COMING SOON </b>- PDF PLATFORM </button> 
 
       </div>
     </header>
@@ -263,16 +263,23 @@
           </li> 
 
 
-          <li class="stepsLi"> Enter a hypothesis, question, or topic to research in the text. <br /> <!-- webpage -->
+          <li class="stepsLi"> Enter a hypothesis, question, or keyword. <br /> <!-- webpage -->
           <!--<img src="img/step2W2_1.png" class="StepIcons infoIcons scrollfade"> </img>-->
           <img src="img/screenshot.png" class="scrollfade" id="bar" width="400px"> </img>
 
           </li>
+          <br />
 
-
-          <li class="stepsLi"> Double-click the best highlights to copy relevant text and train your ML assistant. <br />
+          <!--<li class="stepsLi"> Double-click the best highlights to train your ML assistant. <br />
           <img src="img/step3W2.png" class="StepIcons infoIcons scrollfade"></img>
+          </li>-->
+
+          <li class="stepsLi"> Hebbia intelligently highlights <i> all </i> related text, saving you time. 
+          <br /> 
+
+          <svg class="scrollfade margin-clock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="150px" height="150px"><path d="M0 0h24v24H0z" fill="none"/><path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.44zm-9.79 6.84a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z"/></svg>
           </li>
+
 
         </ol>
 
@@ -325,6 +332,9 @@
           <button id="submit_button_boi" type="submit">>></button>
         </form>
 
+        <br />
+        <h3 class="" id="thanks"> Thank you! </h2>
+
 
           <!--<button id="submit_button_boi" type="submit"> </button>-->
 
@@ -340,6 +350,8 @@
               .then(response => console.log('Success!', response))
               .catch(error => console.error('Error!', error.message))
             form.reset()
+            document.getElementById("thanks").style.display = "block";
+
           })
         </script>
 
@@ -386,7 +398,7 @@
             © 
             <script type="text/javascript">
               document.write(new Date().getFullYear());
-            </script>, Hebbia
+            </script>, Hebbia Inc.   |   <a class="lighter" href="mailto:gsivulka@stanford.edu"> We're hiring! </a>
           </p>
         </center>
       </div>
