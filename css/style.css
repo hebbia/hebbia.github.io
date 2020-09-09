@@ -5,13 +5,13 @@
 #cover2 {display:none;}
 
 .lighter {
-    color: rgba(117, 206, 250, 1);
+    color:  #5ee4fe;
 
 }
 
 .lighter:hover {
 
-    color: rgba(117, 206, 250, 1);
+    color: #5ee4fe;
     font-weight: bolder;
 }
 
