@@ -342,7 +342,16 @@ input.middle:focus {
 
  .bold{
   font-weight: 400;
+
  }
+
+.half_highlight{
+
+    background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #5ee4fe80 65%);
+
+}
+
+
 
 header {
   padding-left: 0px;
@@ -743,6 +752,19 @@ footer{
   .bigger{
     font-size: 30px;
   }
+
+
+  .bold{
+    font-size: 25px;
+
+
+
+  }
+
+  .smaller{
+    font-size: 25px !important;
+  }
+
 
   body 
       {
