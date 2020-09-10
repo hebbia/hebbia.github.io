@@ -581,6 +581,7 @@ header {
 
 #highlight{
     margin-top:60px;
+    margin-left:14px;
 
 
 }
@@ -791,8 +792,10 @@ footer{
   }
 
   #highlight {
-    width: 100%;
+    width: 90%;
     height:auto;
+    margin-left: 0px;
+
   }
 
 
