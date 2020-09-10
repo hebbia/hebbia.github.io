@@ -322,7 +322,7 @@ h1{
   padding-bottom: 5px;
   padding-left: 3px;
   margin-top:50px;
-  font-size:20px;
+  font-size:25px;
   outline-width: 0;
   border: 0px;
   border-bottom: 2px black solid;
@@ -335,8 +335,11 @@ input.middle:focus {
 }
 
 ::placeholder {
-  color:#5ee4fe;
+  color:#69696990;
   font-weight: bolder;
+    font-size:25px;
+  font-family: 'Khula',  'sans-serif';
+
   
 }
 
@@ -347,7 +350,7 @@ input.middle:focus {
 
 .half_highlight{
 
-    background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #5ee4fe80 65%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #5ee4fedd 65%);
 
 }
 
