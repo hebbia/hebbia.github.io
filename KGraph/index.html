@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <title>Hebbia Portal</title>
+    <link rel="stylesheet" type="text/css" href="./inspector.css">
+
+
+
+    <style>
+
+        .name{
+            font-family: Futura;
+            font-size: 50px;
+            font-weight: 400;
+            position: absolute;
+            top: 20px;
+            left: 58px;
+            text-shadow: 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 7px #fff;
+
+        }
+
+        .order {
+            padding: 11px 30px;
+            width: 200px;
+            position: absolute;
+            top: 250px;
+            left: 50px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
+            border: 0px solid white;
+            outline-width: 0;
+        }
+
+        .orderForm{
+            position: absolute;
+        }
+
+        .input{
+            padding: 10px 30px;
+            position: absolute;
+            top: 180px;
+            left:58px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
+            border: 0px solid white;
+            border: 0px;
+            outline-width: 0;
+            width: 450px;
+            height: 20px;
+        }
+
+        text {
+            white-space: wrap !important;
+        }
+
+
+        ::selection {
+            background: #aaefff; /* WebKit/Blink Browsers */
+        }
+        ::-moz-selection {
+            background: #aaefff; /* Gecko Browsers */
+        }
+        
+    </style>
+</head>
+
+
+
+
+
+<body>
+    <h1 class="name"> Hebbia | Knowledge Base</h1>
+
+
+    <input type="text" class="input" placeholder="Ask Hebbia (not yet)" value="https://en.wikipedia.org/wiki/Homer"> </input>
+
+    <script type="module">
+
+        import define from "./index.js";
+        import { Runtime, Library, Inspector } from "./runtime.js";
+
+        const runtime = new Runtime();
+        const main = runtime.module(define, Inspector.into(document.body));
+
+    </script>
+</body>

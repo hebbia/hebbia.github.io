@@ -1,0 +1,14 @@
+{
+  "name": "c56d1668ea7aa83a",
+  "main": "c56d1668ea7aa83a@488.js",
+  "version": "488.0.0",
+  "homepage": "https://observablehq.com/d/c56d1668ea7aa83a",
+  "author": {
+    "name": "George Sivulka",
+    "url": "https://observablehq.com/@gsivulka"
+  },
+  "type": "module",
+  "peerDependencies": {
+    "@observablehq/runtime": "4"
+  }
+}
