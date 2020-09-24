@@ -125,11 +125,12 @@ export default function define(runtime, observer) {
     const path = svg.insert("g", "*")
       .attr("fill", "none")
       .attr("stroke-opacity", 0.3)
-      .attr("stroke-width", 2)
+      //.attr("stroke-width", 2)    
       .selectAll("path")
       .data(graph.links)
       .join("path")
       .attr("stroke", d => d.source.group === d.target.group ? color(d.source.group) : "#aaa")
+      .attr("stroke-width", d => (d.value-0.65)*35 + 1)
       .attr("d", arc);
 
     const overlay = svg.append("g")
@@ -251,6 +252,9 @@ export default function define(runtime, observer) {
 
 
 
+
+
+
   main.variable(observer("y")).define("y", ["d3", "graph", "margin", "height"], function (d3, graph, margin, height) {
     return (
       d3.scalePoint(graph.nodes.map(d => d.id).sort(d3.ascending), [margin.top, height - margin.bottom])
@@ -291,13 +295,14 @@ export default function define(runtime, observer) {
     const links = data.links.map(({ source, target, value }) => ({
       source: nodeById.get(source),
       target: nodeById.get(target),
-      value
+      value: value
     }));
 
     for (const link of links) {
       const { source, target, value } = link;
       source.sourceLinks.push(link);
       target.targetLinks.push(link);
+
     }
 
     return { nodes, links };
