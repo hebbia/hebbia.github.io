@@ -107,7 +107,7 @@
   text-align: center;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 7px;
+  margin: 10px 0px;
 }
 
 #submit_button_boi span {
