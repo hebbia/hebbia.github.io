@@ -763,6 +763,14 @@ footer{
 @media(max-width:825px) {
 
 
+
+
+  #submit_button_boi{
+    display: none;
+
+
+  }
+ 
   nav{
 
     display:none;
