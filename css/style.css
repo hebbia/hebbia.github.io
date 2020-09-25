@@ -760,10 +760,17 @@ footer{
 }
 
 
+
+
+
+
+
 @media(max-width:825px) {
 
+  .emails{
+    padding-right: 15px;
 
-
+  }
 
   #submit_button_boi{
     display: none;
@@ -917,6 +924,22 @@ footer{
     margin-left: 3vh;
     top:275px;
 
+  }
+
+}
+
+@media(max-width:330px) {
+
+  .emails{
+    padding-right: 0px;
+    font-size: 20px;
+  }
+
+  #HelvLight{
+    font-family: '';
+    font-weight: 300;
+    margin-left: 3vh;
+    top:175px;
   }
 
 }
