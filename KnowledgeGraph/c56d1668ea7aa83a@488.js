@@ -35,6 +35,8 @@ export default function define(runtime, observer) {
 
 
 
+
+
   
  // main.variable(observer("order")).define("order", ["Generators", "viewof order"], (G, _) => G.input(_));
 
@@ -101,6 +103,80 @@ export default function define(runtime, observer) {
 
   `);
 
+
+
+
+    //On enter, call sentenceAdd to insert new info to the graph 
+    d3.select("#addTopic")
+    .on("keypress", function() {
+      if(d3.event.keyPress === 13 || d3.event.keyCode === 13){
+        //console.log("Congrats, you pressed enter!");
+        //alert(this.value);
+        sentenceAdd(this.value);
+      }
+    });
+
+
+
+
+
+    //Add new sentence as a node, and call to check if other sentences that exist are links to your OG sentence 
+    function sentenceAdd(sentence){
+      let newSentenceNode = {'id':sentence, 'sourceLinks': [], 'targetLinks': [], 'group': 99, 'y': 0}
+      let n = graph.nodes.push(newSentenceNode);      
+
+      let newLinks = [];
+      graph.nodes.forEach(function(otherSentenceNode) {
+
+        //Some bullshit cosine similarity to test
+        var currCosineSimilarity = .69 * (otherSentenceNode.id[0] == newSentenceNode.id[0]);
+        console.log(currCosineSimilarity);
+
+        //If cosine similarity above a threshold (here if it is not zero/null/false)
+        if(currCosineSimilarity){
+          let newLink = {source: newSentenceNode, target: otherSentenceNode, value: currCosineSimilarity};
+          graph.links.push(newLink);
+          newLinks.push(newLink);
+        }
+
+      });
+      //update();
+      //form.dispatchEvent(new CustomEvent("input"));
+      //update2(newSentenceNode, newLinks);
+      var nodes = svg.selectAll("g")			//Select all bars
+        .enter()
+        .data(graph.nodes)
+        .transition();
+
+    }
+
+
+   function update22(newNode, newLinks) {
+    const newLabel = svg.append("g")
+      .attr("font-family", "sans-serif")
+      .attr("font-size", 12.5)
+      .attr("text-anchor", "start")
+      .selectAll("g")
+      .data(newNode)
+      .join("g")
+      .attr("transform", d => `translate(${margin.left + 0},${d.y = y(d.id)})`)
+      .call(g => g.append("text")
+        .attr("x", 10)
+        .attr("dy", "0.35em")        
+        .attr("overflow", "scroll")
+        .attr("fill", d => d3.lab(color(d.group)).darker(1))
+        .text(d => d.id))
+      .call(g => g.append("circle")
+        //.attr("r", d => d.sourceLinks.length)
+        .attr("r", 2)
+        .attr("fill", d => color(d.group)));
+    //.style("opacity", 0.1);
+
+   }
+
+
+    
+
     const label = svg.append("g")
       .attr("font-family", "sans-serif")
       .attr("font-size", 12.5)
@@ -132,6 +208,7 @@ export default function define(runtime, observer) {
       .attr("stroke", d => d.source.group === d.target.group ? color(d.source.group) : "#aaa")
       .attr("stroke-width", d => (d.value-0.65)*35 + 1)
       .attr("d", arc);
+
 
     const overlay = svg.append("g")
       .attr("fill", "none")
@@ -320,3 +397,86 @@ export default function define(runtime, observer) {
   });
   return main;
 }
+
+
+
+
+
+
+
+
+
+/*
+  //Add one new value to dataset
+  var maxValue = 25;
+  var newNumber = Math.floor(Math.random() * maxValue);	//New random integer (0-24)
+  dataset.push(newNumber);			 			 		//Add new number to array
+  
+  //Update scale domains
+  xScale.domain(d3.range(dataset.length));	//Recalibrate the x scale domain, given the new length of dataset
+  yScale.domain([0, d3.max(dataset)]);		//Recalibrate the y scale domain, given the new max value in dataset
+
+  //Select…
+  var bars = svg.selectAll("rect")			//Select all bars
+    .data(dataset);	//Re-bind data to existing bars, return the 'update' selection
+                    //'bars' is now the update selection					
+  //Enter…
+  bars.enter()	//References the enter selection (a subset of the update selection)
+    .append("rect")	//Creates a new rect
+    .attr("x", w)		//Initial x position of the rect beyond the right edge of SVG
+    .attr("y", function(d) {	//Sets the y value, based on the updated yScale
+      return h - yScale(d);
+    })
+    .attr("width", xScale.bandwidth())	//Sets the width value, based on the updated xScale
+    .attr("height", function(d) {			//Sets the height value, based on the updated yScale
+      return yScale(d);
+    })
+    .attr("fill", function(d) {				//Sets the fill value
+      return "rgb(0, 0, " + Math.round(d * 10) + ")";
+    })
+    .merge(bars)							//Merges the enter selection with the update selection
+    .transition()							//Initiate a transition on all elements in the update selection (all rects)
+    .duration(500)
+    .attr("x", function(d, i) {				//Set new x position, based on the updated xScale
+      return xScale(i);
+    })
+    .attr("y", function(d) {				//Set new y position, based on the updated yScale
+      return h - yScale(d);
+    })
+    .attr("width", xScale.bandwidth())		//Set new width value, based on the updated xScale
+    .attr("height", function(d) {			//Set new height value, based on the updated yScale
+      return yScale(d);
+    });
+
+  //Update all labels
+  var labels = svg.selectAll("text")
+                   .data(dataset);
+  
+  labels.enter()
+     .append("text")
+     .text(function(d) {
+         return d;
+     })
+     .attr("text-anchor", "middle")
+     .attr("font-family", "sans-serif")
+     .attr("font-size", "11px")
+     .attr("fill", function(d) {
+        if (d < 0.07 * maxValue){	return "black"	}
+         else {	return "white"	}
+       })
+     .attr("x", function(d, i) {
+      return w + xScale.bandwidth() / 2;
+     })
+     .attr("y", function(d) {
+      if (d < 0.07 * maxValue){	return h - yScale(d) - 7	}
+       else {	return h - yScale(d) + 14;	}
+     })
+     .merge(labels)
+     .transition()
+     .duration(500)
+     .attr("x", function(d, i) { //Set new x position, based on the updated xScale
+      return xScale(i) + xScale.bandwidth() / 2;
+    })
+
+});
+*/
