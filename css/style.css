@@ -240,7 +240,10 @@ h1{
 
 }
 
+.thinner{
 
+  font-weight: 100;
+}
 
 
 
@@ -261,6 +264,7 @@ h1{
     position: relative;
     z-index: 0;
     border-radius: 20px;
+    font-size: 16px;
 }
 
 
@@ -393,7 +397,13 @@ input.middle:focus {
 }
 
  .bold{
-  font-weight: 400;
+  font-weight: 600;
+
+ }
+
+ .bolder{
+  font-weight: 800;
+
 
  }
 
@@ -456,11 +466,14 @@ header {
   width: 100%;
   height: auto;
   padding-bottom:75px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, .7));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, .9));
   color: white !important;
   padding-top: 20vh;
 }
 
+.smallest{
+  font-size: 28px;
+}
 
 #GetPaid{
   width: 100%;
@@ -497,7 +510,7 @@ header {
 
 
 .bigger{
-  font-size: 50px;
+  font-size: 67px;
 }
 
  NAVBAR GRAYSCALE  
