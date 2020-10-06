@@ -250,6 +250,7 @@ h1{
 
 
 .glow-on-hover {
+
     padding: 10px 30px;
     padding-top: 12px;
     margin-top:20px;
@@ -285,6 +286,7 @@ h1{
     opacity: 1;
     transition: opacity 0s ease-in-out;
     background-color: ;
+    border-radius: 20px;
 }
 
 
@@ -295,16 +297,19 @@ h1{
 
 .glow-on-hover:active:after {
     background: rgba(152, 245, 255, .9);
+    border-radius: 20px;
 }
 
 .glow-on-hover:hover:before {
     opacity: 1;
+    border-radius: 20px;
 
 }
 
 
 .glow-on-hover:hover:after{
     background-color: rgba(103, 206, 253,0.9);
+    border-radius: 20px;
 
 }
 
@@ -326,6 +331,7 @@ h1{
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
+
 }
 
 
@@ -793,6 +799,8 @@ footer{
 #name_logo{
   margin-left: -5px;
   max-width: 400px;
+  /*-webkit-filter: drop-shadow(5px 5px 0px lightblue);
+  filter: drop-shadow(5px 5px 0px lightblue);*/
 
 }
 
