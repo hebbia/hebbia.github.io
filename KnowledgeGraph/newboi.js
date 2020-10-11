@@ -1,7 +1,3 @@
-//export {default} from "./c56d1668ea7aa83a@488.js";
-
-
-
 
 
 const fileAttachments = new Map([["homer.txt", new URL("./files/26f39e4794b525d7ac820e8a505e78e1d40f8a03b9e01a8b1eb624d668bcdfeea89c773f9ff714825fd4f53c141b17f0bd6e6b8f07905858f709b1efc4c4058e", import.meta.url)]]);
@@ -33,11 +29,7 @@ form.oninput = (event) => {
 };
 
 form.value = options[form.i.selectedIndex].value;
-
-
-
-
-
+return form;
 
 
 
