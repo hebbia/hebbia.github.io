@@ -1,0 +1,413 @@
+<!-- GEORGE SIVULKA
+    -\-                                                     
+    \ - \-                                                  
+     \  - -\                                                
+      \      \\                                             
+       \       \                                            
+        \       \\                                              
+         \        \\                                            
+         \          \\                                        
+         \           \\\                                     
+          \            \\                                                 
+           \            \\                                              
+           \. .          \\                                  
+            \    .       \\                                 
+             \      .    \\                                            
+              \       .  \\                                 
+              \         . \\                                           
+              \            <=)                                         
+              \            <==)                                         
+              \            <=)                                           
+               \           .\\                                           _-
+               \         .   \\                                        _-//
+               \       .     \\                                     _-_/ /
+               \ . . .        \\                                 _- _/ _/
+                \              \\                              _- _/ _/
+                \               \\                      ___-(O) _/ _/ 
+                \                \                  __-   __   /_ /   
+                \                 \\          ____ -__- -   /    \_          HEBBIA 
+                 \                  \\       - - - -       /   \_  \_     
+                  \                   \                  //   // \__ \_
+                   \                   \\              //   //      \_ \_ 
+                    \                   \\          ///   //          \__- 
+                    \                -   \\/////////    //            
+                    \            -         \_         //              
+                    /        -                      //                
+                   /     -                       ///                  
+                  /   -                       //                      
+             __ -/                         ///
+  __________/                            // |               
+//-_________      ___                ////  |                
+        ____\__ -/                /////    |                
+    -  -______    -/  -________////        |                
+     _______/   -/    \                   |                 
+   /_________-/       \                   |                 
+  //                  \                   /                 
+                       \.                 /                 
+                       \     .            /                 
+                        \       .        /                  
+                       \\           .    /                  
+                        \                /                  
+                        \              __|                  
+                        \              ==/                  
+                        /              //                   
+                        /          .  //                    
+                        /   .  .    //                      
+                       /.           /                       
+                      /            //                       
+                      /           /
+                     /          //
+                    /         //
+                 -/          /
+                /          //
+            ////         //
+         ///_________////
+
+
+       -->
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Superpowered AI text tools. Hebbia's reinvented Ctrl-F undertands your questions, saving you time. ">
+    <!--Superpowered AI text tools. Download the semantic search extension for websites and PDFs.-->
+    <meta name="author" content="Hebbia.AI, Hebbia, George Sivulka">
+<!--
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@HebbiaAI">
+    <meta name="twitter:creator" content="@HebbiaAI">
+    <meta name="twitter:title" content="Hebbia | Command + H">
+    <meta name="twitter:image" content="https://hebbia.ai/img/medium_sub_2.png">
+    <meta name="twitter:description" content="Hebbia's reinvented Ctrl-F is a browser extension that understands your questions, saving you time.">
+
+
+    <meta property="og:title" content="Hebbia | Command + H">
+    <meta property="og:image" content="/img/medium_sub_2.png">
+    <meta property="og:image" content="1010596">
+
+    <meta property="og:description" content="Hebbia's reinvented Ctrl-F is a browser extension that understands your questions, saving you time.">
+    <meta property="og:url" content="https://hebbia.ai/">
+-->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:title" content="Hebbia | Superpowered Text Tools"/>
+    <meta property="og:description" content="Hebbia's reinvented Ctrl-F is a browser extension that understands your questions, saving you time."/>
+    <meta property="og:url" content="https://hebbia.ai"/>
+    <meta property="og:image" content="https://hebbia.ai/img/medium_sub_2_b.png"/>
+    <meta property="og:image:width" content="1010"/>
+    <meta property="og:image:height" content="596"/>
+
+
+    <meta name="google-site-verification" content="pIZ4_3D6JbSp4N-Fssbt5El05yyDrhZYQyTUh_FzQqQ" />
+
+
+    <title>Hebbia.AI | Semantic Search</title>
+
+    <!-- Navbar CSS -->
+    <link href="css/navbarboot.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/style_new.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Helvetica:100" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Khula:100,200,300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+
+    <!-- Favico -->
+    <link rel="shortcut icon" href="favicon_grey.ico" type="image/x-icon">
+
+    <!-- Plugin CSS -->
+    <!--<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">-->
+    <!--<link rel="stylesheet" href="lib/simple-line-icons/css/simple-line-icons.css">-->
+    <!--<link rel="stylesheet" href="lib/device-mockups/device-mockups.min.css">-->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+    
+        /* Every time the window is scrolled ... */
+        $(window).scroll( function(){
+        
+            /* Check the location of each desired element */
+            $('.scrollfade').each(function(i){
+                
+                var bottom_of_object = $(this).position().top + $(this).outerHeight();
+                var bottom_of_window = $(window).scrollTop() + $(window).height();
+                
+                /* If the object is completely visible in the window, fade it in */
+                if( bottom_of_window > bottom_of_object ){
+                    
+                    $(this).animate({'opacity':'1'},750);
+                    
+                }
+                
+            }); 
+        
+        });
+        
+      });
+    </script>
+
+    <!-- Show site once loaded -->
+    <script> 
+      $(window).on('load', function() {
+        $("#cover").hide();
+        $("#Hilbert").animate({'opacity':'1'},2000);
+        $("#CTA").animate({'opacity':'1'},4000);
+
+
+      });
+    </script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157284380-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-157284380-2');
+    </script>
+
+  </head>
+
+
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+
+  <div id="cover"><div class="loader"></div></div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="containerNav container-fluid">
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <!--<a class="navbar-brand" href="#">Brand</a>-->
+    </div>
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <img src="img/hebbia.png" width="151px" id="navlogo"> </img>
+          <!--<a class="page-scroll" class="" href="#"></a> -->
+        </li>
+        
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+         <a id="business button" href="mailto:george@hebbia.ai"> </a>
+        </li>
+
+        <li>
+          <a class="page-scroll" href="#About"> About</a>
+        </li>
+
+        <!--<li>
+          <a class="page-scroll" href="/team.html">Team</a>
+        </li>-->
+
+        <li>
+          <a class="page-scroll" href="#GetPaid"> Signup</a>
+        </li>
+
+        <li>
+         <a class="page-scroll" href="mailto:george@hebbia.ai">Contact Us</a>
+        </li>
+
+      </ul> 
+
+    </div>
+    <!-- /.navbar-collapse -->
+    </div>
+    <!-- /. -->
+    </nav>
+
+
+
+    <!-- Header image/hero -->
+    <header>
+
+
+      <div id="FixedCenterHero">
+        <div id="LeftCenterHero"> 
+          <h1 class="name"> Ctrl+F, <br> Reinvented<!--Knowledge is power. We help you find it.--></h1> 
+        
+          <br /> 
+          <h4 class="subtitle"> Immediately find the information you're looking for with Hebbia's in-page search that understands you. 
+
+            <!--Stop wasting time - Hebbia’s in-page search highlights <i>only</i> what matters to you.--></h4>
+      
+          <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+  
+          <button id="CTA" class='glow-on-hover' onclick="location.href='#GetPaid';"> <b> Add to Chrome </b> -  <span class="thinner">It's free!</span> </button> 
+          <!--<button id="CTA" class='glow-on-hover disabled' onclick="location.href='#';"> <b> COMING SOON </b>- PDF PLATFORM </button> -->
+          
+        </div>
+
+
+        <div id="RightCenterHero"> 
+          <!--<img src="demo.gif" id="demo"> </img> -->
+          <video id="demo" autoplay muted loop> 
+            <source src="Sampledemo.mov" type='video/mp4'> </source>
+          </video> 
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <div id="bottombar">
+    </div>
+
+    <div id="About">
+      <div class="container2"> 
+        <br /> 
+        <h2 class="bigger"> <span class="bolder"> Knowledge is power. 
+          <br />We help you find it.
+        </span> </h2> <br ><h2 class="subtitle smallest">  <span class="quarter_highlight1"></span>  <!--Stop wasting time – Hebbia immediately finds the information you're looking inside of any website. --><!--Forget Ctrl-F, find <i> exactly </i> what you're looking for. --></h2> <!-- Ai powered semantic search, clever search, within websites and pdfs -->
+        <br /> <!--<br /> 
+        <br />
+        <br />
+        <video width="800"  autoplay="autoplay">
+          <source src="HebbiaDemo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video> -->
+        
+        
+
+      </div>
+    </div>
+
+
+
+
+    <div id="bottombar"></div>
+
+
+    <div id="GetPaid">
+      <div class="container2"> 
+
+
+        <h2>
+          
+           <span class="subtitle ">  Interested in the next generation of AI productivity tools?</span> 
+           <br />
+            <span class="bolder enter_above"> Join our beta: </span> 
+
+        </h2>
+        <!-- <h2 class="center smaller"> 
+          <span class="subtitle"> - Secure SuperPDF viewer <br /> - Catered summarization<br /> - Document context Q&A <br /> - Collaborative & proactive document annotation<br /> </span>
+
+        </h2-->
+
+
+
+
+
+        <h3 class="center subtitle greytext smaller">
+        </h3>
+
+        <form name="submit-to-google-sheet">
+          <input class="emails" name="email" type="email" placeholder="Your email" required>
+          <!--<input class="emails" name="message" type="text" placeholder="text here" required> -->
+
+          <button id="submit_button_boi" type="submit"> <span>  &#65310;
+ </span></button>
+        </form>
+
+        <br />
+        <h3 class="" id="thanks"> Thank you! </h2>
+
+
+          <!--<button id="submit_button_boi" type="submit"> </button>-->
+
+
+
+        <script>
+          const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJAmhcbt46gCf_zr0MZtuZKNTLHkcFhQ/exec'
+          const form = document.forms['submit-to-google-sheet']
+
+          form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+              .then(response => console.log('Success!', response))
+              .catch(error => console.error('Error!', error.message))
+            form.reset()
+            document.getElementById("thanks").style.display = "block";
+
+          })
+        </script>
+
+
+
+
+      </div>
+    </div>
+
+
+
+    <div id="bottombar"></div>
+       
+
+
+
+    <!-- Contact Us -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/grayscale.js"></script>
+
+
+
+  </body>
+
+
+  <footer>
+
+      </div>
+        <center>
+          <p style="color:#aaa!important;font-size:15px!important"> 
+            © 
+            <script type="text/javascript">
+              document.write(new Date().getFullYear());
+            </script>, Hebbia Inc.   <!-- |  <a class="lighter" href="https://jobs.floodgate.com/companies/hebbia-ai-2"> We're hiring! </a>-->
+          </p>
+        </center>
+      </div>
+
+  </footer>
+
+</html>
+
