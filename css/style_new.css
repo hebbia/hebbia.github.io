@@ -41,9 +41,9 @@
 	  color: black;
     background-color: rgba(0,0,0,0);
     border-color: rgba(0,0,0,0.3) ;
-	  font-size: 16px !important;
+	  font-size: 20px !important;
     font-family: 'Inter', 'sans-serif';
-    font-weight: 300 !important;
+    font-weight: 400 !important;
 }
 
 
@@ -191,6 +191,16 @@ h1 {
     font-weight: 300;
     color: #444;
  }
+
+
+ .subtitle_black{
+  font-family: 'Khula', 'sans-serif';
+  font-family: 'Inter' !important; 
+  font-size: 30px;
+  font-weight: 200;
+  color: #ddd;
+}
+
 
 
 #navlogo{
@@ -369,11 +379,17 @@ input.middle:focus {
   font-weight: 600;
 
  }
+.lightgrey{
+  color: #ddd;
 
+}
  .bolder{
   font-weight: 800;
 
+ }
 
+ .white{
+   color: white;
  }
 
 .half_highlight{
@@ -478,7 +494,7 @@ header {
 
 
 .bigger{
-  font-size: 67px;
+  font-size: 50px;
 }
 
  NAVBAR GRAYSCALE  
@@ -1022,7 +1038,7 @@ body
     {
       background-repeat: no-repeat;
       background-position: right;
-      background: url(../img/background_blue.png); 
+      /*background: url(../img/background_blue.png); */
       background-attachment: fixed;
       -webkit-background-size: 100% auto;
       -moz-background-size:100% auto;
