@@ -41,15 +41,15 @@
 	  color: black;
     background-color: rgba(0,0,0,0);
     border-color: rgba(0,0,0,0.3) ;
-	  font-size: 20px !important;
+	  font-size: 17px !important;
     font-family: 'Inter', 'sans-serif';
-    font-weight: 400 !important;
+    font-weight: 300 !important;
 }
 
 
   
 .name{
-    font-weight: 600;
+    font-weight: 400;
     font-family: 'Jost', 'Futura','Khula', 'sans-serif';
 }
 
@@ -198,25 +198,23 @@ h1 {
   font-family: 'Inter' !important; 
   font-size: 30px;
   font-weight: 200;
-  color: #ddd;
+  color: #444;
 }
 
 
-
-#navlogo{
-  margin-top:5px;
-  background-image: url(../img/hebbia_logo.png);
-  background-color: black;
-  height: auto; 
+#logo_hebbia{
+  /*-webkit-filter: drop-shadow(0px 1px 1px rgba(61, 236, 255, 1));
+  filter: drop-shadow(1px 1px 0px rgba(61, 236, 255, 1));*/
 }
+
 
 
 .containerNav{
-  padding-left:5%;
-  padding-right:5%;
-  padding-top: 7px;
-  padding-bottom: 7px;
-  background-color: rgba(255,255,255,1);
+  /*padding-left:5%;
+  padding-right:5%; */
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: rgba(255,255,255,0.9);
 }
 
 
@@ -378,25 +376,25 @@ input.middle:focus {
 }
 
  .bold{
-  font-weight: 600;
+  font-weight: 400;
 
  }
 .lightgrey{
-  color: #ddd;
+  color: #444;
 
 }
  .bolder{
-  font-weight: 800;
+  font-weight: 400;
 
  }
 
- .white{
-   color: white;
+ .black{
+   color: black;
  }
 
 .half_highlight{
 
-    background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #5ee4fedd 65%);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 65%, #5ee3fe75 65%);
 
 }
 
@@ -444,7 +442,7 @@ header {
 #bottombar{
   width: 100%;
   height: 50px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0.4));
+  background-image: linear-gradient(to right, #56e2fd, rgba(255, 255, 255, 0.4));
 }
 
  
@@ -452,8 +450,8 @@ header {
   width: 100%;
   height: auto;
   padding-bottom:75px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, .9));
-  color: white !important;
+  background-image: linear-gradient(to right,#ffffff, white);
+  color: black !important;
   padding-top: 20vh;
 }
 
@@ -503,9 +501,16 @@ header {
 
 
 
+
+
+
+
 .navbar-custom {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
+    height: 100px;
+    line-height: 100px;
+    white-space: nowrap;
 }
 
 .navbar-custom .navbar-brand {
@@ -518,7 +523,7 @@ header {
 
 .navbar-custom .navbar-brand .navbar-toggle {
     padding: 0px 3px;
-    font-size: 16px;
+    font-size: 14px;
     color: rgba(0,0,0,1);
 }
 
@@ -567,10 +572,19 @@ header {
 }
 
 .navbar{
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 
+.navbuttons{
+
+  padding: 25px 17px !important;
+  
+}
+
+.containerNav{
+  padding-right: 30px;
+}
 
 
 
@@ -737,38 +751,20 @@ h2{
  }
 
 footer{
-
-        background: black;
-        color:white;
+        color:grey;
         padding: 35px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
-
+        border-top: 1px solid #ccc;
 }
-
-
-
-
 
 #name_logo{
   max-width: 400px;
   /*-webkit-filter: drop-shadow(5px 5px 0px lightblue);
   filter: drop-shadow(5px 5px 0px lightblue);*/
-
 }
 
-
-
-
-
-
-
-
-  .greytext{
-
-
-    color: rgba(0, 0, 0, .7);
-  }
-
+.greytext{
+  color: rgba(0, 0, 0, .7);
+}
 
 .smaller {
   font-size: 30px;
@@ -781,6 +777,96 @@ footer{
 
 
 
+/* DEFAULT */
+
+
+#FixedCenterHero{
+  position:absolute;
+  z-index: 2;
+  scroll-behavior: smooth;
+  height: 100vh;
+  /*background-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.4));*/
+  width: 100%;
+  display: flex; /* or inline-flex */
+  flex-direction: row;
+  padding: 0 15%;
+  align-items: center;
+  justify-content: center;
+}
+
+#LeftCenterHero{
+  width: 400px;
+  align-items: center;
+  margin-right: 50px;
+}
+
+#RightCenterHero{
+  width: max(550px, 40vw);
+  align-items: center;
+
+}
+
+
+#demo{
+  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+
+}
+
+
+body {
+  background: url(../img/smallbackblue2.png);
+  background-attachment: fixed;
+  -webkit-background-size: 100% auto;
+  -moz-background-size:100% auto;
+  -o-background-size: 100% auto;
+  background-size:auto 100vh;
+  background-repeat: no-repeat;
+  background-position: 100% 90%;
+}
+
+#demo{
+  width: max(550px, 40vw);
+}
+  
+
+
+/* FOR OLD COMPUTERS */
+
+
+
+
+/* FOR TABLETS */
+
+
+@media(max-width:1024) {
+  .navbar-custom {
+      padding: 12px 0;
+      border-bottom: 0;
+      letter-spacing: 0px;
+      background: 0 0;
+      -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+      -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+      transition: background .5s ease-in-out,padding .5s ease-in-out;
+  }
+
+  .navbar-custom.top-nav-collapse {
+      padding: 0;
+      border-bottom: 1px solid rgba(150,150,1,.1);
+      background: white;
+  }
+
+  #demo{
+    width: min(550px, 80vw);
+  }
+
+
+  #FixedCenterHero{
+    flex-wrap: wrap;
+
+  }
+
+}
 
 
 
@@ -789,194 +875,142 @@ footer{
 
 
 
-
-
-
-
-
+/* FOR MOBILE */
 @media(max-width:825px) {
-
 
   #demo{
     width: 95vw !important;
   }
 
-
   #name_logo{
     max-width: 300px;
-  
   }
-
 
   .emails{
     padding-right: 15px;
-
   }
 
   #submit_button_boi{
     display: none;
-
-
   }
  
   nav{
-
     display:none;
   }
-
-  
 
   .infoIcons{
     margin-top:42px;
     margin-left:0px;
+  }
+
+  #HilbertBack{
+    display: none;
+    margin-left:3vh;
+    height: 275px;
 
   }
 
+  #Hilbert{
+    margin-left:3vh;
+    height: 275px;
+    display: none;
 
-  #HilbertBack
-      {
-        display: none;
-        margin-left:3vh;
-        height: 275px;
-
-      }
-
-  #Hilbert
-      {
-        margin-left:3vh;
-        height: 275px;
-        display: none;
-
-      }
+  }
 
   #logo{
-        display: inline;
-        margin-left:1vh;
-        margin-top:-8vh;
-        margin-bottom:2vh;
-        height: 70px;
+    display: inline;
+    margin-left:1vh;
+    margin-top:-8vh;
+    margin-bottom:2vh;
+    height: 70px;
   }
 
   .bigger{
     font-size: 30px;
   }
 
-
   .bold{
     font-size: 25px;
-
-
-
   }
 
   .smaller{
     font-size: 25px !important;
   }
 
-
-  body 
-      {
-        background-repeat: no-repeat;
-        background-position:  500px;
-        background-image: url(../img/background_mob.png);
-        -webkit-background-size: 100% auto;
-        -moz-background-size:100% auto;
-        -o-background-size: 100% auto;
-        background-size:auto 100vh;
-
-      }
-
-
+  body{
+    background-repeat: no-repeat;
+    background-position:  500px;
+    background-image: url(../img/background_mob.png);
+    -webkit-background-size: 100% auto;
+    -moz-background-size:100% auto;
+    -o-background-size: 100% auto;
+    background-size:auto 100vh;
+  }
 
   #bar {
     width: 90%;
     height:auto;
     margin-left: 0px;
-
   }
 
   #highlight {
     width: 90%;
     height:auto;
     margin-left: 0px;
-
   }
 
+  header{
+    padding-left: 0px;
+    padding-top: 0px;
+    position: relative;
+    height:100vh;
+    color: black;
+    font-family: 'Khula',  'sans-serif';
+  }
 
-  header 
-      {
-        padding-left: 0px;
-        padding-top: 0px;
-        position: relative;
-        height:100vh;
-        color: black;
-        font-family: 'Khula',  'sans-serif';
-      }
+  h1{
+    font-size: 50px !important;
+    margin-right:10px;
+  }
 
-
-
-
-
-  h1
-      {
-        font-size: 50px !important;
-            margin-right:10px;
-
-      }
-   
-
-  h2
-      {
-        font-size: 30px !important;
-            margin-right:10px;
-
-      }
-
-
-
-
-
+  h2{
+    font-size: 30px !important;
+    margin-right:10px;
+  }
 
   #About{
     padding: 75px 15px;
-
   }
 
   .threestep{
     font-family: 'Khula',  'sans-serif';
-
     font-size:20px;
     font-weight: 200;
     margin-top:100px;
-
   }
 
-
-
-
-  .container2
-      {
-        margin-left:3vh;
-      }
+  .container2{
+    margin-left:3vh;
+  }
 
   #HelvLight{
     font-family: '';
     font-weight: 300;
     margin-left: 3vh;
     top:275px;
-
   }
-
 }
 
-@media(max-width:330px) {
 
+
+/* FOR MOBILE EXTRA SMALL */
+
+@media(max-width:330px) {
 
   #name_logo{
     max-width: 225px;
     margin-left: 2px;
   }
-
 
   .subtitle{
     margin-left: 6px;
@@ -1003,113 +1037,3 @@ footer{
 
 
 
-
-#FixedCenterHero{
-  position:absolute;
-  z-index: 2;
-  scroll-behavior: smooth;
-  height: 100vh;
-  /*background-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.4));*/
-  width: 100%;
-  display: flex; /* or inline-flex */
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 0 15%;
-  align-items: center;
-  justify-content: center;
-
-}
-
-#LeftCenterHero{
-  width: 400px;
-  align-items: center;
-  margin-right: 50px;
-}
-
-#RightCenterHero{
-  width: max(550px, 40vw);
-  align-items: center;
-
-}
-
-
-
-
-
-body 
-    {
-      background-repeat: no-repeat;
-      background-position: right;
-      /*background: url(../img/background_blue.png); */
-      background-attachment: fixed;
-      -webkit-background-size: 100% auto;
-      -moz-background-size:100% auto;
-      -o-background-size: 100% auto;
-      background-size:auto 100vh;
-
-
-    }
-
-
-  #demo{
-    width: max(550px, 40vw);
-  }
-  
-
-
-
-
-@media(max-width:1424) {
-  .navbar-custom {
-      padding: 12px 0;
-      border-bottom: 0;
-      letter-spacing: 0px;
-      background: 0 0;
-      -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-      -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
-      transition: background .5s ease-in-out,padding .5s ease-in-out;
-  }
-
-  .navbar-custom.top-nav-collapse {
-      padding: 0;
-      border-bottom: 1px solid rgba(150,150,1,.1);
-      background: white;
-  }
-
-
-  #demo{
-    width: min(550px, 60vw);
-  }
-
-  #FixedCenterHero{
-    align-items: top;
-
-  }
-
-}
-
-
-@media(max-width:1024) {
-  .navbar-custom {
-      padding: 12px 0;
-      border-bottom: 0;
-      letter-spacing: 0px;
-      background: 0 0;
-      -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-      -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
-      transition: background .5s ease-in-out,padding .5s ease-in-out;
-  }
-
-  .navbar-custom.top-nav-collapse {
-      padding: 0;
-      border-bottom: 1px solid rgba(150,150,1,.1);
-      background: white;
-  }
-
-
-  #demo{
-    width: min(550px, 80vw);
-  }
-
-
-}
