@@ -205,7 +205,9 @@ h1 {
 
 #navlogo{
   margin-top:5px;
-  
+  background-image: url(../img/hebbia_logo.png);
+  background-color: black;
+  height: auto; 
 }
 
 
