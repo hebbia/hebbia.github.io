@@ -1012,7 +1012,7 @@ footer{
   display: flex; /* or inline-flex */
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 0 5vw;
+  padding: 0 15%;
   align-items: center;
   justify-content: center;
 
@@ -1025,7 +1025,7 @@ footer{
 }
 
 #RightCenterHero{
-  width: max(550px, 50vw);
+  width: max(550px, 40vw);
   align-items: center;
 
 }
