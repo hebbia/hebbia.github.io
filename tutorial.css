@@ -85,8 +85,20 @@
     color:black;
 }
 
+.hebbiaDiv span {
+	pointer-events: none;
+}
+
 .hidden {
 	display: none;
+}
+
+.button {
+	border: 1px solid grey;
+    padding: 4px 8px 1px 8px;
+    width: fit-content;
+    margin: 2px;
+    cursor: pointer;
 }
 
 .hebbiaDivSelected {
