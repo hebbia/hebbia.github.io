@@ -61,7 +61,6 @@
 #wikiContent{
     width:min(1200px, 65%);
     left: 30px;
-    top: 150px;
     position: absolute;
 }
 
@@ -78,11 +77,12 @@
     font-size: 1.5em;
     width: 420px;
     z-index: 199999;
-    position: absolute;
+    position: fixed;
     background: white;
     right: 70px;
     height: auto;
     /*color:rgba(0,0,0,0.1); */
+    border: 1px solid black;
     color:black;
 }
 
@@ -99,7 +99,7 @@
     padding: 4px 8px 1px 8px;
     width: fit-content;
     margin: 2px;
-    cursor: pointer;
+    /*cursor: pointer;*/
 }
 
 .hebbiaDivSelected {
