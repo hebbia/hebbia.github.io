@@ -214,11 +214,13 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li>
-         <a id="business button" href="mailto:george@hebbia.ai"> </a>
+         <a id="business button" href="http://hebbia.ai/company"> </a>
         </li>
 
         <li>
-          <a class="page-scroll navbuttons" href="#About"> Beta Signup </a>
+          <!--<a class="page-scroll navbuttons" href="#Signup"> Beta Signup </a>-->
+          <a class="page-scroll navbuttons" href="#Signup"> About Us </a>
+
         </li>
 
         <!--<li>
@@ -226,7 +228,7 @@
         </li>-->
 
         <li>
-          <a class="page-scroll navbuttons" href="#GetPaid"> We're Hiring! </a>
+          <a class="page-scroll navbuttons" href="https://jobs.floodgate.com/companies/hebbia-ai-2"> We're Hiring! </a>
         </li>
 
         <li>
@@ -264,7 +266,7 @@
       
           <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
   
-          <button id="CTA" class='glow-on-hover' onclick="location.href='#GetPaid';"> <b> Add to Chrome </b> -  <span class="thinner">It's free!</span> </button> 
+          <button id="CTA" class='glow-on-hover' onclick="location.href='#Signup';"> <b> Add to Chrome </b> -  <span class="thinner">It's free!</span> </button> 
           <!--<button id="CTA" class='glow-on-hover disabled' onclick="location.href='#';"> <b> COMING SOON </b>- PDF PLATFORM </button> -->
           
         </div>
@@ -289,20 +291,23 @@
     </div>
 
     <div id="About">
-      <div class="container2"> 
+      <div class="container"> 
         <br /> 
-        <h1 class="name"> <!--Stop wasting time --></h1> 
-        <h2> Stop wasting time--</h2> <!--Focus on the important stuff-->
-        <h2 class="subtitle_black smallest"> Hebbia <i>understands</i> you and
-          highlights only what matters... <br> 
+        <h2 class="section_head">Knowledge is power. <br /> We help you find it, <i> fast.</i> </h2> <!--Focus on the important stuff-->
+        <br />
+        <h2 class="subtitle"> Hebbia understands your questions, reads long documents in seconds, and highlights only what matters to you.
+
+          
+          <!--Hebbia's AI <i>understands</i> long documents in seconds</i>, intelligently highlighting only what matters to your query... <br> -->
           <!--
           Saving our users a total of:           
           <span class="highlightNum output " id="totalMinutesSaved">42368</span>
           <span class="setting_title">  minutes </span> . 
         -->
-        <br> <br> <br>  ...so you can <span class="half_highlight">focus on what's important.</span>
+        <br> <br> ...so you can <span class="half_highlight">focus on the important stuff.</span>
 
 
+        <!--
           
           <br >
           <br >
@@ -318,7 +323,7 @@
             <span class="highlightNum output " id="totalMinutesSaved">42368</span>
             <span class="setting_title">  minutes </span> saved. 
             <span class="bigeyes"></span> 
-          </span>
+          </span>-->
         
         </h2>
 <!--
@@ -330,11 +335,7 @@
         <h2 class="subtitle_black smallest"> <br />Stop wasting time - <br />Hebbia highlights <i>only</i> what matters to you, 
        <span class='black half_highlight'> speeding up research by over 80%.</span>
           <span class="quarter_highlight1"></span>-->  <!--Stop wasting time – Hebbia immediately finds the information you're looking inside of any website. --><!--Forget Ctrl-F, find <i> exactly </i> what you're looking for. --></h2> <!-- Ai powered semantic search, clever search, within websites and pdfs -->
-          <br />       
-          <br />   <br />       
-          <br />   <br />       
-          <br />
-        <br /><!--<br /> 
+          <!--<br /> 
   
         <video width="800"  autoplay="autoplay">
           <source src="HebbiaDemo.mp4" type="video/mp4">
@@ -345,35 +346,43 @@
 
       </div>
     </div>
-
+    <div id="">
+    </div>
 
 
 
 
     <div id="references">
       <div class="container"> 
-        <h2> Knowledge is power. <br /> We get it to you, <i> fast. </i> </h2>
-          
-        <p class="">
-          "Hebbia allows me to get those communications out and feel confident that I’m putting my best foot forward. Hebbia is a superpower, especially when I need to be at 110%.”
-        </p>
-        
+        <h2 class="section_head"> Stop wasting time--  </h2>
 
+        <div class="flexrow">
+          <div class="quote">
+            <p class="subtitle">
+              "Hebbia is like cheating at work-- I get research done 10X faster”
+            </p>
+          </div>
+          <div class="quote">
+            <p class="subtitle">
+                "I used to spend hours scouring pages for information. Now I get exactly what I need in seconds."
+            </p>
+          </div>
+        </div>
       </div>
       <div id=references_fade> </div>
 
     </div>
 
 
-    <div id="GetPaid">
-      <div class="container2"> 
+    <div id="Signup">
+      <div class="container"> 
 
 
         <h2>
           
-           <span class="subtitle ">  Interested in the next generation of AI productivity tools?</span> 
+           <span class="subtitle">  Interested in the next generation of AI productivity tools?</span> 
            <br />
-            <span class="bolder enter_above"> Join our beta: </span> 
+            <span class="section_head enter_above"> Join our beta list: </span> 
 
         </h2>
         <!-- <h2 class="center smaller"> 
@@ -392,8 +401,8 @@
           <input class="emails" name="email" type="email" placeholder="Your email" required>
           <!--<input class="emails" name="message" type="text" placeholder="text here" required> -->
 
-          <button id="submit_button_boi" type="submit"> <span>  &#65310;
- </span></button>
+          <button id="submit_button_boi" type="submit"> <span>&#65310;
+          </span></button>
         </form>
 
         <br />
@@ -461,7 +470,7 @@
             © 
             <script type="text/javascript">
               document.write(new Date().getFullYear());
-            </script>, Hebbia Inc.   <!-- |  <a class="lighter" href="https://jobs.floodgate.com/companies/hebbia-ai-2"> We're hiring! </a>-->
+            </script>, Hebbia Inc.   |  <a class="black" href="https://jobs.floodgate.com/companies/hebbia-ai-2"> We're hiring! </a>
           </p>
         </center>
       </div>
