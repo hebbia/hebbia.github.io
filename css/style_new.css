@@ -187,9 +187,11 @@ h1 {
  .subtitle{
     font-family: 'Khula', 'sans-serif';
     font-family: 'Inter' !important; 
-
+    font-size: 21px;
+    line-height: 33px !important;
     font-weight: 300;
-    color: #444;
+    font-style: normal;
+    color: #0E101A;
  }
 
 
@@ -197,9 +199,33 @@ h1 {
   font-family: 'Khula', 'sans-serif';
   font-family: 'Inter' !important; 
   font-size: 30px;
-  font-weight: 200;
+  font-weight: 400;
   color: #444;
 }
+
+
+#references{
+  background-image: linear-gradient(-257deg,#bdf9ff,#6ce7ffb4 50%,#d3e7ff); /*#aaf2e1*/
+  text-align: Left;
+  width: 100vw;
+}
+
+
+#references_fade{
+  background-image: linear-gradient(0deg,#fff 3%,hsla(0,0%,100%,0));
+  width: 100vw;
+  height: 30vh;
+  
+}
+
+
+.container{
+  width: auto;
+  padding: 7vw 12vw;
+  justify-content: center;
+  align-content: center;
+}
+
 
 
 #logo_hebbia{
@@ -223,7 +249,7 @@ h1 {
 
 
 .glow-on-hover {
-
+    width: 240px;
     padding: 10px 30px;
     padding-top: 12px;
     margin-top:20px;
@@ -598,7 +624,10 @@ header {
 
 
 
+#logomobile{
+  display:none;
 
+}
 
 
 
@@ -789,19 +818,22 @@ footer{
   width: 100%;
   display: flex; /* or inline-flex */
   flex-direction: row;
-  padding: 0 15%;
+  padding: 0 15vh;
   align-items: center;
+  align-content: center;
   justify-content: center;
+  flex-wrap: nowrap;
+
 }
 
 #LeftCenterHero{
   width: 400px;
   align-items: center;
   margin-right: 50px;
+  margin-bottom: 7vh;
 }
 
 #RightCenterHero{
-  width: max(550px, 40vw);
   align-items: center;
 
 }
@@ -826,7 +858,7 @@ body {
 }
 
 #demo{
-  width: max(550px, 40vw);
+  width: min(650px, 45vw);
 }
   
 
@@ -836,10 +868,11 @@ body {
 
 
 
+
 /* FOR TABLETS */
 
 
-@media(max-width:1024) {
+@media(max-width:1024px) {
   .navbar-custom {
       padding: 12px 0;
       border-bottom: 0;
@@ -857,12 +890,20 @@ body {
   }
 
   #demo{
-    width: min(550px, 80vw);
+    width: min(550px, 50vw);
   }
 
 
   #FixedCenterHero{
+    padding: 0 2vh;
     flex-wrap: wrap;
+    
+  }
+
+  #LeftCenterHero{
+    margin-right:0px;
+    width: 330px;
+    align-items: left;
 
   }
 
@@ -878,8 +919,24 @@ body {
 /* FOR MOBILE */
 @media(max-width:825px) {
 
+
+
+
+
+
+  #LeftCenterHero{
+    margin-right:0px;
+    width: 90vw;
+    align-items: left;
+
+  }
+
+  #FixedCenterHero{
+    padding:0px;
+  }
+
   #demo{
-    width: 95vw !important;
+    width: 85vw;
   }
 
   #name_logo{
@@ -925,6 +982,14 @@ body {
     height: 70px;
   }
 
+
+
+  #subtitle{
+    font-size: 19px;
+    line-height: 24px;
+  }
+
+
   .bigger{
     font-size: 30px;
   }
@@ -939,8 +1004,8 @@ body {
 
   body{
     background-repeat: no-repeat;
-    background-position:  500px;
-    background-image: url(../img/background_mob.png);
+    background-position: 0px 200px ;
+    background-image: url(../img/smallbackblue2.png);
     -webkit-background-size: 100% auto;
     -moz-background-size:100% auto;
     -o-background-size: 100% auto;
@@ -999,21 +1064,33 @@ body {
     margin-left: 3vh;
     top:275px;
   }
+
+  #CTA{
+    display:none;
+  }
+
+  #logomobile{
+    display:block;
+    width: 42vw;
+    margin: 5vw 5vw 0vw 5vw;
+    height: auto;
+  }
+
 }
 
 
 
 /* FOR MOBILE EXTRA SMALL */
 
-@media(max-width:330px) {
+@media(max-width:500px) {
+
+
 
   #name_logo{
     max-width: 225px;
-    margin-left: 2px;
   }
 
   .subtitle{
-    margin-left: 6px;
 
   }
 
@@ -1025,12 +1102,21 @@ body {
   #HelvLight{
     font-family: '';
     font-weight: 300;
-    margin-left: 3vh;
     top:175px;
   }
 
-  #demo{
+  #FixedCenterHero{
+    padding:0px;
+    width: 100vw;
+  }
+
+  #LeftCenterHero{
     width: 90vw;
+    align-content: left;
+  }
+
+  #demo{
+    width: 100vw;
   }
 
 }
