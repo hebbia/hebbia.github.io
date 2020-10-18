@@ -7,13 +7,13 @@
  */
 
  #tutorialContent {
-	margin: 0px !important;
-	font-size: 12px;
-	color: rgb(48, 57, 66);
+    margin: 0px !important;
+    font-size: 12px;
+    color: rgb(48, 57, 66);
 
-	height: auto;
+    height: auto;
 
-	margin-left: auto;
+    margin-left: auto;
     margin-right: auto;
     width: 1000px;
     font-size: 1.2;
@@ -23,38 +23,38 @@
 
 
 #tutorialContent h1, #tutorialContent h2, #tutorialContent h3 {
-	font-weight: normal;
-	line-height: 1;
-	-webkit-user-select: none;
-	        user-select: none;
-	cursor: default;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-user-select: none;
+            user-select: none;
+    cursor: default;
 }
 #tutorialContent h1 {
-	font-size: 1.5em;
-	margin: 21px 0 13px;
+    font-size: 1.5em;
+    margin: 21px 0 13px;
 }
 #tutorialContent h3 {
-	font-size: 1.2em;
-	margin-bottom: 0.8em;
-	color: black;
+    font-size: 1.2em;
+    margin-bottom: 0.8em;
+    color: black;
 }
 #tutorialContent p {
-	margin: 0.65em 0;
+    margin: 0.65em 0;
 }
 
 #tutorialContent header {
-	background-image: url('Images/header2.png');
-	background-size: 100%;
-	background-repeat: no-repeat;
-	height: 100px;
-	overflow: hidden;
-	background-position: bottom;
-	opacity: 40%;
+    background-image: url('Images/header2.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100px;
+    overflow: hidden;
+    background-position: bottom;
+    opacity: 40%;
 }
 
 #tutorialContent .title{
-	font-family: 'Futura', 'Khula', 'sans-serif';
-	padding-bottom: 40px;
+    font-family: 'Futura', 'Khula', 'sans-serif';
+    padding-bottom: 40px;
 }
 
 
@@ -87,15 +87,15 @@
 }
 
 .hebbiaDiv * {
-	pointer-events: auto;
+    pointer-events: auto;
 }
 
 .hidden {
-	display: none;
+    display: none;
 }
 
 .button {
-	border: 1px solid grey;
+    border: 1px solid grey;
     padding: 4px 8px 1px 8px;
     width: fit-content;
     margin: 2px;
@@ -103,8 +103,8 @@
 }
 
 .hebbiaDivSelected {
-	box-shadow:  0px 0px 30px 20000px rgba(255,255,255,1);
-	/*color:black; */
+    box-shadow:  0px 0px 30px 20000px rgba(255,255,255,1);
+    /*color:black; */
 }
 
 #hebbiaDiv1{
