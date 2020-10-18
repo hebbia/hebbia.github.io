@@ -25,7 +25,7 @@ window.addEventListener("HebbiaExtension", function(event) {
     if (event.detail.type === "enter" && state === "question_typed") {
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("You're all set!");
-            // $("#hebbiaDiv1 span").html("");
+            $("#hebbiaDiv1 span").html("Now go get'em!");
             state = "done";
         }, 1000);
     }
