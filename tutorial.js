@@ -8,6 +8,9 @@ window.addEventListener("HebbiaExtension", function(event) {
             + "<div class=\"button\">How contagious is Covid-19?</div>"
             + "<div class=\"button\">Did COVID-19 come from a Chinese lab?</div>"
         );
+        $(".button").click(function(event) {
+            console.log("click event!", event)
+        });
         state = "extension_opened";
     }
 });

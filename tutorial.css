@@ -18,6 +18,7 @@
     width: 1000px;
     font-size: 1.2;
     font-family: 'Khula', 'sans-serif' !important;
+    pointer-events: none;
 }
 
 
@@ -85,8 +86,8 @@
     color:black;
 }
 
-.hebbiaDiv span {
-	pointer-events: none;
+.hebbiaDiv * {
+	pointer-events: auto;
 }
 
 .hidden {
