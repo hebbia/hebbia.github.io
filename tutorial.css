@@ -71,7 +71,7 @@
 
 
 .hebbiaDiv{
-    box-shadow: 0px 0px 30px 10px #5ee4fe;
+    /*box-shadow: 0px 0px 30px 10px #5ee4fe;*/
     pointer-events: none;
     padding: 10px 20px;
     font-size: 1.5em;
@@ -90,7 +90,7 @@
 }
 
 .hebbiaDivSelected {
-	box-shadow: 0px 0px 30px 20000px rgba(0,0,0,0.2);
+	box-shadow:  0px 0px 30px 20000px rgba(255,255,255,1);
 	/*color:black; */
 }
 
