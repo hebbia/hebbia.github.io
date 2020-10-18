@@ -1,4 +1,4 @@
-var state = "new";  // new -> extension_opened -> question_typed
+var state = "new";  // new -> extension_opened -> question_typed -> done
 
 window.addEventListener("HebbiaExtension", function(event) {
     console.log(event.detail);
@@ -13,7 +13,20 @@ window.addEventListener("HebbiaExtension", function(event) {
         state = "extension_opened";
     }
     if (event.detail.type === "queryTyped" && event.detail.text.length > 3 && state === "extension_opened") {
-        console.log("poop");
-        state = "question_typed";
+        setTimeout(function() {
+            $("#hebbiaDiv1 h1").html("Hit ENTER to view your matches.");
+            $("#hebbiaDiv1 span").html(
+                "Hit ENTER again to view the next result<br>"
+                + "Hit Shift+ENTER to view the previous result"
+            );
+            state = "question_typed";
+        }, 1000);
+    }
+    if (event.detail.type === "enter" && state === "question_typed") {
+        setTimeout(function() {
+            $("#hebbiaDiv1 h1").html("You're all set!");
+            // $("#hebbiaDiv1 span").html("");
+            state = "done";
+        }, 1000);
     }
 });
