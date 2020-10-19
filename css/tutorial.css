@@ -63,8 +63,9 @@
 
 }
 #tutorialContent h1 {
-    font-size: 1.5em;
-    margin: 21px 0 30px;
+    font-size: 1.31em;
+    margin: 12px 0 12px 0;
+    line-height: 1.5em;
 }
 #tutorialContent h3 {
     font-size: 1.2em;
@@ -124,7 +125,8 @@
     border-radius: calc(1px*0.5);
     pointer-events: none;
     /* We add 21px to account for the 21px top margin of the h1 header */
-    padding: 1.4vh 3vw calc(21px + 1.4vh) 3vw;
+    /*padding: 1.4vh 3vw calc(21px + 1.4vh) 3vw;*/
+    padding: 4vh 3vw 4vh 3vw;
     font-size: 1.5em;
     width: 22vw;
     z-index: 199999;
@@ -164,11 +166,12 @@
 .shortcut {
     background: #eee;
     border: 2px solid #696969;
+
     display: inline-block;
     color: #696969;
     padding: 11px 17px 2px 17px;
     box-shadow: 2px 2px 0 1px rgb(198, 203, 222);
-    /*margin: 25px 0px 0px 0px;*/
+    margin: 25px 4px 4px 0px;
     font-size: 28px;
     border-radius: 4px;
 }

@@ -2,34 +2,45 @@ var state = "new";  // new -> extension_opened -> question_typed -> done
 
 window.addEventListener("HebbiaExtension", function(event) {
     if (event.detail.type === "popupOpen" && state === "new") {
-        $("#hebbiaDiv1 h1").html("Hebbia is AI search that <em>understands</em>.<br><br>Try it out by typing:");
+        $("#hebbiaDiv1 h1").html("Great! Let's try asking about symptoms on this long COVID article.");
         $("#hebbiaDiv1 span").html(
-            "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the symptoms?</div>"
-            + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
-            + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> Where did COVID originate?</div>"
+            ""
         );
+
         $("#wikiContent").animate({opacity: "100%"}, 3000);
         setTimeout(function() {
-          typeQuestion("Where did COVID originate?", 0);
-        }, 500);
-        addCopyListeners();
+          typeQuestion("What are the symptoms?", 0);
+        }, 4000);
+
+        setTimeout(function() {
+            $("#hebbiaDiv1 span").html(
+                "Hit <span class=\"shortcut\">return</span> to search."
+            );
+        }, 7500);
+
+          
         // $("#wikiContent").removeClass("hidden");
         state = "extension_opened";
     }
+
     if (event.detail.type === "queryTyped" && event.detail.text.length > 3 && state === "extension_opened") {
         setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Hit ENTER to view your matches.");
+            $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted.");
             $("#hebbiaDiv1 span").html(
-                "Hit ENTER again to view the next result<br>"
-                + "Hit Shift+ENTER to view the previous result"
+                "Click matches once to rank them and update results."
+                + "<br /> Double click them to immediately see similar sentences. </div>"
             );
             state = "question_typed";
         }, 1000);
     }
     if (event.detail.type === "enter" && state === "question_typed") {
         setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("You're all set!");
-            $("#hebbiaDiv1 span").html("Now go get'em!");
+            $("#hebbiaDiv1 h1").html("Awesome, feel free to ask Hebbia anything, on any webpage (some more examples below):");
+            $("#hebbiaDiv1 span").html(
+                "<div class=\"button\">What are the symptoms?</div>"
+                + "<div class=\"button\">How many people have been infected?</div>"
+                + "<div class=\"button\">Where did COVID originate?</div>");
+
             state = "done";
         }, 1000);
     }
