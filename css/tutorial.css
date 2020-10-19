@@ -118,7 +118,8 @@
     box-shadow:  0 calc(10px*0.625) calc(10px*3.5) 0 rgba(198,203,222,.45);/*, 0 0 0px 2000px rgba(255, 255, 255, 0.7);*/
     border-radius: calc(1px*0.5);
     pointer-events: none;
-    padding: 1.4vh 3vw;
+    /* We add 21px to account for the 21px top margin of the h1 header */
+    padding: 1.4vh 3vw calc(21px + 1.4vh) 3vw;
     font-size: 1.5em;
     width: 22vw;
     z-index: 199999;
