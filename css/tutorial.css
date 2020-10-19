@@ -59,15 +59,16 @@
 
 
 #wikiContent{
-    width:min(1200px, 65%);
-    left: 30px;
+    width:min(900px, 50%);
+    left: 10vw;
     top: 50px;
     position: absolute;
 }
 
 #wikiContent #articleHeader {
-    font-family: 'Futura', 'Khula', 'sans-serif';
-    font-size: 42px;
+    font-family: 'Inter', '', 'sans-serif';
+    font-size: 24px;
+    font-weight: 600;
 }
 
 
@@ -77,10 +78,12 @@
 
 
 .hebbiaDiv{
-    /*box-shadow: 0px 0px 30px 10px #5ee4fe;*/
-    box-shadow: 0px 0px 20px 0px #ddd;
+    /*box-shadow: 0px 0px 30px 10px #5ee4fe;
+    box-shadow: 0px 0px 20px 0px #ddd;*/
+    box-shadow:  0 calc(10px*0.625) calc(10px*3.5) 0 rgba(198,203,222,.45);/*, 0 0 0px 2000px rgba(255, 255, 255, 0.7);*/
+    border-radius: calc(1px*0.5);
     pointer-events: none;
-    padding: 10px 20px;
+    padding: 20px 50px;
     font-size: 1.5em;
     width: 420px;
     z-index: 199999;
