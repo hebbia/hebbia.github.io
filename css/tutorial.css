@@ -150,3 +150,13 @@
 #hebbiaDiv1{
     top: 75px;
 }
+
+.shortcut {
+    background: #eee;
+    border: 2px solid #696969;
+    display: inline-block;
+    color: #696969;
+    padding: 7px 10px 0px 10px;;
+    font-size: 28px;
+    border-radius: 4px;
+}

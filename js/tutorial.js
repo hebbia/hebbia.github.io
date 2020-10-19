@@ -59,8 +59,8 @@ function getOS() {
 
 document.addEventListener('DOMContentLoaded', function () {
     if (getOS() === "Mac") {
-        $("#hebbiaDiv1 span").html("Press CMD + H to begin searching.");
+        $("#hebbiaDiv1 span").html("<span class=\"shortcut\">\u2318</span> + <span class=\"shortcut\">H</span> to begin.");
     } else {
-        $("#hebbiaDiv1 span").html("Press Alt + H to begin searching.");
+        $("#hebbiaDiv1 span").html("<span class=\"shortcut\">Alt</span> + <span class=\"shortcut\">H</span> to begin.");
     }
 });
