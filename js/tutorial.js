@@ -37,10 +37,9 @@ window.addEventListener("HebbiaExtension", function(event) {
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Awesome, feel free to ask Hebbia anything, on any webpage (some more examples below):");
             $("#hebbiaDiv1 span").html(
-                "<div class=\"button\">What are the symptoms?</div>"
-                + "<div class=\"button\">How many people have been infected?</div>"
-                + "<div class=\"button\">Where did COVID originate?</div>");
-
+                "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\">What are the symptoms?</div>"
+                + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\">How many people have been infected?</div>"
+                + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\">Where did COVID originate?</div>");
             state = "done";
         }, 1000);
     }
