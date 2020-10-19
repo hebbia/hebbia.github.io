@@ -23,7 +23,8 @@
 
 #wikiContent h1{
     font-family: 'Inter' !important;
-    font-size: 23px;
+
+    font-size: 30px;
 
 }
 
@@ -89,7 +90,7 @@
 #wikiContent{
     width:min(900px, 50%);
     left: 10vw;
-    top: 7vh;
+    top: 10vh;
     position: absolute;
     opacity: 20%;
     display: block;
@@ -141,6 +142,8 @@
     /*border: 1px solid grey;*/
     background: rgba(78, 84, 109, 0.05);
     padding: 4px 8px 1px 8px;
+    margin: 10px 0;
+    padding: 8px 16px 4px 16px;
     width: fit-content;
     margin: 2px;
     font-family:  ;
@@ -148,7 +151,7 @@
 }
 
 #hebbiaDiv1{
-    top: 75px;
+    top: 10vh;
 }
 
 .shortcut {
@@ -156,7 +159,8 @@
     border: 2px solid #696969;
     display: inline-block;
     color: #696969;
-    padding: 7px 10px 0px 10px;;
+    padding: 7px 17px 0px 17px;;
+    margin: 25px 0px 0px 0px;
     font-size: 28px;
     border-radius: 4px;
 }
