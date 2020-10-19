@@ -35,9 +35,10 @@ window.addEventListener("HebbiaExtension", function(event) {
     }
     if (event.detail.type === "enter" && state === "question_typed") {
         setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Awesome, feel free to ask Hebbia anything, on any webpage (some more examples below):");
+            $("#hebbiaDiv1 h1").html("Awesome, feel free to ask Hebbia anything you'd like:");
             $("#hebbiaDiv1 span").html(
-                "<div class=\"button\">What are the symptoms?</div>"
+                "Here are some examples:"
+                + "<div class=\"button\">What are the symptoms?</div>"
                 + "<div class=\"button\">How many people have been infected?</div>"
                 + "<div class=\"button\">Where did COVID originate?</div>");
 
