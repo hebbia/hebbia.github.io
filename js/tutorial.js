@@ -2,7 +2,7 @@ var state = "new";  // new -> extension_opened -> question_typed -> done
 
 window.addEventListener("HebbiaExtension", function(event) {
     if (event.detail.type === "popupOpen" && state === "new") {
-        $("#hebbiaDiv1 h1").html("Great! Let's try asking about symptoms on this long COVID article.");
+        $("#hebbiaDiv1 h1").html("Let's try asking about symptoms on this long COVID article.");
         $("#hebbiaDiv1 span").html(
             ""
         );
@@ -35,12 +35,15 @@ window.addEventListener("HebbiaExtension", function(event) {
     }
     if (event.detail.type === "enter" && state === "question_typed") {
         setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Feel free to ask Hebbia anything.");
+            $("#hebbiaDiv1 h1").html("Ask Hebbia anything.");
             $("#hebbiaDiv1 span").html(
                 "<br /> Here are some examples:"
-                + "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the symptoms?</div>"
                 + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
-                + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> Where did COVID originate?</div>");
+                + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> Where did COVID originate?</div>"
+                + "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
+                + "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
+                + "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
+                );
             addCopyListeners();
             state = "done";
         }, 5000);
