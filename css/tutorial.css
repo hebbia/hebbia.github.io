@@ -91,6 +91,8 @@
     left: 10vw;
     top: 7vh;
     position: absolute;
+    opacity: 20%;
+    display: block;
 }
 
 #wikiContent #articleHeader {
@@ -132,11 +134,6 @@
 
 .hebbiaDiv * {
     pointer-events: auto;
-}
-
-.hidden {
-    opacity: 20%;
-    display: block !important;
 }
 
 .button {

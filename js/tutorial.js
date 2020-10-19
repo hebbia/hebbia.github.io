@@ -9,7 +9,8 @@ window.addEventListener("HebbiaExtension", function(event) {
             + "<div class=\"button\">How contagious is Covid-19?</div>"
             + "<div class=\"button\">Did it come from a lab?</div>"
         );
-        $("#wikiContent").removeClass("hidden");
+        $("#wikiContent").animate({opacity: "100%"})
+        // $("#wikiContent").removeClass("hidden");
         state = "extension_opened";
     }
     if (event.detail.type === "queryTyped" && event.detail.text.length > 3 && state === "extension_opened") {
