@@ -91,6 +91,8 @@
     left: 10vw;
     top: 7vh;
     position: absolute;
+    opacity: 20%;
+    display: block;
 }
 
 #wikiContent #articleHeader {
@@ -116,7 +118,8 @@
     box-shadow:  0 calc(10px*0.625) calc(10px*3.5) 0 rgba(198,203,222,.45);/*, 0 0 0px 2000px rgba(255, 255, 255, 0.7);*/
     border-radius: calc(1px*0.5);
     pointer-events: none;
-    padding: 1.4vh 3vw;
+    /* We add 21px to account for the 21px top margin of the h1 header */
+    padding: 1.4vh 3vw calc(21px + 1.4vh) 3vw;
     font-size: 1.5em;
     width: 22vw;
     z-index: 199999;
@@ -134,11 +137,6 @@
     pointer-events: auto;
 }
 
-.hidden {
-    opacity: 20%;
-    display: block !important;
-}
-
 .button {
     /*border: 1px solid grey;*/
     background: rgba(78, 84, 109, 0.05);
@@ -151,4 +149,14 @@
 
 #hebbiaDiv1{
     top: 75px;
+}
+
+.shortcut {
+    background: #eee;
+    border: 2px solid #696969;
+    display: inline-block;
+    color: #696969;
+    padding: 7px 10px 0px 10px;;
+    font-size: 28px;
+    border-radius: 4px;
 }

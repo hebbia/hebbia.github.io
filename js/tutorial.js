@@ -9,7 +9,8 @@ window.addEventListener("HebbiaExtension", function(event) {
             + "<div class=\"button\">How contagious is Covid-19?</div>"
             + "<div class=\"button\">Did it come from a lab?</div>"
         );
-        $("#wikiContent").removeClass("hidden");
+        $("#wikiContent").animate({opacity: "100%"})
+        // $("#wikiContent").removeClass("hidden");
         state = "extension_opened";
     }
     if (event.detail.type === "queryTyped" && event.detail.text.length > 3 && state === "extension_opened") {
@@ -58,8 +59,8 @@ function getOS() {
 
 document.addEventListener('DOMContentLoaded', function () {
     if (getOS() === "Mac") {
-        $("#hebbiaDiv1 span").html("Press CMD + H to begin searching.");
+        $("#hebbiaDiv1 span").html("<span class=\"shortcut\">\u2318</span> + <span class=\"shortcut\">H</span> to begin.");
     } else {
-        $("#hebbiaDiv1 span").html("Press Alt + H to begin searching.");
+        $("#hebbiaDiv1 span").html("<span class=\"shortcut\">Alt</span> + <span class=\"shortcut\">H</span> to begin.");
     }
 });
