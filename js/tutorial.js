@@ -3,13 +3,13 @@ var state = "new";  // new -> extension_opened -> question_typed -> done
 window.addEventListener("HebbiaExtension", function(event) {
     console.log(event.detail);
     if (event.detail.type === "popupOpen" && state === "new") {
-        $("#hebbiaDiv1 h1").html("Hebbia is in-page search that <em>understands</em>.<br><br>Try it out by typing:");
+        $("#hebbiaDiv1 h1").html("Hebbia is AI search that <em>understands</em>.<br><br>Try it out by typing:");
         $("#hebbiaDiv1 span").html(
             "<div class=\"button\">What are the symptoms?</div>"
-            + "<div class=\"button\">How contagious is Covid-19?</div>"
-            + "<div class=\"button\">Did it come from a lab?</div>"
+            + "<div class=\"button\">How many people have been infected?</div>"
+            + "<div class=\"button\">Where did COVID originate?</div>"
         );
-        $("#wikiContent").animate({opacity: "100%"}, 1000)
+        $("#wikiContent").animate({opacity: "100%"}, 3000)
         // $("#wikiContent").removeClass("hidden");
         state = "extension_opened";
     }
