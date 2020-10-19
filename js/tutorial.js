@@ -1,7 +1,6 @@
 var state = "new";  // new -> extension_opened -> question_typed -> done
 
 window.addEventListener("HebbiaExtension", function(event) {
-    console.log(event.detail);
     if (event.detail.type === "popupOpen" && state === "new") {
         $("#hebbiaDiv1 h1").html("Hebbia is AI search that <em>understands</em>.<br><br>Try it out by typing:");
         $("#hebbiaDiv1 span").html(
@@ -9,7 +8,10 @@ window.addEventListener("HebbiaExtension", function(event) {
             + "<div class=\"button\">How many people have been infected?</div>"
             + "<div class=\"button\">Where did COVID originate?</div>"
         );
-        $("#wikiContent").animate({opacity: "100%"}, 3000)
+        $("#wikiContent").animate({opacity: "100%"}, 3000);
+        setTimeout(function() {
+          typeQuestion("Where did COVID originate?", 0);
+        }, 500);
         // $("#wikiContent").removeClass("hidden");
         state = "extension_opened";
     }
@@ -31,6 +33,18 @@ window.addEventListener("HebbiaExtension", function(event) {
         }, 1000);
     }
 });
+
+
+function typeQuestion(question, index) {
+  if (index > question.length) {
+    return;
+  }
+  var event = new CustomEvent("HebbiaExtension", {detail: {type: "tutorialTypeQuestion", text: question.substr(0, index)}});
+  window.dispatchEvent(event);
+  setTimeout(function() {
+    typeQuestion(question, index + 1);
+  }, 100);
+}
 
 
 // Taken from https://stackoverflow.com/questions/38241480/detect-macos-ios-windows-android-and-linux-os-with-js
