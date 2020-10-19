@@ -25,13 +25,13 @@ window.addEventListener("HebbiaExtension", function(event) {
 
     if (event.detail.type === "queryTyped" && event.detail.text.length > 3 && state === "extension_opened") {
         setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted.");
+            $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted. Enter your way through them.");
             $("#hebbiaDiv1 span").html(
-                "Click matches once to rank them and update results."
+                "Click matches to rank them and update results."
                 + "<br /> Double click them to immediately see similar sentences. </div>"
             );
             state = "question_typed";
-        }, 1000);
+        }, 4000);
     }
     if (event.detail.type === "enter" && state === "question_typed") {
         setTimeout(function() {
@@ -43,7 +43,7 @@ window.addEventListener("HebbiaExtension", function(event) {
                 + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> Where did COVID originate?</div>");
             addCopyListeners();
             state = "done";
-        }, 1000);
+        }, 5000);
     }
 });
 
