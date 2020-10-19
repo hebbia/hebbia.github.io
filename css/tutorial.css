@@ -21,6 +21,32 @@
     pointer-events: none;
 }
 
+#wikiContent h1{
+    font-family: 'Inter' !important;
+    font-size: 23px;
+
+}
+
+#wikiContent h2{
+    font-family: 'Inter' !important;
+    font-size: 20px;
+    font-weight: 500;
+
+}
+
+#wikiContent h3{
+    font-family: 'Inter' !important;
+    font-size: 18px;
+    font-weight: 400;
+
+}
+
+.lighter{
+    font-weight: 300;
+    margin-left: 0px;
+    color: #696969;
+}
+
 
 #tutorialContent h1, #tutorialContent h2, #tutorialContent h3 {
     font-weight: normal;
@@ -28,6 +54,8 @@
     -webkit-user-select: none;
             user-select: none;
     cursor: default;
+    font-family: 'Inter' !important;
+
 }
 #tutorialContent h1 {
     font-size: 1.5em;
@@ -61,7 +89,7 @@
 #wikiContent{
     width:min(900px, 50%);
     left: 10vw;
-    top: 50px;
+    top: 7vh;
     position: absolute;
 }
 
@@ -69,6 +97,11 @@
     font-family: 'Inter', '', 'sans-serif';
     font-size: 24px;
     font-weight: 600;
+}
+
+
+#wikiContent p {
+    text-indent:10px;
 }
 
 
@@ -83,17 +116,18 @@
     box-shadow:  0 calc(10px*0.625) calc(10px*3.5) 0 rgba(198,203,222,.45);/*, 0 0 0px 2000px rgba(255, 255, 255, 0.7);*/
     border-radius: calc(1px*0.5);
     pointer-events: none;
-    padding: 20px 50px;
+    padding: 1.4vh 3vw;
     font-size: 1.5em;
-    width: 420px;
+    width: 22vw;
     z-index: 199999;
     position: fixed;
     background: white;
-    right: 70px;
+    right: 5vw;
     height: auto;
     /*color:rgba(0,0,0,0.1); */
     /*border: 1px solid black;*/
     color:black;
+    border-radius: 4px;
 }
 
 .hebbiaDiv * {
@@ -101,14 +135,17 @@
 }
 
 .hidden {
-    display: none;
+    opacity: 20%;
+    display: block !important;
 }
 
 .button {
-    border: 1px solid grey;
+    /*border: 1px solid grey;*/
+    background: rgba(78, 84, 109, 0.05);
     padding: 4px 8px 1px 8px;
     width: fit-content;
     margin: 2px;
+    font-family:  ;
     /*cursor: pointer;*/
 }
 
