@@ -144,7 +144,7 @@
   justify-content: left;
   background: white;
   border-radius: 5px;
-  box-shadow: 0 0 10px 0px rgba(139, 139, 139, 0.7);
+  box-shadow: 0 0 30px 0px rgba(121, 121, 121, 0.4);
   padding: 20px 50px;
   margin-right: 10px;
 }
@@ -486,11 +486,21 @@ header {
 
 #bottombar{
   width: 100%;
-  height: 6vh;
-  background-image: linear-gradient(to right, #56e2fd, rgba(255, 255, 255, 0.4));
+  height: 7vh;
+  /*background-image: linear-gradient(to right, #56e2fd, rgba(255, 255, 255, 0.4));*/
+  background-image: linear-gradient(-257deg,#cdfbff,#6ce7ffb4 50%,#d3e7ff);
   /*background-image: linear-gradient(to right, black, rgba(255, 255, 255, 0.4));*/
 
 }
+
+
+#bottombar_topfade{
+  /*backdground-image: linear-gradient(180deg,rgb(255, 255, 255) 3%,hsla(0,0%,100%,0)); */
+  width: 100vw;
+  height: 7vh;
+}
+
+
 
  
 #About{
@@ -746,8 +756,46 @@ header {
 
 
 
+.reference{
+  width: 100%;
+  font-size: 14px;
+  display: flex; /* or inline-flex */
+  align-content: flex-end;
+  justify-content: center;
+
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  height: auto;
+  margin: 0px;
+}
+
+.photo_reference{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px 1px rgba(121, 121, 121, 0.4);
+  background:white;
 
 
+}
+
+.name_reference{
+  width: auto;
+  margin: auto 17px;
+  color: #777;
+}
+
+#gerarld{
+  background-image: url('../img/gerarld.jpeg');
+  background-size: contain;
+
+}
+
+#cory{
+  background-image: url('../img/cory.jpeg');
+  background-size: contain;
+
+}
 
 .tttle{
   position:relative;
@@ -790,11 +838,12 @@ h2{
  }
 
 footer{
-        color:grey;
+        color:#999;
         padding: 35px;
         border-top: 1px solid #ccc;
-        background:#f4fdff/* #f1f2fa*/;
+        background: #f1f7fa /* #f4fdff */;
 }
+
 
 #name_logo{
   max-width: 400px;
@@ -874,7 +923,14 @@ body {
 
 /* FOR OLD COMPUTERS */
 
+@media(max-width:1400px) {
+  .quote{
+    padding: 20px 30px;
+    margin-bottom: 20px;
+  }
 
+
+}
 
 
 
@@ -892,6 +948,10 @@ body {
       transition: background .5s ease-in-out,padding .5s ease-in-out;
   }
 
+  .quote{
+    margin: 10px 0px;
+  }
+
   .navbar-custom.top-nav-collapse {
       padding: 0;
       border-bottom: 1px solid rgba(150,150,1,.1);
@@ -900,6 +960,15 @@ body {
 
   #demo{
     width: min(550px, 50vw);
+  }
+
+  .subtitle{
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .container{
+    padding: 17vh max(calc((100vw - 550px - 330px)/2),calc((100vw - 50vw - 330px)/2));
   }
 
 
@@ -916,6 +985,12 @@ body {
     margin-bottom: 7vh;
 
   }
+
+  .section_head{
+    font-size: 29px;
+  }
+
+
 
 }
 
@@ -948,7 +1023,7 @@ body {
   }
 
   #demo{
-    width: 85vw;
+    width: 90vw;
   }
 
   #name_logo{
@@ -996,14 +1071,14 @@ body {
 
 
 
-  #subtitle{
+  .subtitle{
     font-size: 19px;
     line-height: 24px;
   }
 
 
   .bigger{
-    font-size: 30px;
+    font-size: 22px;
   }
 
   .bold{
