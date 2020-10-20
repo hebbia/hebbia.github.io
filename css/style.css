@@ -145,7 +145,7 @@
   background: white;
   border-radius: 5px;
   box-shadow: 0 0 30px 0px rgba(121, 121, 121, 0.4);
-  padding: 20px 50px;
+  padding: 20px 2.25vw;
   margin-right: 10px;
 }
 
@@ -236,13 +236,6 @@ h1 {
 }
 
 
-.container{
-  width: auto;
-  padding: 15vh max(calc((100vw - (450px + 45vw))/2), calc((100vw - (450px + 650px))/2));
-  justify-content: center;
-  align-content: center;
-  margin: 0px;
-}
 
 
 
@@ -941,9 +934,17 @@ body {
 }
 
 #demo{
-  width: min(650px, 50vw);
+  width: min(600px, 50vw);
 }
   
+.container{
+  width: auto;
+  padding: 15vh max(calc((100vw - (450px + 50vw))/2), calc((100vw - (450px + 600px))/2));
+  justify-content: center;
+  align-content: center;
+  margin: 0px;
+}
+
 
 
 /* FOR OLD COMPUTERS */
