@@ -8,7 +8,7 @@ var buttons = (
     + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
     + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
     + "<div id=\"b7\" class=\"button\"><img src=\"img/icon_copy.svg\"> What has the WHO said?</div>"
-    + "<span class=\"subsubtitle\" style=\"display:none;\">copied to clipboard</span>"
+    + "<span class=\"subsubtitle\" style=\"display:none;\">Copied to clipboard</span>"
 );
 
 var buttonsLess = (
@@ -17,7 +17,7 @@ var buttonsLess = (
     + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
     + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
     + "<div id=\"b7\" class=\"button\"><img src=\"img/icon_copy.svg\"> What has the WHO said?</div>"
-    + "<span class=\"subsubtitle\" style=\"display:none;\">copied to clipboard</span>"
+    + "<span class=\"subsubtitle\" style=\"display:none;\">Copied to clipboard</span>"
 );
 
  
@@ -46,7 +46,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         state = "viewing_results";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted.");
-            $("#hebbiaDiv1 span").html("Hit <span class=\"shortcut\">" + enterKeyName + "</span> a few times to see the next results.");
+            $("#hebbiaDiv1 span").html("Hit <span class=\"shortcut\">" + enterKeyName + "</span> to jump through results.");
             state = "viewed_results";
         }, 500);
     }
@@ -54,7 +54,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         state = "viewing_next_result";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Hebbia can learn <em>live</em>");
-            $("#hebbiaDiv1 span").html("Hover over a highlight to give feedback that immediately adjusts your results.");
+            $("#hebbiaDiv1 span").html("<h2>Hover over a highlight to give feedback that immediately adjusts your results.</h2>");
             state = "viewed_next_result";
         }, 1000);
     }
@@ -73,7 +73,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         state = "done";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
-            $("#hebbiaDiv1 span").html("<br /> Here are some examples:" + buttonsLess + "<h3>Cool, you're good to go!</h3>Hebbia works with any website.");
+            $("#hebbiaDiv1 span").html("<br /> Here are some examples:" + buttonsLess + "<br> <h3>Cool, you're good to go!</h3>Hebbia works with any website.");
             addCopyListeners();
         }, 500);
     }
