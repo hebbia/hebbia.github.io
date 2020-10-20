@@ -1,5 +1,8 @@
 var state = "new";  // new -> extension_opened -> question_typed -> done
 
+
+ 
+
 window.addEventListener("HebbiaExtension", function(event) {
     if (event.detail.type === "popupOpen" && state === "new") {
         $("#hebbiaDiv1 h1").html("Let's try asking about symptoms on this long COVID article.");

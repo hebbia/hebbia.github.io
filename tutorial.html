@@ -14,9 +14,15 @@
         <script src="js/tutorial.js"></script>
 
         <link rel="shortcut icon" href="favicon_grey.ico" type="image/x-icon">
-
+        <script>
+            $(window).on('load', function() {
+                $("#cover").hide();
+            });
+        </script>
     </head>
     <body>
+        <div id="cover"></div>
+
         <div id="tutorialContent">
             <div id="hebbiaDiv1" class="hebbiaDiv">
                 <h1>Thanks for installing Hebbia!</h1>
