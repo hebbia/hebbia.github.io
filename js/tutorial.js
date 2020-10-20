@@ -39,10 +39,12 @@ window.addEventListener("HebbiaExtension", function(event) {
             $("#hebbiaDiv1 span").html(
                 "<br /> Here are some examples:"
                 + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
+                + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> How is it transmitted?</div>"
                 + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> Where did COVID originate?</div>"
                 + "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
                 + "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
                 + "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
+                + "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> What has the WHO said?</div>"
                 );
             addCopyListeners();
             state = "done";
