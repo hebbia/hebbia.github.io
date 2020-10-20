@@ -50,7 +50,7 @@ window.addEventListener("HebbiaExtension", function(event) {
                 + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
                 + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
                 + "<div id=\"b7\" class=\"button\"><img src=\"img/icon_copy.svg\"> What has the WHO said?</div>"
-                + "<span class=\"subsubtitle\">copy to clipboard</span>"
+                + "<span class=\"subsubtitle\" style=\"display:none;\">copied to clipboard</span>"
                 );
             addCopyListeners();
         }, 500);
@@ -69,8 +69,10 @@ function addCopyListeners() {
         $temp.remove();
         var selector = "#" + event.currentTarget.id + " img";
         $(selector).attr("src", "img/icon_done.svg");
+        $(".subsubtitle").show();
         setTimeout(function() {
             $(selector).attr("src", "img/icon_copy.svg");
+            $(".subsubtitle").hide();
         }, 1000);
     });
 }
