@@ -50,15 +50,17 @@ window.addEventListener("HebbiaExtension", function(event) {
             state = "viewed_results";
         }, 500);
     }
-    if (event.detail.type === "enter" && state === "viewed_results") {
-        state = "viewing_next_result";
-        setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Hebbia can learn <em>live</em>");
-            $("#hebbiaDiv1 span").html("<h2>Hover over a highlight to give feedback that immediately adjusts your results.</h2>");
-            state = "viewed_next_result";
-        }, 1000);
-    }
-    if (event.detail.type == "labelClicked" && state === "viewed_next_result") {
+    // if (event.detail.type === "enter" && state === "viewed_results") {
+    //     state = "viewing_next_result";
+    //     setTimeout(function() {
+    //         $("#hebbiaDiv1 h1").html("Hebbia can learn <em>live</em>");
+    //         $("#hebbiaDiv1 span").html("<h2>Hover over a highlight to give feedback that immediately adjusts your results.</h2>");
+    //         state = "viewed_next_result";
+    //     }, 1000);
+    // }
+    // if (event.detail.type == "labelClicked" && state === "viewed_next_result") {
+
+    if (event.detail.type === "enter" && state === "viewed_results") { //TODO DELETE THIS LINE AND UNCOMMENT THE ABOVE
         state = "freeform_questions";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
