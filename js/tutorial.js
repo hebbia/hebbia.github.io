@@ -1,14 +1,12 @@
-var state = "new";  // new -> extension_opened -> question_typed -> viewing_results -> done
+var state = "new";  // new -> extension_opened -> question_typed -> viewing_results -> viewing_next_result -> viewed_results -> viewed_next_result -> done
+var enterKeyName = getOS() === "Mac" ? "return" : "enter";
 
 window.addEventListener("HebbiaExtension", function(event) {
-    console.log("received!", event);
     if (event.detail.type === "popupOpen" && state === "new") {
         state = "extension_opened";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Let's try asking about symptoms on this long COVID article.");
-            $("#hebbiaDiv1 span").html(
-                ""
-            );
+            $("#hebbiaDiv1 span").html("");
 
             $("#wikiContent").animate({opacity: "100%"}, 3000);
             setTimeout(function() {
@@ -17,7 +15,7 @@ window.addEventListener("HebbiaExtension", function(event) {
 
             setTimeout(function() {
                 $("#hebbiaDiv1 span").html(
-                    "Hit <span class=\"shortcut\">return</span> to search."
+                    "Hit <span class=\"shortcut\">" + enterKeyName + "</span> to search."
                 );
                 state = "question_typed";
             }, 5500);
@@ -26,14 +24,20 @@ window.addEventListener("HebbiaExtension", function(event) {
     if (event.detail.type === "enter" && state === "question_typed") {
         state = "viewing_results";
         setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted. Enter your way through them.");
-            $("#hebbiaDiv1 span").html(
-                "Click matches to rank them and update results."
-                + "<br /> Double click them to immediately see similar sentences. </div>"
-            );
+            $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted.");
+            $("#hebbiaDiv1 span").html("Hit <span class=\"shortcut\">" + enterKeyName + "</span> to see the next result.");
+            state = "viewed_results";
         }, 500);
     }
-    if ((event.detail.type === "enter" || event.detail.type === "labelClicked") && state === "viewing_results") {
+    if (event.detail.type === "enter" && state === "viewed_results") {
+        state = "viewing_next_result";
+        setTimeout(function() {
+            $("#hebbiaDiv1 h1").html("Click on a highlight and mark it to adjust your results.");
+            $("#hebbiaDiv1 span").html("");
+            state = "viewed_next_result";
+        }, 500);
+    }
+    if (event.detail.type == "labelClicked" && state === "viewed_next_result") {
         state = "done";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Ask Hebbia anything.");
