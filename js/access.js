@@ -2,7 +2,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJA
 const form = document.forms['submit-to-google-sheet'];
 
 
-const promoCodeBaseURL = 'http://0.0.0.0:5000/promo_code_check/?promo_code=';
+const promoCodeBaseURL = 'http://api2.hebbia.ai/promo_code_check/?promo_code=';
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -17,15 +17,24 @@ form.addEventListener('submit', e => {
   fetch(promoCodeURL, { method: 'GET'})
 
     .then(response => {
-      console.log('Correct code!');
-      console.log(response);
-      window.location.href = response.data;
+      if(response.ok){
+        response.text().then(function (text) {
+          console.log('Correct code')
+          let url = text.substr(1, (text.length - 3));
+          // Redirect to download page: 
+          window.location.href = url;
+        });
+
+      } else {
+        console.log('Wrong code');
+      }
+
+
     })
 
     .catch(error => console.error('Error!', error.message));
 
   form.reset()
-
   document.getElementById("thanks").style.display = "block";
 
 })
