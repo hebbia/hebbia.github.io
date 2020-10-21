@@ -177,11 +177,11 @@
 }
 
 .shortcut {
-    background: #eee;
-    border: 2px solid #696969;
+    background: rgba(198, 203, 222, 0.269);
+    border: 2px solid rgb(103, 106, 120);
 
     display: inline-block;
-    color: #696969;
+    color: rgb(103, 106, 120);
     padding: 11px 17px 2px 17px;
     box-shadow: 2px 2px 0 1px rgb(198, 203, 222);
     margin: 25px 4px 4px 0px;
