@@ -40,7 +40,7 @@
 
 			<form name="submit-to-google-sheet" action="#">
 
-				<input class="emails" name="keycode" type="text" placeholder="Access Code" required>
+				<input id="access-code" class="emails" name="keycode" type="text" placeholder="Access Code" required>
 				<br> 
 
 				<input class="emails" name="email" type="email" placeholder="Your Email" required>
@@ -56,7 +56,7 @@
 			</form>
 
 
-			<span id="thanks"> </span>
+			<span id="thanks">  </span>
 
 		</section>
 	
@@ -64,24 +64,11 @@
 
 	</div>
 
-		<script>
-		const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJAmhcbt46gCf_zr0MZtuZKNTLHkcFhQ/exec'
-		const form = document.forms['submit-to-google-sheet']
-
-		form.addEventListener('submit', e => {
-			e.preventDefault()
-			fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-				.then(response => console.log('Success!', response))
-				.catch(error => console.error('Error!', error.message))
-			form.reset()
-			document.getElementById("thanks").style.display = "block";
-		})
-
-	</script>
 
 
 
-	<script src="access.js"></script>
+
+	<script src="js/access.js"></script>
 
 	</body>
 </html>
