@@ -381,9 +381,10 @@ h1{
   padding-bottom: 5px;
   padding-left: 3px;
 
+  font-family: 'Inter';
   padding: 5px 25px;
   padding-right: 35px;
-
+  font-weight: 300;
   margin-top:50px;
   font-size:25px;
   outline-width: 0;

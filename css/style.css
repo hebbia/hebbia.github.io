@@ -347,11 +347,12 @@ body * {
     top: 0;
 }
 
+
+
 @keyframes glowing {
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
-
 }
 
 
@@ -394,7 +395,6 @@ body * {
 
   padding: 5px 25px;
   padding-right: 35px;
-
   margin-top:50px;
   font-size:25px;
   outline-width: 0;

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Replace this with your extension's title. -->
+		<title>Hebbia | Extension Access</title>
+		<link rel="stylesheet" type="text/css" href="css/access.css" />
+		<link href="https://fonts.googleapis.com/css?family=Khula:100,200,300,400" rel="stylesheet">
+
+	</head>
+	<body>
+
+
+		<div id="container">
+		<header>
+
+			<!-- Replace this with your extension's title. -->
+		</header>
+		<!-- Replace everything below this point with your extension's options. -->
+
+
+			<div class="title_wrapper"> 
+				<a id="logo" href="http://hebbia.ai/" > </a>
+
+				<div class="logo" id="title_right"> <h1> | ACCESS</h1> </div>
+			</div>
+
+
+			<p class="subtitle"> 
+				<!--Welcome to Hebbia, AI-powered in-page search.-->
+				<br />
+				<h3 class="styled">  AI research superpowers await.  </h3>
+			</p>
+					
+			<hr>
+
+
+		<!-- <section style="width: 50%; float: left"> -->
+		<section>
+			
+
+			<form name="submit-to-google-sheet" action="#">
+
+				<input class="emails" name="keycode" type="text" placeholder="Access Code" required>
+				<br> 
+
+				<input class="emails" name="email" type="email" placeholder="Your Email" required>
+				<br>
+
+				<button class="glow-on-hover" type="submit">  
+
+					<span>Submit
+					</span>
+
+				</button>
+
+			</form>
+
+
+			<span id="thanks"> </span>
+
+		</section>
+	
+
+
+	</div>
+
+		<script>
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJAmhcbt46gCf_zr0MZtuZKNTLHkcFhQ/exec'
+		const form = document.forms['submit-to-google-sheet']
+
+		form.addEventListener('submit', e => {
+			e.preventDefault()
+			fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+				.then(response => console.log('Success!', response))
+				.catch(error => console.error('Error!', error.message))
+			form.reset()
+			document.getElementById("thanks").style.display = "block";
+		})
+
+	</script>
+
+
+
+	<script src="access.js"></script>
+
+	</body>
+</html>
