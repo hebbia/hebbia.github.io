@@ -1128,8 +1128,8 @@ body {
 
   body{
     background-repeat: no-repeat;
-    background-position: 0px 200px ;
-    background-image: url(../img/smallbackblue2.png);
+    background-position: 100px -330px;
+    background-image: url(../img/smallbackbluemob.png);
     -webkit-background-size: 100% auto;
     -moz-background-size:100% auto;
     -o-background-size: 100% auto;
