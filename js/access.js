@@ -2,7 +2,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJA
 const form = document.forms['submit-to-google-sheet'];
 
 
-const promoCodeBaseURL = 'http://api2.hebbia.ai/promo_code_check/?promo_code=';
+const promoCodeBaseURL = 'https://api2.hebbia.ai/promo_code_check/?promo_code=';
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -27,14 +27,13 @@ form.addEventListener('submit', e => {
 
       } else {
         console.log('Wrong code');
+        document.getElementById("thanks").innerText = "Incorrect Access Key";
       }
-
 
     })
 
     .catch(error => console.error('Error!', error.message));
 
   form.reset()
-  document.getElementById("thanks").style.display = "block";
 
 })
