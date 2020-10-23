@@ -6,6 +6,38 @@
 		<link rel="stylesheet" type="text/css" href="css/access.css" />
 		<link href="https://fonts.googleapis.com/css?family=Khula:100,200,300,400" rel="stylesheet">
 
+		<style>
+		.right{
+			width: 500px;
+			position: relative;
+			display: inline-block;
+			margin-left: 50px;
+		}
+
+
+		section{
+			display: inline-flex;
+
+		}
+
+		#iframe{
+			display: none;
+			top: -77px;
+			left: -80px;
+		}
+
+
+		#outerdiv{
+			width:420px;
+			margin-left:50px;
+			overflow:hidden;
+			position:relative;
+		}
+
+
+
+
+		</style>
 	</head>
 	<body>
 
@@ -52,16 +84,26 @@
 					</span>
 
 				</button>
+				<button class="get-code" type="showsurvey" onclick="showSurvey()">  
 
+					<span>Get Code
+					</span>
+
+				</button>
+				<br><br><br>
+				<span id="thanks"> </span>
 			</form>
-
+			<div id='outerdiv'>
+			<iframe class="right" id="iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfWacp6Xr1ghqqptzCP7X3XemgUmdYEqvGcDMlZjdPIF6cdxg/viewform?embedded=true" width="550" height="1517" frameborder="0" marginheight="-77" marginwidth="0">Loading…</iframe>	
+			</div> <!--old height 1331-->
 			<br > 
 			<br > 
-			<span id="thanks">  </span>
 
 		</section>
-	
+		<section>
+			
 
+		</section>
 
 	</div>
 

@@ -14,26 +14,37 @@ form.addEventListener('submit', e => {
   let promoCodeURL = promoCodeBaseURL + promoEntered;
 
 
-  fetch(promoCodeURL, { method: 'GET'})
+  if(promoEntered !== null){
+    fetch(promoCodeURL, { method: 'GET'})
 
-    .then(response => {
-      if(response.ok){
-        response.text().then(function (text) {
-          console.log('Correct code')
-          let url = text.substr(1, (text.length - 3));
-          // Redirect to download page: 
-          window.location.href = url;
-        });
+      .then(response => {
+        if(response.ok){
+          response.text().then(function (text) {
+            console.log('Correct code')
+            let url = text.substr(1, (text.length - 3));
+            // Redirect to download page: 
+            window.location.href = url;
+          });
 
-      } else {
-        console.log('Wrong code');
-        document.getElementById("thanks").innerText = "Incorrect Access Key";
-      }
+        } else {
+          console.log('Wrong code');
+          document.getElementById("thanks").innerText = "Incorrect Access Key";
+        }
 
-    })
+      })
 
-    .catch(error => console.error('Error!', error.message));
+      .catch(error => console.error('Error!', error.message));
+  }
+  
 
   form.reset()
 
 })
+
+function showSurvey() {
+  document.getElementById("thanks").innerText = "";
+  document.getElementById("iframe").style.display = "inline-block";
+  document.getElementById("container").style.height = "auto";
+  /*document.getElementById("outerdiv").style.height = "1170px";*/
+
+}
