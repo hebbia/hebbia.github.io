@@ -24,6 +24,8 @@ body {
 }
 
 
+
+
 header {
 	background-image: url('../img/logoback2.png');
 	background-size: 100%;
@@ -332,6 +334,25 @@ h3{
 
 section h3 {
 	margin-left: -18px;
+}
+
+
+
+@media(max-width:1000px) {
+
+  body{
+    background-color: white;
+  }
+
+  iframe{
+    display:none !important;
+  }
+
+  .get-code{
+    display:none;
+  }
+
+
 }
 
 
