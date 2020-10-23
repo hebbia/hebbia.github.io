@@ -2,11 +2,13 @@ function macNCheese(selector, data, form) {
     
     const graph = getGraph(data);
 
-    const color = d3.scaleOrdinal(graph.nodes.map(d => d.group).sort(d3.ascending), d3.schemeCategory10);
+    const color = d3.scaleOrdinal(graph.nodes.map(d => d.group).sort(d3.ascending), ["#00D1FF", "#00A0FF", "#00E0FF", "#00F3FF", "#00FFFF", "#00FEFF","#1734FF","#00C4FF","#0EA8FF"]);
 
-    const step = 20;
+    const step = 25;
 
-    const margin = ({top: 20, right: 20, bottom: 20, left: 500});
+    const width = window.screen.width;
+
+    const margin = ({top: 20, right: 20, bottom: 20, left: width*0.05 + 640});
 
     const height = (data.nodes.length - 1) * step + margin.top + margin.bottom;
 
@@ -21,38 +23,71 @@ function macNCheese(selector, data, form) {
 
     const svg = d3.select(selector)
         .append("svg")
-        .attr("width", "100%")
+        .attr("width", width*2)
         .attr("height", height);
     
     svg.append("style").text(`
     
     .hover path {
-    stroke: #ccc;
+        stroke: #ccc;
     }
     
     .hover text {
-    fill: #ccc;
+        fill: #ccc;
+      
+        transition-property: fill;
+        transition-duration: 100ms;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
     }
     
     .hover g.primary text {
-    fill: black;
-    font-weight: bold;
+        fill: black;
+        font-weight: bold;
     }
     
     .hover g.secondary text {
-    fill: #333;
+        fill: #333;
     }
     
     .hover path.primary {
-    stroke: #333;
-    stroke-opacity: 1;
+        stroke: #333;
+        stroke-opacity: 1;
     }
     
+
+    g.secondaryClicked text{
+        fill: black !important;
+        font-weight: bold !important;
+  
+
+    }
+  
+    .clicked g.primaryClicked text {
+        fill: black !important;
+        font-weight: bold !important;
+        font-size: 15px !important;
+        transition-property: font-size;
+        transition-duration: 150ms;
+        transition-timing-function: ease-in-out;
+        transition-delay: 0s;
+        /*text-shadow: rgba(94, 215, 255) 0px 0px 15px;*/
+    }
+  
+  
+    .clicked path.primaryClicked {
+        stroke: black !important;
+        stroke-opacity: 1 !important;
+  
+    }
+  
+
+
     `);
     
     const label = svg.append("g")
         .attr("font-family", "sans-serif")
-        .attr("font-size", 14)
+        .attr("font-size", 12.5)
         .attr("text-anchor", "start")
         .selectAll("g")
         .data(graph.nodes)
@@ -61,22 +96,24 @@ function macNCheese(selector, data, form) {
         .call(g => g.append("text")
             .attr("x", 10)
             .attr("dy", "0.35em")
-            .attr("fill", d => d3.lab(color(d.group)).darker(2))
+            .attr("overflow", "scroll")
+            .attr("fill", d => d3.lab(color(d.group)).darker(1))
             .text(d => d.id))
         .call(g => g.append("circle")
             //.attr("r", d => d.sourceLinks.length)
-            .attr("r", 2.5)
+            .attr("r", 2)
             .attr("fill", d => color(d.group)));
             //.style("opacity", 0.1);
     
     const path = svg.insert("g", "*")
         .attr("fill", "none")
-        .attr("stroke-opacity", 0.2)
-        .attr("stroke-width", 4)
+        .attr("stroke-opacity", 0.3)
+        // .attr("stroke-width", 4)
         .selectAll("path")
         .data(graph.links)
         .join("path")
         .attr("stroke", d => d.source.group === d.target.group ? color(d.source.group) : "#aaa")
+        .attr("stroke-width", d => (d.value-0.65)*35 + 1)
         .attr("d", arc);
     
     const overlay = svg.append("g")
@@ -98,16 +135,16 @@ function macNCheese(selector, data, form) {
         })
         .on("mouseout", d => {
             svg.classed("hover", false);
-            label.classed("primary", false);
-            label.classed("secondary", false);
-            path.classed("primary", false).order();
+            // label.classed("primary", false);
+            // label.classed("secondary", false);
+            // path.classed("primary", false).order();
         })
         .on("click", d => {
             d = d.target.__data__;
-            svg.classed("hover", true);
-            label.classed("primary", n => n === d);
-            label.classed("secondary", n => n.sourceLinks.some(l => l.target === d) || n.targetLinks.some(l => l.source === d));
-            path.classed("primary", l => l.source === d || l.target === d).filter(".primary").raise();
+            svg.classed("clicked", true);
+            label.classed("primaryClicked", n => n === d);
+            label.classed("secondaryClicked", n => n.sourceLinks.some(l => l.target === d) || n.targetLinks.some(l => l.source === d));
+            path.classed("primaryClicked", l => l.source === d || l.target === d).filter(".primary").raise();
         });
     
     function update() {
@@ -192,7 +229,7 @@ function getGraph(data) {
     const links = data.links.map(({source, target, value}) => ({
         source: nodeById.get(source),
         target: nodeById.get(target),
-        value
+        value: value
     }));
   
     for (const link of links) {
