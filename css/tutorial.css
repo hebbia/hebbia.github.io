@@ -68,9 +68,10 @@
     line-height: 1.5em;
 }
 #tutorialContent h3 {
-    font-size: 1.2em;
+    font-size: 1.31em;
     margin-bottom: 0.8em;
     color: black;
+    font-weight: 600;
 }
 
 #tutorialContent h2 {
