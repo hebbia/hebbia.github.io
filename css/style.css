@@ -93,7 +93,7 @@
     background-color: rgba(0,0,0,0);
     border-color: rgba(0,0,0,0.3) ;
 	  font-size: 17px !important;
-    font-family: 'Inter', 'sans-serif';
+    font-family: 'Inter', sans-serif;
     font-weight: 300 !important;
 }
 
@@ -101,7 +101,7 @@
   
 .name{
     font-weight: 400;
-    font-family: 'Jost', 'Futura','Khula', 'sans-serif';
+    font-family: 'Jost', 'Futura','Khula', sans-serif;
 }
 
 
@@ -207,8 +207,8 @@
 
 
 h1 {
-  font-family: 'IBM Plex Mono', 'sans-serif';
-  font-family: 'Jost', 'Futura', 'Khula', 'sans-serif';
+  font-family: 'IBM Plex Mono', sans-serif;
+  font-family: 'Jost', 'Futura', 'Khula', sans-serif;
   font-weight: 400;
   line-height: 105%;;
   letter-spacing: 0px;
@@ -226,7 +226,7 @@ h1 {
  }
 
  h2 {
-  font-family: 'Jost','Futura', 'Khula', 'sans-serif';
+  font-family: 'Jost','Futura', 'Khula', sans-serif;
   font-weight: 100;
   letter-spacing: 0px;
   font-size: 40px;
@@ -238,7 +238,7 @@ h1 {
  }
 
  h3 {
-  font-family: 'Jost', 'Futura', 'Khula', 'sans-serif';
+  font-family: 'Jost', 'Futura', 'Khula', sans-serif;
   font-weight: 100;
   color: #777;
   letter-spacing: 0px;
@@ -250,7 +250,7 @@ h1 {
  }
 
  h4 {
-  font-family: 'Jost', 'Futura', 'Khula', 'sans-serif';
+  font-family: 'Jost', 'Futura', 'Khula', sans-serif;
   font-weight: 100;
   color: #555;
   letter-spacing: 0px;
@@ -265,8 +265,7 @@ h1 {
 
 
  .subtitle{
-    font-family: 'Khula', 'sans-serif';
-    font-family: 'Inter' !important; 
+    font-family: 'Inter', sans-serif !important; 
     font-size: 21px;
     line-height: 33px !important;
     font-weight: 300;
@@ -335,7 +334,7 @@ body * {
     border: none;
     outline: none;
     color: black;
-    font-family: 'Khula', 'sans-serif';
+    font-family: 'Khula', sans-serif;
     background-color: rgba(117, 206, 250);
     cursor: pointer;
     position: relative;
@@ -477,7 +476,7 @@ input.middle:focus {
   color:#69696990;
   font-weight: bolder;
     font-size:25px;
-  font-family: 'Khula',  'sans-serif';
+  font-family: 'Khula',  sans-serif;
 
   
 }
@@ -526,7 +525,7 @@ header {
   position: relative;
   height:94vh;
   color: black;
-  font-family: 'Khula',  'sans-serif';
+  font-family: 'Khula',  sans-serif;
   
 
 }
@@ -591,7 +590,7 @@ header {
   background-image: linear-gradient(rgba(255,255,255, 0.5), rgba(255,255,255, 1));
   color: black !important;
   padding-top: 20vh;
-  font-family: 'Khula',  'sans-serif';
+  font-family: 'Khula',  sans-serif;
 
 }
 
@@ -866,7 +865,7 @@ header {
   position:relative;
   z-index: 2;
   scroll-behavior: smooth;
-  font-family: 'Khula',  'sans-serif';
+  font-family: 'Khula',  sans-serif;
 
 
 
@@ -896,7 +895,7 @@ b{
 
 
  .threestep{
-    font-family: 'Khula',  'sans-serif';
+    font-family: 'Khula',  sans-serif;
 
     font-size:30px;
     font-weight: 200;
@@ -980,6 +979,7 @@ footer{
 #demo{
   box-shadow: 0 0 14px 1px rgba(121, 121, 121, 0.4);
   border-radius: 5px;
+  opacity:0;
 
 }
 
@@ -1215,7 +1215,7 @@ body {
     position: relative;
     height:100vh;
     color: black;
-    font-family: 'Khula',  'sans-serif';
+    font-family: 'Khula',  sans-serif;
   }
 
   h1{
@@ -1232,7 +1232,7 @@ body {
   }
 
   .threestep{
-    font-family: 'Khula',  'sans-serif';
+    font-family: 'Khula',  sans-serif;
     font-size:20px;
     font-weight: 200;
     margin-top:100px;
