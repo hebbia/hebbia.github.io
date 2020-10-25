@@ -798,14 +798,14 @@ header {
 }
 
 #john{
-  background-image: url('../img/john.png');
+  background-image: url('../img/john.jpg');
   background-repeat: no-repeat;
   background-size: 40px 40px;
 
 }
 
 #cory{
-  background-image: url('../img/cory.png');
+  background-image: url('../img/cory.jpg');
   background-repeat: no-repeat;
   background-size: 40px 40px;
 
@@ -934,7 +934,7 @@ footer{
 
 
 body {
-  background: url(../img/smallbackblue.png);
+  background: url(../img/smallbackblue.jpg);
   background-attachment: fixed;
   -webkit-background-size: 100% auto;
   -moz-background-size:100% auto;
@@ -1139,7 +1139,7 @@ body {
   body{
     background-repeat: no-repeat;
     background-position: 100px -330px;
-    background-image: url(../img/smallbackbluemob.png);
+    background-image: url(../img/smallbackbluemob.jpg);
     -webkit-background-size: 100% auto;
     -moz-background-size:100% auto;
     -o-background-size: 100% auto;
