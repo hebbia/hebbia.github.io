@@ -21,6 +21,11 @@
     pointer-events: none;
 }
 
+
+.underline{
+    background: linear-gradient(to top, rgba(198,203,222,.3) 50%, transparent 50%);
+}
+
 #wikiContent h1{
     font-family: 'Inter' !important;
 
@@ -80,6 +85,12 @@
     font-weight: 300;
     margin-bottom: 0.8em;
     color: black;
+}
+
+.feedbackSubtitle h2 {
+    margin-bottom: 0.8em;    
+    font-size: 1.21em;
+
 }
 
 #tutorialContent p {

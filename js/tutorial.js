@@ -3,7 +3,6 @@ var enterKeyName = getOS() === "Mac" ? "return" : "enter";
 var buttons = (
     "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
     + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> How is it transmitted?</div>"
-    + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> Where did COVID originate?</div>"
     + "<div id=\"b4\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
     + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
     + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
@@ -54,7 +53,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         state = "viewing_next_result";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Hebbia can learn <em>live</em>");
-            $("#hebbiaDiv1 span").html("<h2>Hover over a highlight to give feedback that immediately adjusts your results.</h2>");
+            $("#hebbiaDiv1 span").html("<br /> <h2>Double click a highlight to show you similar sentences.</h2>");
             state = "viewed_next_result";
         }, 1000);
     }
@@ -67,7 +66,7 @@ window.addEventListener("HebbiaExtension", function(event) {
             $("#hebbiaDiv1 span").html("");
         }, 500);
         setTimeout(function() {
-            $("#hebbiaDiv1 span").html("<br /> Here are some examples:" + buttons);
+            $("#hebbiaDiv1 span").html("<br /> Click to copy some example questions:" + buttons);
             addCopyListeners();
         }, 1500);
     }
@@ -75,7 +74,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         state = "done";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
-            $("#hebbiaDiv1 span").html("<br /> Here are some examples:" + buttonsLess + "<br> <h3>Cool, you're good to go!</h3>Hebbia works with any website.");
+            $("#hebbiaDiv1 span").html("<br /> Click to copy some example questions:" + buttonsLess + "<br> <h1>You're good to go!</h1> <h2> Hebbia works with any website. </h2>");
             addCopyListeners();
         }, 500);
     }
