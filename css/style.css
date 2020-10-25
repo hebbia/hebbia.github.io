@@ -68,12 +68,17 @@
   font-size: 20px;
   color: #5ee4fe;
   color: rgba(117, 206, 250);
+  color: rgba(121, 121, 121, 0.47);
+
   font-weight: 800;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
   border: 1px solid rgba(117, 206, 250);
+  border: none;
   border-radius: 20px;
   box-shadow: 0px 0px 10px 0px #5ee4fe;
+  box-shadow: 0 0 14px 1px rgba(121, 121, 121, 0.4);
+
   padding: 5px 20px;
   font-size: 25px;
 
@@ -403,8 +408,11 @@ body * {
   /*border-bottom: 2px black solid;*/
   border-radius: 20px;
   box-shadow:  0px 0px 10px 0px #5ee4fe;
+  box-shadow: 0 0 14px 1px rgba(121, 121, 121, 0.4);
+
   /*background-color: rgba(150,150,150, .6);*/
   border: 1px solid rgba(117, 206, 250);
+  border:none;
   margin-right: 5px;
 
 
@@ -775,7 +783,7 @@ header {
 
 .photo_reference{
   height: 40px;
-  width: 40px;
+  width: 40px !important;
   border-radius: 50%;
   box-shadow: 0 0 30px 1px rgba(121, 121, 121, 0.4);
   background:white;
@@ -784,20 +792,22 @@ header {
 }
 
 .name_reference{
-  width: auto;
-  margin: auto 17px;
+  width: 80%;
+  margin: auto 10px;
   color: #777;
 }
 
 #john{
   background-image: url('../img/john.png');
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
 
 }
 
 #cory{
   background-image: url('../img/cory.png');
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
 
 }
 
@@ -917,7 +927,7 @@ footer{
 
 
 #demo{
-  box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 14px 1px rgba(121, 121, 121, 0.4);
   border-radius: 5px;
 
 }
