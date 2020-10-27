@@ -51,10 +51,10 @@ output{
 
 
 .get-code{
-    width: 152px; 
+    width: 157px; 
     height: 45px;
     letter-spacing: 0px !important;
-    padding: 10px 30px;
+    padding: 10px 10px;
     padding-top: 12px;
     margin-top:50px;
     margin-right:17px;
@@ -82,7 +82,7 @@ output{
     padding: 10px 30px;
     padding-top: 12px;
     margin-top:50px;
-    margin-right:17px;
+    margin-right:14px;
     margin-left:1px;
     border: none;
     outline: none;
@@ -237,14 +237,14 @@ input.middle:focus {
 }
 
 .title_wrapper{
-	width: 382px;
+	width: 582px;
 	height: 100px;
 	display: flex;
 }
 
 
 #title_right{
-	width: 191px;
+	width: 391px;
 	height: 70px;
 	margin: 40px 10px 0px 10px;
 	display:block;

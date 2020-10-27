@@ -20,7 +20,7 @@ if (!DEBUGGING) {
 
 var state = "new";  // new -> extension_opened -> question_typed -> viewing_results -> viewing_next_result -> viewed_results -> viewed_next_result -> freeform_questions -> done
 var enterKeyName = getOS() === "Mac" ? "return" : "enter";
-var commandKeyName = getOS() === "Mac" ? "\u2318" : "Alt";
+var commandKeyName = getOS() === "Mac" ? "\u2318" : "Alt"; //What went wrong? //political impacts
 var buttons = (
     "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
     + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
