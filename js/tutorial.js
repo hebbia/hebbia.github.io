@@ -87,7 +87,7 @@ window.addEventListener("HebbiaExtension", function(event) {
             $("#hebbiaDiv1 span").html("");
         }, 600);
         setTimeout(function() {
-            $("#hebbiaDiv1 span").html("<br /> Click to copy an example question:" + buttons + "<br /> and start a search with "+commandKeyName+" + H");
+            $("#hebbiaDiv1 span").html("<br /> Click to copy an example question:" + buttons + "<br /> ...and start a search with "+commandKeyName+" + H");
             addCopyListeners();
         }, 1600);
     }
