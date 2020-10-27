@@ -1,9 +1,10 @@
 var state = "new";  // new -> extension_opened -> question_typed -> viewing_results -> viewing_next_result -> viewed_results -> viewed_next_result -> freeform_questions -> done
 var enterKeyName = getOS() === "Mac" ? "return" : "enter";
+var commandKeyName = getOS() === "Mac" ? "\u2318" : "Alt";
 var buttons = (
     "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
     + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
-    + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
+    + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> How is it transmitted? </div>"
     + "<div id=\"b4\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
     + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
     + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
@@ -12,10 +13,10 @@ var buttons = (
 
 var buttonsLess = (
     "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
-    +"<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> How is it transmitted?</div>"
-    + "<div id=\"b4\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
-    + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
-    + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
+    +"<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
+    + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
+    + "<div id=\"b4\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
+    + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
     + "<span class=\"subsubtitle\" style=\"display:none;\">Copied to clipboard</span>"
 );
 
@@ -45,7 +46,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         state = "viewing_results";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted.");
-            $("#hebbiaDiv1 span").html("Hit <span class=\"shortcut\">" + enterKeyName + "</span> to jump through results.");
+            $("#hebbiaDiv1 span").html("<span class=\"shortcut\">" + enterKeyName + "</span> to jump through results.");
             state = "viewed_results";
         }, 500);
     }
@@ -66,7 +67,7 @@ window.addEventListener("HebbiaExtension", function(event) {
             $("#hebbiaDiv1 span").html("");
         }, 600);
         setTimeout(function() {
-            $("#hebbiaDiv1 span").html("<br /> Click to copy some example questions:" + buttons);
+            $("#hebbiaDiv1 span").html("<br /> Click to copy an example question:" + buttons + "<br /> and start a search with "+commandKeyName+" + H");
             addCopyListeners();
         }, 1600);
     }
