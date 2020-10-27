@@ -3,19 +3,19 @@ var enterKeyName = getOS() === "Mac" ? "return" : "enter";
 var buttons = (
     "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
     + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
+    + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
     + "<div id=\"b4\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
     + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
     + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
-    + "<div id=\"b7\" class=\"button\"><img src=\"img/icon_copy.svg\"> What has the WHO said?</div>"
     + "<span class=\"subsubtitle\" style=\"display:none;\">Copied to clipboard</span>"
 );
 
 var buttonsLess = (
-    "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> How is it transmitted?</div>"
+    "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
+    +"<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> How is it transmitted?</div>"
     + "<div id=\"b4\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
     + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
     + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
-    + "<div id=\"b7\" class=\"button\"><img src=\"img/icon_copy.svg\"> What has the WHO said?</div>"
     + "<span class=\"subsubtitle\" style=\"display:none;\">Copied to clipboard</span>"
 );
 
@@ -64,11 +64,11 @@ window.addEventListener("HebbiaExtension", function(event) {
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
             $("#hebbiaDiv1 span").html("");
-        }, 500);
+        }, 600);
         setTimeout(function() {
             $("#hebbiaDiv1 span").html("<br /> Click to copy some example questions:" + buttons);
             addCopyListeners();
-        }, 1500);
+        }, 1600);
     }
     if (event.detail.type == "enter" && state == "freeform_questions") {
         state = "done";

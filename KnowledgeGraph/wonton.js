@@ -176,14 +176,59 @@ function macNCheese(selector, data, form) {
     d3.select("#addTopic")
         .on("keypress", function(event) {
         if(event.keyPress === 13 || event.keyCode === 13){
-            //console.log("Congrats, you pressed enter!");
+            console.log("Congrats, you pressed enter!");
             //alert(this.value);
-            sentenceAdd(this.value);
+            console.log(this.value);
+
+            newEmbeddings([this.value]);
+            // sentenceAdd(newEmbeddings);
+
         }
     });
 
+
+
+
+
+    function newEmbeddings(sentenceArray){
+
+        let sentEmbeddingDict = {};
+
+        const chunkJSON = JSON.stringify(Object.assign({}, sentenceArray));
+        const sendingJSON = JSON.stringify({chunk: chunkJSON});
+        const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+        fetch(proxyurl + 'http://api.hebbia.ai/chunk_embeddings/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'api.hebbia.ai/*'
+            },
+            body: sendingJSON
+        }).then(response => response.json()).then(response => sentencesAdd(response));
+
+    }
+
+
+
     //Add new sentence as a node, and call to check if other sentences that exist are links to your OG sentence 
-    function sentenceAdd(sentence){
+    function sentencesAdd(sentenceEmbeddingDict){
+
+        for (let sentence of Object.keys(sentEmbeddingDict)) {
+            sentenceAdd(sentence, sentEmbeddingDict[sentence].split(", ").map(Number));
+
+        }
+
+    }
+    
+
+
+
+    //Add new sentence as a node, and call to check if other sentences that exist are links to your OG sentence 
+    function sentenceAdd(sentence, embeddingArray){
+        
+        console.log("NEW SENTENCE ADD");
+        console.log(sentence, embeddingArray);
+
         let newSentenceNode = {'id':sentence, 'sourceLinks': [], 'targetLinks': [], 'group': 99, 'y': 0}
         let n = graph.nodes.push(newSentenceNode);      
 
@@ -215,6 +260,7 @@ function macNCheese(selector, data, form) {
     
     return svg.node();
 }
+
 
 function getGraph(data) {
     const nodes = data.nodes.map(({id, group}) => ({
