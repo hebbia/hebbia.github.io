@@ -25,6 +25,7 @@
   
 }
 
+
 .loader_cover:before {
   position: absolute;
   content: '';
@@ -343,6 +344,15 @@ body * {
     font-size: 16px;
 }
 
+
+
+
+#mobilebutton{
+  display: none;
+  padding: 10px 10px;
+  padding-top: 12px;
+  width: 201px;
+}
 
 
 .glow-on-hover:before {
@@ -1070,7 +1080,7 @@ body {
     margin-right:0px;
     width: 330px;
     align-items: left;
-    margin-bottom: 7vh;
+    margin-bottom: 5.7vh;
 
   }
 
@@ -1219,7 +1229,7 @@ body {
   }
 
   h1{
-    font-size: 50px !important;
+    font-size: 42px !important;
     margin-right:10px;
   }
 
@@ -1247,6 +1257,10 @@ body {
 
   #CTA{
     display:none;
+  }
+
+  #mobilebutton{
+    display: block;
   }
 
   #logomobile{
