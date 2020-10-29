@@ -44,6 +44,7 @@ var buttonsLess = (
 
 window.addEventListener("HebbiaExtension", function(event) {
     if (event.detail.type === "popupOpen" && state === "new") {
+        ga('send', 'event', 'tutorial', '1) started');
         state = "extension_opened";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Let's try asking about the virus's origins on this long COVID article.");
@@ -63,6 +64,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         }, 500);
     }
     if (event.detail.type === "enter" && state === "question_typed") {
+        ga('send', 'event', 'tutorial', '2) firstQuery');
         state = "viewing_results";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted.");
@@ -71,6 +73,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         }, 500);
     }
     if (event.detail.type === "enter" && state === "viewed_results") {
+        ga('send', 'event', 'tutorial', '3) resultsViewed');
         state = "viewing_next_result";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Hebbia can learn <em>live</em>");
@@ -79,8 +82,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         }, 1000);
     }
     if (event.detail.type == "labelClicked" && state === "viewed_next_result") {
-
-    // if (event.detail.type === "enter" && state === "viewed_results") { //TODO DELETE THIS LINE AND UNCOMMENT THE ABOVE
+        ga('send', 'event', 'tutorial', '4) highlightDoubleClicked');
         state = "freeform_questions";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
@@ -92,6 +94,7 @@ window.addEventListener("HebbiaExtension", function(event) {
         }, 1600);
     }
     if (event.detail.type == "enter" && state == "freeform_questions") {
+        ga('send', 'event', 'tutorial', '5) additionalQueries');
         state = "done";
         setTimeout(function() {
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
@@ -104,7 +107,7 @@ window.addEventListener("HebbiaExtension", function(event) {
 
 function addCopyListeners() {
     $(".button").click(function(event) {
-        console.log(event);
+        ga('send', 'event', 'tutorial', 'contentCopied', event.currentTarget.innerText.substr(1));
         $("#copyHelper").val(event.currentTarget.innerText).focus().select();
         var $temp = $("<input>");
         $("body").append($temp);
@@ -154,6 +157,7 @@ function getOS() {
     } else if (!os && /Linux/.test(platform)) {
         os = 'Linux';
     }
+    ga('send', 'event', 'tutorial', 'OS', os);
 
     return os;
 }
