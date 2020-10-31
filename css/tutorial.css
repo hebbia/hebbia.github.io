@@ -184,6 +184,25 @@
     font-size: 16px;
 }
 
+#tutorialContent #goPrevNext {
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: 100px;
+    font-size: 25px;
+}
+
+#tutorialContent #prev {
+    position: absolute;
+    left: 0px;
+    font: inherit;
+}
+
+#tutorialContent #next {
+    position: absolute;
+    right: 0px;
+    font: inherit;
+}
+
 #hebbiaDiv1{
     top: 50px;
 }
