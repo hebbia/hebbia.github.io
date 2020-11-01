@@ -40,7 +40,7 @@ form.addEventListener('submit', e => {
         if(response.ok){
           response.text().then(function (text) {
             console.log('Correct code')
-            document.getElementById("thanks").innerText = "Rerouting...";
+            // document.getElementById("thanks").innerText = "Rerouting...";
             let url = text.substr(1, (text.length - 3));
             // Redirect to download page: 
             window.location.href = url;
