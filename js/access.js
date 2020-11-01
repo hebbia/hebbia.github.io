@@ -40,7 +40,7 @@ form.addEventListener('submit', e => {
         if(response.ok){
           response.text().then(function (text) {
             console.log('Correct code')
-            document.getElementById("thanks").innerText = "Correct access key, rerouting...";
+            document.getElementById("thanks").innerText = "Rerouting...";
             let url = text.substr(1, (text.length - 3));
             // Redirect to download page: 
             window.location.href = url;
@@ -66,5 +66,9 @@ function showSurvey() {
   document.getElementById("iframe").style.display = "inline-block";
   document.getElementById("container").style.height = "auto";
   /*document.getElementById("outerdiv").style.height = "1170px";*/
+  document.getElementById("showsurveyspan").style.display = "none";
+  document.getElementById("hr_top").style.display = "none";
+  document.getElementById("welcome_msg").innerText = "Sign up below: we'll forward an invite shortly!";
+  document.getElementById("invitecode").style.display = "none";
 
 }
