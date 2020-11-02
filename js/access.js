@@ -17,7 +17,7 @@ if (!DEBUGGING) {
 
 
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJAmhcbt46gCf_zr0MZtuZKNTLHkcFhQ/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ9Jung9Yd-fMDobAnIBPiuuwkRrCkjqNqwiJEqZCQ0q23gFB-/exec';
 const form = document.forms['submit-to-google-sheet'];
 
 
