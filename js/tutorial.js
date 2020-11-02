@@ -18,25 +18,27 @@ if (!DEBUGGING) {
 
 
 
-var state = "new";  // new -> extension_opened -> question_typed -> viewing_results -> viewing_next_result -> viewed_results -> viewed_next_result -> freeform_questions -> done
+var timeout;
+var currStep;
+var state;  // new -> extension_opened -> question_typed -> viewing_results -> viewing_next_result -> viewed_results -> viewed_next_result -> freeform_questions -> done
 var enterKeyName = getOS() === "Mac" ? "return" : "enter";
 var commandKeyName = getOS() === "Mac" ? "\u2318" : "Alt"; //What went wrong? //political impacts
 var buttons = (
-    "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
-    + "<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
-    + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> How is it transmitted? </div>"
-    + "<div id=\"b4\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
-    + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
-    + "<div id=\"b6\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
+    "<div id=\"b1\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
+    + "<div id=\"b2\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
+    + "<div id=\"b3\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> How is it transmitted? </div>"
+    + "<div id=\"b4\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
+    + "<div id=\"b5\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
+    + "<div id=\"b6\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
     + "<span class=\"subsubtitle\" style=\"display:none;\">Copied to clipboard</span>"
 );
 
 var buttonsLess = (
-    "<div id=\"b1\" class=\"button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
-    +"<div id=\"b2\" class=\"button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
-    + "<div id=\"b3\" class=\"button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
-    + "<div id=\"b4\" class=\"button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
-    + "<div id=\"b5\" class=\"button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
+    "<div id=\"b1\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> How many people have been infected?</div>"
+    +"<div id=\"b2\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> Why does soap kill it?</div>"
+    + "<div id=\"b3\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> Is it fake news? </div>"
+    + "<div id=\"b4\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> What is the R number?</div>"
+    + "<div id=\"b5\" class=\"copy button\"><img src=\"img/icon_copy.svg\"> What are the economic effects?</div>"
     + "<span class=\"subsubtitle\" style=\"display:none;\">Copied to clipboard</span>"
 );
 
@@ -45,68 +47,121 @@ var buttonsLess = (
 window.addEventListener("HebbiaExtension", function(event) {
     if (event.detail.type === "popupOpen" && state === "new") {
         ga('send', 'event', 'tutorial', '1) started');
-        state = "extension_opened";
-        setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Let's try asking about the virus's origins on this long COVID article.");
-            $("#hebbiaDiv1 span").html("");
-
-            $("#wikiContent").animate({opacity: "100%"}, 3000);
-            setTimeout(function() {
-              typeQuestion("Where did COVID originate?", 0);
-            }, 3000);
-
-            setTimeout(function() {
-                $("#hebbiaDiv1 span").html(
-                    "Hit <span class=\"shortcut\">" + enterKeyName + "</span> to search."
-                );
-                state = "question_typed";
-            }, 6000);
+        currStep = 1;
+        timeout = setTimeout(function() {
+            state = goToStep(currStep);
         }, 500);
     }
     if (event.detail.type === "enter" && state === "question_typed") {
         ga('send', 'event', 'tutorial', '2) firstQuery');
-        state = "viewing_results";
-        setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted.");
-            $("#hebbiaDiv1 span").html("<span class=\"shortcut\">" + enterKeyName + "</span> to jump through results.");
-            state = "viewed_results";
-        }, 500);
-    }
+        currStep = 2;
+        timeout = setTimeout(function() {
+            state = goToStep(currStep);
+        }, 500);    }
     if (event.detail.type === "enter" && state === "viewed_results") {
         ga('send', 'event', 'tutorial', '3) resultsViewed');
-        state = "viewing_next_result";
-        setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Hebbia can learn <em>live</em>");
-            $("#hebbiaDiv1 span").html("<br /> <h2>Double click a highlight to show you similar sentences.</h2>");
-            state = "viewed_next_result";
-        }, 1000);
-    }
+        currStep = 3;
+        timeout = setTimeout(function() {
+            state = goToStep(currStep);
+        }, 1000);    }
     if (event.detail.type == "labelClicked" && state === "viewed_next_result") {
         ga('send', 'event', 'tutorial', '4) highlightDoubleClicked');
-        state = "freeform_questions";
-        setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
-            $("#hebbiaDiv1 span").html("");
-        }, 600);
-        setTimeout(function() {
-            $("#hebbiaDiv1 span").html("<br /> Click to copy an example question:" + buttons + "<br /> ...and start a search with "+commandKeyName+" + H");
-            addCopyListeners();
-        }, 1600);
-    }
+        currStep = 4;
+        timeout = setTimeout(function() {
+            state = goToStep(currStep);
+        }, 500);    }
     if (event.detail.type == "enter" && state == "freeform_questions") {
         ga('send', 'event', 'tutorial', '5) additionalQueries');
-        state = "done";
-        setTimeout(function() {
-            $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
-            $("#hebbiaDiv1 span").html("<br /> Click to copy some example questions:" + buttonsLess + "<br> <h1>You're good to go!</h1> <h2> Hebbia works with any website. </h2>");
-            addCopyListeners();
-        }, 500);
-    }
+        currStep = 5;
+        timeout = setTimeout(function() {
+            state = goToStep(currStep);
+        }, 500);    }
 });
 
 
+function goToStep(i) {
+    switch(i) {
+        case 1:
+            $("#hebbiaDiv1 #prev").hide();
+
+            $("#hebbiaDiv1 h1").html("Let's try asking about the virus's origins on this long COVID article.");
+            $("#hebbiaDiv1 .subtitle").html("");
+
+            $("#wikiContent").animate({opacity: "100%"}, 3000);
+
+            timeout = setTimeout(function() {
+                typeQuestion("Where did COVID originate?", 0);
+
+                timeout = setTimeout(function() {
+                    $("#hebbiaDiv1 .subtitle").html(
+                        "Hit <span class=\"shortcut\">" + enterKeyName + "</span> to search."
+                    );
+    
+                    state = "question_typed";
+                }, 3000);
+            }, 3000);
+
+            return "extension_opened";
+
+        case 2:
+            $("#hebbiaDiv1 #prev").show();
+
+            $("#hebbiaDiv1 h1").html("Relevant sentences are highlighted.");
+            $("#hebbiaDiv1 .subtitle").html("<span class=\"shortcut\">" + enterKeyName + "</span> to jump through results.");
+
+            return "viewed_results";
+
+        case 3:
+            $("#hebbiaDiv1 h1").html("Hebbia can learn <em>live</em>");
+            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>Double click a highlight to show you similar sentences.</h2>");
+
+            return "viewed_next_result";
+
+        case 4:
+            $("#hebbiaDiv1 #prev").hide()
+            $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
+            $("#hebbiaDiv1 .subtitle").html("");
+
+            timeout = setTimeout(function() {
+                $("#hebbiaDiv1 .subtitle").html("<br /> Click to copy an example question:" + buttonsLess + "<br /> ...and start a search with "+commandKeyName+" + H");
+                addCopyListeners();
+                
+                $("#hebbiaDiv1 #next").show()
+            }, 1000);
+
+            return "freeform_questions";
+
+        case 5:
+            $("#hebbiaDiv1 #next").hide();
+            $("#hebbiaDiv1 #prev").show()
+            $("#hebbiaDiv1 #goPrevNext").show();
+
+            // $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
+            $("#hebbiaDiv1 h1").html("You're good to go!");
+
+            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Hebbia lights up blue when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
+            addCopyListeners();
+
+            return "done";
+
+        default:
+            currStep = 0;
+            $("#hebbiaDiv1 #goPrevNext").hide();
+
+            $("#hebbiaDiv1 h1").html("Thanks for installing Hebbia!");
+            if (getOS() === "Mac") {
+                $("#hebbiaDiv1 .subtitle").html("<span class=\"shortcut\">\u2318</span> + <span class=\"shortcut\">H</span> to begin.");
+            } else {
+                $("#hebbiaDiv1 .subtitle").html("<span class=\"shortcut\">Alt</span> + <span class=\"shortcut\">H</span> to begin.");
+            }
+
+            return "new";
+    }
+}
+
+
 function addCopyListeners() {
-    $(".button").click(function(event) {
+    $(".copy").click(function(event) {
         ga('send', 'event', 'tutorial', 'contentCopied', event.currentTarget.innerText.substr(1));
         $("#copyHelper").val(event.currentTarget.innerText).focus().select();
         var $temp = $("<input>");
@@ -121,6 +176,20 @@ function addCopyListeners() {
             $(selector).attr("src", "img/icon_copy.svg");
             $(".subsubtitle").hide();
         }, 1000);
+    });
+}
+
+
+function addHistoryListeners() {
+    $("#hebbiaDiv1 #next").click(function(event) {
+        ga('send', 'event', 'tutorial', 'history', 'next');
+        clearTimeout(timeout);
+        state = goToStep(++currStep);
+    });
+    $("#hebbiaDiv1 #prev").click(function(event) {
+        ga('send', 'event', 'tutorial', 'history', 'prev');
+        clearTimeout(timeout);
+        state = goToStep(--currStep);
     });
 }
 
@@ -163,9 +232,7 @@ function getOS() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (getOS() === "Mac") {
-        $("#hebbiaDiv1 span").html("<span class=\"shortcut\">\u2318</span> + <span class=\"shortcut\">H</span> to begin.");
-    } else {
-        $("#hebbiaDiv1 span").html("<span class=\"shortcut\">Alt</span> + <span class=\"shortcut\">H</span> to begin.");
-    }
+    currStep = 0;
+    state = goToStep(currStep);
+    addHistoryListeners();
 });
