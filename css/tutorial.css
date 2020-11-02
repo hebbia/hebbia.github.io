@@ -115,9 +115,9 @@
 
 #wikiContent{
     /* width:min(900px, 50%); */
-    width: max(calc(100vw - (420px + (4 * 105px))), calc(100vw - (25vw + (4 * 105px))));
+    width: max(calc(100vw - (400px + (4 * 105px))), calc(100vw - (27vw + (4 * 105px))));
     left: 105px;
-    top: 105px;
+    top: 90px;
     position: absolute;
     opacity: 20%;
     display: block;
@@ -153,7 +153,7 @@
     /*padding: 1.4vh 3vw calc(21px + 1.4vh) 3vw;*/
     padding: 4vh 3vw 4vh 3vw;
     font-size: 1.5em;
-    width: min(420px, 25vw);
+    width: min(400px, 27vw);
     z-index: 100;
     position: fixed;
     background: white;
@@ -187,20 +187,32 @@
 #tutorialContent #goPrevNext {
     position: relative;
     margin-top: 25px;
-    margin-bottom: 100px;
-    font-size: 25px;
+    margin-bottom: 50px;
+    font-size: 15px;
+}
+
+#tutorialContent #goPrev {
+    position: relative;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    font-size: 15px;
 }
 
 #tutorialContent #prev {
     position: absolute;
     left: 0px;
     font: inherit;
+    color: lightslategrey;
+    cursor:pointer;
 }
 
 #tutorialContent #next {
     position: absolute;
     right: 0px;
     font: inherit;
+    color: lightslategrey;
+    cursor:pointer;
+
 }
 
 #hebbiaDiv1{

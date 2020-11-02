@@ -118,24 +118,28 @@ function goToStep(i) {
             return "viewed_next_result";
 
         case 4:
-            $("#hebbiaDiv1 #next").show()
-
+            $("#hebbiaDiv1 #prev").hide()
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
             $("#hebbiaDiv1 .subtitle").html("");
 
             timeout = setTimeout(function() {
                 $("#hebbiaDiv1 .subtitle").html("<br /> Click to copy an example question:" + buttonsLess + "<br /> ...and start a search with "+commandKeyName+" + H");
                 addCopyListeners();
+                
+                $("#hebbiaDiv1 #next").show()
             }, 1000);
 
             return "freeform_questions";
 
         case 5:
             $("#hebbiaDiv1 #next").hide();
+            $("#hebbiaDiv1 #prev").show()
             $("#hebbiaDiv1 #goPrevNext").show();
 
-            $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
-            $("#hebbiaDiv1 .subtitle").html("<br /> <h1>You're good to go!</h1> <h2> Hebbia works with any website. <br /> Add Hebbia to your extension bar by clicking the <img src=\"img/icon_extension.svg\"> extension icon and selecting the <img src=\"img/icon_pin.svg\"> pin next to Hebbia | Command + H [BETA]. <br /> The Hebbia icon will light up blue on pages where it works best! </h2>");
+            // $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
+            $("#hebbiaDiv1 h1").html("You're good to go!");
+
+            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Hebbia lights up blue when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
             addCopyListeners();
 
             return "done";
