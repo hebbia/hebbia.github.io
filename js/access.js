@@ -17,34 +17,66 @@ if (!DEBUGGING) {
 
 
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ9Jung9Yd-fMDobAnIBPiuuwkRrCkjqNqwiJEqZCQ0q23gFB-/exec';
 const form = document.forms['submit-to-google-sheet'];
 
-
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ9Jung9Yd-fMDobAnIBPiuuwkRrCkjqNqwiJEqZCQ0q23gFB-/exec';
 const promoCodeBaseURL = 'https://api2.hebbia.ai/promo_code_check/?promo_code=';
+const proxyURL = 'https://api2.hebbia.ai/proxy/';
+const mailingListURL = proxyURL + 'https://us2.api.mailchimp.com/3.0/lists/79bd292e7b/members';
+
+const mailingListHeaders = {
+  'Content-Type': 'application/json',
+  'Authorization': 'Basic ' + btoa('user:021843c8e0ab48eacd7d71c2b10f2b69-us2')
+};
+
+const mailingListTags = ["Access Code Signup"];
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-    .then(response => console.log('Success!', response))
-    .catch(error => console.error('Error!', error.message));
 
+  let formData = new FormData(form);
   let promoEntered = document.getElementById('access-code').value;
   let promoCodeURL = promoCodeBaseURL + promoEntered;
+  let emailEntered = document.getElementById('email').value;
+  let mailingListData = JSON.stringify({
+    "email_address": emailEntered,
+    "email_type": "html",
+    "status": "subscribed",
+    "merge_fields": {},
+    "interests": {},
+    "language": "",
+    "vip": false,
+    "location": {"latitude": 0, "longitude": 0},
+    "marketing_permissions": [],
+    "ip_signup": "",
+    "timestamp_signup": "",
+    "ip_opt": "",
+    "timestamp_opt": "",
+    "tags": mailingListTags
+  });
 
-
-  if(promoEntered !== null){
-    fetch(promoCodeURL, { method: 'GET'})
+  if(promoEntered){
+    fetch(promoCodeURL, {method: 'GET'})
 
       .then(response => {
-        if(response.ok){
-          response.text().then(function (text) {
-            console.log('Correct code')
-            // document.getElementById("thanks").innerText = "Rerouting...";
-            let url = text.substr(1, (text.length - 3));
-            // Redirect to download page: 
-            window.location.href = url;
-          });
+        if (response.ok) {
+          console.log('Correct code');
+
+          Promise.all([
+            response.text(),
+            fetch(scriptURL, {method: 'POST', body: formData}),
+            fetch(mailingListURL, {method: 'POST', headers: mailingListHeaders, body: mailingListData})
+          ])
+
+            .then(function([text, sheetResponse, mailingListResponse]) {
+              console.log('Success!');
+              // document.getElementById("thanks").innerText = "Rerouting...";
+              let url = text.substr(1, (text.length - 3));
+              // Redirect to download page: 
+              window.location.href = url;
+            })
+
+            .catch(error => console.error('Error!', error.message));
 
         } else {
           console.log('Wrong code');
@@ -57,7 +89,7 @@ form.addEventListener('submit', e => {
   }
   
 
-  form.reset()
+  form.reset();
 
 })
 
