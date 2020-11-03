@@ -456,11 +456,11 @@ body * {
   padding-top: 10px;
   padding-right: 35px;
   padding-bottom: 5px;
-  padding-left: 3px;
+  padding-left: 15px;
   font-weight: 300;
   font-family: 'Khula' sans-serif;
-  padding: 5px 25px;
-  padding-right: 35px;
+  /*padding: 5px 25px;*/
+  /*padding-right: 35px;*/
   margin-top:50px;
   font-size:25px;
   outline-width: 0;
@@ -469,7 +469,6 @@ body * {
   border-radius: 20px;
   box-shadow:  0px 0px 10px 0px #5ee4fe;
   box-shadow: 0 0 14px 1px rgba(121, 121, 121, 0.4);
-
   /*background-color: rgba(150,150,150, .6);*/
   border: 1px solid rgba(117, 206, 250);
   border:none;
@@ -1017,6 +1016,15 @@ body {
   margin: 0px;
 }
 
+.mobile_show{
+  display:none;
+}
+
+.mobile_hide{
+  display:inline-block;
+  margin-top: 49px;
+}
+
 
 
 /* FOR OLD COMPUTERS */
@@ -1089,6 +1097,13 @@ body {
   }
 
 
+  .mobile_show{
+    display:inline-block;
+  }
+
+  .mobile_hide{
+    display:none;
+  }
 
 }
 
@@ -1137,7 +1152,9 @@ body {
   }
 
   #submit_button_boi{
-    display: none;
+    display: ;
+    width:;
+
   }
  
   nav{
@@ -1265,7 +1282,7 @@ body {
 
   #logomobile{
     display:block;
-    width: 42vw;
+    width: min(42vw, 200px);
     margin: 5vw 5vw 0vw 5vw;
     height: auto;
   }
