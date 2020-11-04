@@ -473,7 +473,7 @@ body * {
   border: 1px solid rgba(117, 206, 250);
   border:none;
   margin-right: 5px;
-
+  -webkit-appearance: none;
 
 }
 
