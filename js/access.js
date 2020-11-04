@@ -62,21 +62,24 @@ form.addEventListener('submit', e => {
         if (response.ok) {
           console.log('Correct code');
 
-          Promise.all([
+          Promise.allSettled([
             response.text(),
             fetch(scriptURL, {method: 'POST', body: formData}),
             fetch(mailingListURL, {method: 'POST', headers: mailingListHeaders, body: mailingListData})
           ])
 
-            .then(function([text, sheetResponse, mailingListResponse]) {
-              console.log('Success!');
+            .then(responses => responses.map(response => response.value))
+            .then(responses => {
+              responses
+                .slice(1)
+                .filter(response => !response.ok)
+                .forEach(response => response.text().then(text => console.error("Error:", text)));
+              if (responses.slice(1).every(response => response.ok)) console.log('Success!');
               // document.getElementById("thanks").innerText = "Rerouting...";
-              let url = text.substr(1, (text.length - 3));
+              let url = responses[0].substr(1, (responses[0].length - 3));
               // Redirect to download page: 
               window.location.href = url;
-            })
-
-            .catch(error => console.error('Error!', error.message));
+            });
 
         } else {
           console.log('Wrong code');

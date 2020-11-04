@@ -430,7 +430,7 @@
 
         <form name="submit-to-google-sheet" action="#">
 
-          <input class="emails mobile_show" name="email" type="email" placeholder="Your email" required>
+          <input id="email" class="emails mobile_show" name="email" type="email" placeholder="Your email" required>
           <!--<input class="emails" name="message" type="text" placeholder="text here" required> -->
 
           <button class="mobile_show" id="submit_button_boi" type="submit"> <span>&#65310;
@@ -481,12 +481,17 @@
               "tags": mailingListTags
             });
 
-            Promise.all([
+            Promise.allSettled([
               fetch(scriptURL, {method: 'POST', body: formData}),
               fetch(mailingListURL, {method: 'POST', headers: mailingListHeaders, body: mailingListData})
             ])
-              .then(([sheetResponse, mailingListResponse]) => console.log('Success!'))
-              .catch(error => console.error('Error!', error.message));
+              .then(responses => responses.map(response => response.value))
+              .then(responses => {
+                responses
+                  .filter(response => !response.ok)
+                  .forEach(response => response.text().then(text => console.error("Error:", text)));
+                if (responses.every(response => response.ok)) console.log('Success!');
+              });
 
             form.reset();
             document.getElementById("thanks").style.display = "block";
