@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+
+
+<!--
+Relevant links for converting from Observable to raw JS
+http://bl.ocks.org/mayblue9/dcc49ef6e3888f37f755177c4a248f2c
+https://www.d3-graph-gallery.com/graph/arc_template.html
+http://bl.ocks.org/sjengle/5431779
+http://bl.ocks.org/sjengle/5431779
+
+
+Old
+https://observablehq.com/d/c56d1668ea7aa83a
+-->
+
+<head>
+    <title>Hebbia Portal</title>
+    <link rel="stylesheet" type="text/css" href="./KnowledgeGraph/inspector.css">
+    <link href="https://fonts.googleapis.com/css?family=Khula:100,200,300,400" rel="stylesheet">
+
+    <script>
+        //INIT GOOGLE ANALYTICS SHIT
+
+
+        var DEBUGGING = false;
+
+        if (!DEBUGGING) {
+        // Standard Google Universal Analytics code
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); // Note: https protocol here
+        
+        ga('create', 'UA-157284380-2', 'auto'); // Enter your GA identifier
+        ga('set', 'checkProtocolTask', function(){}); // Removes failing protocol check. @see: http://stackoverflow.com/a/22152353/1958200
+        ga('send', 'pageview', '/knowledge.html'); // Specify the virtual path
+        } else ga = function() {};
+    </script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script type="text/javascript" src="KnowledgeGraph/Dependencies/sentence_splitter.js"></script>
+    <script type="text/javascript" src="KnowledgeGraph/Dependencies/JLouvain-master/src/jLouvain.js"></script>
+    <!-- <script type="text/javascript" src="https://raw.githubusercontent.com/upphiminn/jLouvain/master/src/jLouvain.js"></script> -->
+    <script src="KnowledgeGraph/wonton_functional.js"></script>
+    <!-- <script src="KnowledgeGraph/files/homer.js"></script> -->
+
+    <style>
+
+        .title{
+            font-family: Futura;
+            font-size: 50px;
+            font-weight: 400;
+            position: absolute;
+            top: 20px;
+            left: 58px;
+            text-shadow: 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 7px #fff;
+
+        }
+        rect{
+            cursor: pointer;
+        }
+
+        .subtitle{
+            font-family: Khula;
+            font-size: 25px;
+            font-weight: 400;
+            position: absolute;
+            bottom: 25px;
+            left: 60px;
+            text-shadow: 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 7px #fff;
+        }
+
+
+
+        .order {
+            padding: 11px 30px;
+            width: 200px;
+            position: absolute;
+            top: 250px;
+            left: 57px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
+            border: 0px solid white;
+            outline-width: 0;
+        }
+
+        .orderForm{
+            position: absolute;
+        }
+
+        .input{
+            padding: 10px 30px;
+            position: absolute;
+            top: 180px;
+            left:58px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
+            border: 0px solid white;
+            border: 0px;
+            outline-width: 0;
+            width: 450px;
+            height: 20px;
+        }
+
+
+        #bottombar{
+            font-family: Khula;
+            font-size: 18px;
+            font-weight: 400;
+            background: white;
+            position: fixed;
+            width: 200vw;
+            height: 50px;
+            bottom: 0px;
+            /*text-shadow: 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 7px #fff;*/
+            box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
+            
+        }
+
+        .leftHalf{
+            width: calc(650px + 5vw - 60px);
+            padding-top: 15px;
+            padding-left: 60px;
+            position: absolute;
+            left: 0px;
+            bottom: 7px;
+            overflow: hidden;
+        }
+
+        .rightHalf{
+            width: calc(195vw - 650px);
+            padding-top: 15px;
+            position: absolute;
+            left: calc(5vw + 650px);
+            bottom: 11px;
+
+        }
+
+        .addTopic{
+            padding-left: 10px;
+            padding-left: 0px;
+            border: 0px solid white;
+            outline-width: 0;
+            width: 450px;
+        }
+
+
+        #userProfile{
+            position: fixed; 
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            background: white;
+            box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
+
+        }
+        
+
+        ::selection {
+            background: #aaefff; /* WebKit/Blink Browsers */
+        }
+        ::-moz-selection {
+            background: #aaefff; /* Gecko Browsers */
+        }
+
+
+
+
+
+        body{
+            margin: 0px !important;
+            padding-bottom: 50px;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body>
+    <h1 class="title"> Hebbia | Knowledge Base</h1>
+    <!--<h2 class="subtitle">  Visualizing information in an entirely new way.  </h2>-->
+
+    <div id="bottombar"> 
+        <div class="leftHalf"> 
+            <!--Visualizing + organizing your information in an entirely new way.--> Our AI connects related ideas. 
+        </div> 
+        <div class="rightHalf"> 
+            <input class="addTopic" id="addTopic" placeholder="+  Add information to your graph here. (Not yet, dude!) " type="text"> 
+            </input> 
+        </div>
+    </div>
+
+    <input type="text" class="input" placeholder="Ask Hebbia (not yet)" value="https://en.wikipedia.org/wiki/Homer"> </input>
+
+    <div id="userProfile"> </div>
+
+    <div id="bagelBites"></div>
+
+    <script type="module">
+
+        const form = getForm();
+
+        document.getElementById("bagelBites").insertBefore(form, null);
+
+        const data = ["The pandemic has resulted in misinformation and conspiracy theories about the scale of the pandemic and the origin, prevention, diagnosis, and treatment of the disease.", "False information, including intentional disinformation, has been spread through social media, text messaging, and mass media, including the tabloid media, conservative media, and state media of countries such as China, Iran, and Turkmenistan."];
+
+        const chunkJSON = JSON.stringify(Object.assign({}, data));
+        const sendingJSON = JSON.stringify({chunk: chunkJSON});
+
+        const proxyurl = 'https://api2.hebbia.ai/proxy/'; // 'http://0.0.0.0:5069/proxy/';
+        fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'api.hebbia.ai/*'
+            },
+            body: sendingJSON
+        }).then(response => response.json()).then(response => macNCheese("#bagelBites", response, form));
+
+    </script>
+</body>
