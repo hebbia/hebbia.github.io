@@ -25,6 +25,7 @@ https://observablehq.com/d/c56d1668ea7aa83a
 
 
         var DEBUGGING = false;
+        // var DEBUGGING = true;
 
         if (!DEBUGGING) {
         // Standard Google Universal Analytics code
@@ -41,6 +42,7 @@ https://observablehq.com/d/c56d1668ea7aa83a
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script type="text/javascript" src="KnowledgeGraph/Dependencies/sentence_splitter.js"></script>
     <script type="text/javascript" src="KnowledgeGraph/Dependencies/jLouvain-master/src/jLouvain.js"></script>
+    <script type="text/javascript" src="KnowledgeGraph/Dependencies/wiki.js"></script>
     <!-- <script type="text/javascript" src="https://raw.githubusercontent.com/upphiminn/jLouvain/master/src/jLouvain.js"></script> -->
     <script src="KnowledgeGraph/wonton_functional.js"></script>
     <!-- <script src="KnowledgeGraph/files/homer.js"></script> -->
@@ -197,7 +199,7 @@ https://observablehq.com/d/c56d1668ea7aa83a
         </div>
     </div>
 
-    <input type="text" class="input" placeholder="Ask Hebbia (not yet)" value="https://en.wikipedia.org/wiki/Homer"> </input>
+    <input id="search" type="text" class="input" placeholder="Ask Hebbia (not yet)" value="https://en.wikipedia.org/wiki/Homer"> </input>
 
     <div id="userProfile"> </div>
 
@@ -207,22 +209,46 @@ https://observablehq.com/d/c56d1668ea7aa83a
 
         const form = getForm();
 
-        document.getElementById("bagelBites").insertBefore(form, null);
+        const bagelBites = document.getElementById("bagelBites");
+        
+        bagelBites.insertBefore(form, null);
 
-        const data = ["The pandemic has resulted in misinformation and conspiracy theories about the scale of the pandemic and the origin, prevention, diagnosis, and treatment of the disease.", "False information, including intentional disinformation, has been spread through social media, text messaging, and mass media, including the tabloid media, conservative media, and state media of countries such as China, Iran, and Turkmenistan."];
+        const input = document.getElementById("search");
 
-        const chunkJSON = JSON.stringify(Object.assign({}, data));
-        const sendingJSON = JSON.stringify({chunk: chunkJSON});
+        lookup();
 
-        const proxyurl = 'https://api2.hebbia.ai/proxy/'; // 'http://0.0.0.0:5069/proxy/';
-        fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'api.hebbia.ai/*'
-            },
-            body: sendingJSON
-        }).then(response => response.json()).then(response => macNCheese("#bagelBites", response, form));
+        input.addEventListener('keypress', keyPressEvent);
+
+        function keyPressEvent(e) {
+            if (e.keyCode === 13) lookup();
+        }
+
+        function lookup() {
+            if (bagelBites.childNodes.length > 1) bagelBites.removeChild(bagelBites.lastElementChild);
+
+            const url = input.value;
+
+            wikijs.wikiSearch(url).then(page => {
+
+                const data = sentence_splitter.splitSentences(page)
+                                              .map(sentence => sentence.trim())
+                                              .filter(sentence => sentence.length > 0);
+
+                const chunkJSON = JSON.stringify(Object.assign({}, data));
+                const sendingJSON = JSON.stringify({chunk: chunkJSON});
+
+                const proxyurl = 'https://api2.hebbia.ai/proxy/';
+                fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': 'api.hebbia.ai/*'
+                    },
+                    body: sendingJSON
+                }).then(response => response.json()).then(response => macNCheese("#bagelBites", response, form));
+
+            });
+        }
 
     </script>
 </body>

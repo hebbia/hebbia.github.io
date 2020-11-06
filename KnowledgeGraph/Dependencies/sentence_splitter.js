@@ -1972,7 +1972,7 @@ exports["default"] = StructuredSource;
 },{"boundary":2}],33:[function(require,module,exports){
 const sentsplit = require('sentence-splitter');
 
-exports.new_outer_splitter = function new_outer_splitter(raw_text) {
+exports.splitSentences = function splitSentences(raw_text) {
 		var new_text = ''
 		var inside_stuff = []
     var inside_indices = []

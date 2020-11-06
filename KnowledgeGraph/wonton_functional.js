@@ -1,3 +1,5 @@
+const SIMILARITY_THRESHOLD = 0.75;
+
 function macNCheese(selector, corpusEmbeddings, form) {
 
     const data = organizeForD3(corpusEmbeddings);
@@ -14,12 +16,12 @@ function macNCheese(selector, corpusEmbeddings, form) {
 
     let height = (data.nodes.length - 1) * step + margin.top + margin.bottom;
 
-    let y = d3.scalePoint(graph.nodes.map(d => d.id).sort(d3.ascending), [margin.top, height - margin.bottom]);
+    let y = d3.scalePoint(graph.nodes.sort(form.value).map(d => d.id), [margin.top, height - margin.bottom]);
 
     function arc(d) {
         const y1 = d.source.y;
         const y2 = d.target.y;
-        const r = Math.abs(y2 - y1) / 2;//
+        const r = Math.abs(y2 - y1) / 2;
         return `M${margin.left},${y1}A${r},${r} 0,0,${y1 < y2 ? 0 : 1} ${margin.left},${y2}`;
     }
 
@@ -217,13 +219,13 @@ function macNCheese(selector, corpusEmbeddings, form) {
     d3.select("#addTopic")
         .on("keypress", function(event) {
         if(event.keyPress === 13 || event.keyCode === 13){
-            console.log("Congrats, you pressed enter!");
+            // console.log("Congrats, you pressed enter!");
             //alert(this.value);
-            let sentences = sentence_splitter.new_outer_splitter(this.value)
+            let sentences = sentence_splitter.splitSentences(this.value)
                                              .map(sentence => sentence.trim())
                                              .filter(sentence => sentence.length > 0);
 
-            console.log(sentences);
+            // console.log(sentences);
 
             newEmbeddings(sentences);
             // sentenceAdd(newEmbeddings);
@@ -237,7 +239,7 @@ function macNCheese(selector, corpusEmbeddings, form) {
 
         const chunkJSON = JSON.stringify(Object.assign({}, sentenceArray));
         const sendingJSON = JSON.stringify({chunk: chunkJSON});
-        const proxyurl = 'https://api2.hebbia.ai/proxy/'; // 'http://0.0.0.0:5069/proxy/';
+        const proxyurl = 'https://api2.hebbia.ai/proxy/';
         fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
             method: 'POST',
             headers: {
@@ -269,8 +271,8 @@ function macNCheese(selector, corpusEmbeddings, form) {
     //Add new sentence as a node, and call to check if other sentences that exist are links to your OG sentence 
     function sentenceAdd(sentence){
         
-        console.log("NEW SENTENCE ADD");
-        console.log(sentence, corpusEmbeddings[sentence]);
+        // console.log("NEW SENTENCE ADD");
+        // console.log(sentence, corpusEmbeddings[sentence]);
 
         let newSentenceNode = {'id': sentence, 'sourceLinks': [], 'targetLinks': [], 'group': 99, 'y': 0}
         let n = graph.nodes.push(newSentenceNode);      
@@ -282,14 +284,14 @@ function macNCheese(selector, corpusEmbeddings, form) {
 
             //Some bullshit cosine similarity to test
             var currCosineSimilarity = cosineSim(corpusEmbeddings[sentence], corpusEmbeddings[otherSentenceNode.id]);
-            console.log(currCosineSimilarity);
+            // console.log(currCosineSimilarity);
 
             //If cosine similarity above a threshold (here if it is not zero/null/false)
-            if(currCosineSimilarity > 0.5){
+            if(currCosineSimilarity > SIMILARITY_THRESHOLD){
                 let newLink = {source: newSentenceNode, target: otherSentenceNode, value: currCosineSimilarity};
                 newSentenceNode.sourceLinks.push(newLink);
                 otherSentenceNode.targetLinks.push(newLink);
-                console.log(newLink);
+                // console.log(newLink);
                 graph.links.push(newLink);
                 newLinks.push(newLink);
             }
@@ -339,9 +341,9 @@ function getGraph(data) {
 
 function getForm() {
     const options = [
-        { name: "Order by name", value: (a, b) => d3.ascending(a.id, b.id) },
-        { name: "Order by group", value: (a, b) => a.group - b.group || d3.ascending(a.id, b.id) },
-        { name: "Order by degree", value: (a, b) => d3.sum(b.sourceLinks, l => l.value) + d3.sum(b.targetLinks, l => l.value) - d3.sum(a.sourceLinks, l => l.value) - d3.sum(a.targetLinks, l => l.value) || d3.ascending(a.id, b.id) }
+        { name: "Order by name", value: (a, b) => d3.ascending(a.id.toLowerCase(), b.id.toLowerCase()) },
+        { name: "Order by group", value: (a, b) => a.group - b.group || d3.ascending(a.id.toLowerCase(), b.id.toLowerCase()) },
+        { name: "Order by degree", value: (a, b) => d3.sum(b.sourceLinks, l => l.value) + d3.sum(b.targetLinks, l => l.value) - d3.sum(a.sourceLinks, l => l.value) - d3.sum(a.targetLinks, l => l.value) || d3.ascending(a.id.toLowerCase(), b.id.toLowerCase()) }
     ];
 
     /**
@@ -366,7 +368,7 @@ function getForm() {
     const timeout = setTimeout(() => {
         form.i.selectedIndex = 1;
         form.dispatchEvent(new CustomEvent("input"));
-    }, 2000);
+    }, 5000);
 
     form.onchange = () => {
         form.dispatchEvent(new CustomEvent("input")); // Safari
@@ -407,7 +409,7 @@ function organizeForD3(corpusEmbeddings) {
 		//console.log(currSentScoresDict);
 
 		//THRESHOLD SIMILARITY SCORES
-		let thresholdedCurrSentScoresDict = Object.fromEntries(Object.entries(currSentScoresDict).filter(([k, v]) => v > 0.64));
+		let thresholdedCurrSentScoresDict = Object.fromEntries(Object.entries(currSentScoresDict).filter(([k, v]) => v > SIMILARITY_THRESHOLD));
 		//console.log("THRESHOLD CROSSING: ", thresholdedCurrSentScoresDict);
 
 		//POPULATE NODES
@@ -433,20 +435,20 @@ function organizeForD3(corpusEmbeddings) {
 	//CALCULATE GROUPS ONCE DONE
 
 
-	console.log(node_ids);
-	console.log(link_ids);
+	// console.log(node_ids);
+	// console.log(link_ids);
 
 	let community = jLouvain().nodes(node_ids).edges(link_ids);
 
 	var community_assignment_result = community();
 
-	console.log('Resulting Community Data', community_assignment_result);
+	// console.log('Resulting Community Data', community_assignment_result);
 
 	var new_nodes = [];
 
 	var max_community_number = 0;
 	node_ids.forEach(function(d) {
-		console.log(d);
+		// console.log(d);
 		//nodes[d].group = community_assignment_result[d];
 		new_nodes.push({id: nodes[d - 1].id, group: community_assignment_result[d]});
 		max_community_number = max_community_number < community_assignment_result[d] ?
@@ -454,15 +456,15 @@ function organizeForD3(corpusEmbeddings) {
 
 	});
 
-	console.log(max_community_number);
+	// console.log(max_community_number);
 
 	//SANITY CHECK PRINT STATEMENTS
-	console.log(nodes);
-	console.log(new_nodes);
-	console.log(links);
+	// console.log(nodes);
+	// console.log(new_nodes);
+	// console.log(links);
 
 	let togetherboy = {nodes: new_nodes, links: links};
-	console.log(togetherboy);
+	// console.log(togetherboy);
 
 
     return togetherboy;

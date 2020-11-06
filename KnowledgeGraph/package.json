@@ -10,5 +10,8 @@
   "type": "module",
   "peerDependencies": {
     "@observablehq/runtime": "4"
+  },
+  "dependencies": {
+    "wikijs": "^6.0.1"
   }
 }
