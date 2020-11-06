@@ -226,9 +226,7 @@ https://observablehq.com/d/c56d1668ea7aa83a
         function lookup() {
             if (bagelBites.childNodes.length > 1) bagelBites.removeChild(bagelBites.lastElementChild);
 
-            const url = input.value;
-
-            wikijs.wikiSearch(url).then(page => {
+            wikijs.wikiSearch(input.value).then(page => {
 
                 const data = sentence_splitter.splitSentences(page)
                                               .map(sentence => sentence.trim())
@@ -240,12 +238,11 @@ https://observablehq.com/d/c56d1668ea7aa83a
                 const proxyurl = 'https://api2.hebbia.ai/proxy/';
                 fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': 'api.hebbia.ai/*'
-                    },
+                    headers: {'Content-Type': 'application/json'},
                     body: sendingJSON
-                }).then(response => response.json()).then(response => macNCheese("#bagelBites", response, form));
+                })
+                .then(response => response.json())
+                .then(response => macNCheese("#bagelBites", response, form));
 
             });
         }

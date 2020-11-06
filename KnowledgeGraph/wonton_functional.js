@@ -117,7 +117,7 @@ function macNCheese(selector, corpusEmbeddings, form) {
             .data(graph.links)
             .join("path")
             .attr("stroke", d => d.source.group === d.target.group ? color(d.source.group) : "#aaa")
-            .attr("stroke-width", d => (d.value-0.65)*35 + 1)
+            .attr("stroke-width", d => (d.value-SIMILARITY_THRESHOLD)*SIMILARITY_THRESHOLD*75 + 1)
             .attr("d", arc);
     }
 
@@ -242,45 +242,33 @@ function macNCheese(selector, corpusEmbeddings, form) {
         const proxyurl = 'https://api2.hebbia.ai/proxy/';
         fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'api.hebbia.ai/*'
-            },
+            headers: {'Content-Type': 'application/json'},
             body: sendingJSON
-        }).then(response => response.json()).then(response => sentencesAdd(response));
+        })
+        .then(response => response.json())
+        .then(response =>
+            Object.keys(response).forEach(sentence => {
+                if (corpusEmbeddings[sentence]) return;
+
+                corpusEmbeddings[sentence] = response[sentence];
+
+                addSentence(sentence);
+            })
+        );
 
     }
 
 
 
     //Add new sentence as a node, and call to check if other sentences that exist are links to your OG sentence 
-    function sentencesAdd(sentEmbeddingDict){
-
-        for (let sentence of Object.keys(sentEmbeddingDict)) {
-            if (corpusEmbeddings[sentence]) continue;
-
-            corpusEmbeddings[sentence] = sentEmbeddingDict[sentence];
-
-            sentenceAdd(sentence);
-        }
-
-    }
-    
-
-
-    //Add new sentence as a node, and call to check if other sentences that exist are links to your OG sentence 
-    function sentenceAdd(sentence){
+    function addSentence(sentence){
         
         // console.log("NEW SENTENCE ADD");
         // console.log(sentence, corpusEmbeddings[sentence]);
 
         let newSentenceNode = {'id': sentence, 'sourceLinks': [], 'targetLinks': [], 'group': 99, 'y': 0}
-        let n = graph.nodes.push(newSentenceNode);      
 
-        let newLinks = [];
         graph.nodes.forEach(function(otherSentenceNode) {
-
-            if (otherSentenceNode.id === newSentenceNode.id) return;
 
             //Some bullshit cosine similarity to test
             var currCosineSimilarity = cosineSim(corpusEmbeddings[sentence], corpusEmbeddings[otherSentenceNode.id]);
@@ -293,10 +281,11 @@ function macNCheese(selector, corpusEmbeddings, form) {
                 otherSentenceNode.targetLinks.push(newLink);
                 // console.log(newLink);
                 graph.links.push(newLink);
-                newLinks.push(newLink);
             }
 
         });
+
+        graph.nodes.push(newSentenceNode);      
 
         updateContent();
 
@@ -401,11 +390,10 @@ function organizeForD3(corpusEmbeddings) {
 	for (sentence in corpusEmbeddings) {
 		//GET EMBEDDING OF SENTENCE
 		//console.log(sentence);
-		let current_embedding = corpusEmbeddings[sentence];
 		//console.log(current_embedding);
 
 		//GET SIMILARITY SCORES W/ EVERY OTHER SENTENCE
-		let currSentScoresDict = compareVectorsNoQuery(current_embedding, corpusEmbeddings);
+		let currSentScoresDict = compareVectorsNoQuery(sentence, corpusEmbeddings);
 		//console.log(currSentScoresDict);
 
 		//THRESHOLD SIMILARITY SCORES
@@ -426,7 +414,7 @@ function organizeForD3(corpusEmbeddings) {
 			curr_id_2++;
 			if (sentence !== sentence2) {
 				links.push({source: sentence, target: sentence2, value: thresholdedCurrSentScoresDict[sentence2]});
-				link_ids.push({source: curr_id_1, target: curr_id_2, value: thresholdedCurrSentScoresDict[sentence2]});
+				link_ids.push({source: curr_id_1, target: curr_id_2, weight: thresholdedCurrSentScoresDict[sentence2]});
 			}
 		}
 		//let groups = getGroupsFromSentScores(currSentScoresDict, previousGroup);
@@ -484,20 +472,13 @@ function getGroupsFromSentScores(currSentScoresDict, previousGroup) {
 
 
 
-function compareVectorsNoQuery(current_embedding, corpusEmbeddings) {
+function compareVectorsNoQuery(current_sentence, corpusEmbeddings) {
+    
+    return Object.keys(corpusEmbeddings).reduce((sentScoresDict, sent) => {
+        sentScoresDict[sent] = cosineSim(corpusEmbeddings[current_sentence], corpusEmbeddings[sent]);
+        return sentScoresDict;
+    }, {});
 
-	var sentScoreDict = {};
-
-
-	var sent1_array = current_embedding;
-	for (var sent in corpusEmbeddings) {
-		var sent2_array = corpusEmbeddings[sent];
-		/* Defined in >> math.js */
-		var similarity_score = cosineSim(sent1_array, sent2_array);
-		sentScoreDict[sent] = similarity_score;
-	}
-
-	return sentScoreDict;
 }
 
 

@@ -23,14 +23,22 @@ exports.wikiSearch = function wikiSearch(title) {
 		"External links"
 	];
 
+	function getContent(contentArray) {
+		if (!contentArray) return "";
+		return contentArray.map(content => 
+			[content.content, getContent(content.items)].join(' ')
+		).join(' ');
+	}
+
 	return wiki({apiUrl: apiUrl})
 		.page(title)
 		.then(page => Promise.all([page.summary(), page.content()])
 			.then(([summary, contentArray]) => 
-				[summary, contentArray
-					.filter(content => !ignoreContent.includes(content.title))
-					.map(content => content.content)
-					.reduce((corpus, content) => [corpus, content].join(' '), "")
+				[
+					summary,
+					getContent(contentArray.filter(content =>
+						!ignoreContent.includes(content.title)
+					))
 				].join(' ')
 			)
 		);
