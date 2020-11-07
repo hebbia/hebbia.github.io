@@ -68,7 +68,10 @@ form.addEventListener('submit', e => {
             fetch(mailingListURL, {method: 'POST', headers: mailingListHeaders, body: mailingListData})
           ])
 
-            .then(responses => responses.map(response => response.value))
+            .then(responses => responses.map(response => 
+              response.status === "fulfilled" ? response.value
+                                              : new Response(response.reason, {status: 400})
+            ))
             .then(responses => {
               responses
                 .slice(1)
