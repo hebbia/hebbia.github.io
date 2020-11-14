@@ -265,12 +265,12 @@ https://observablehq.com/d/c56d1668ea7aa83a
 
                 if (!input.value) input.value = cachedSites[Math.floor(Math.random() * cachedSites.length)];
 
-                const inputVal = input.value.toLowerCase().split('wikipedia.org/wiki/').slice(-1)[0];
+                const inputVal = input.value.toLowerCase().split('wikipedia.org/wiki/').slice(-1)[0].trim();
 
                 const cachedSample = sampleJSON[inputVal + '-cached'];
 
                 if (cachedSites.includes(inputVal) && cachedSample) {
-                    macNCheese("#bagelBites", cachedSample, form, 0.75, 'CACHE');
+                    macNCheese("#bagelBites", form, 0.75, cachedSample.embeddings, cachedSample.data, true);
                     return;
                 }
 
@@ -294,7 +294,7 @@ https://observablehq.com/d/c56d1668ea7aa83a
                         if (response.ok) return response.json();
                         throw new Error(response.statusText);
                     })
-                    .then(response => macNCheese("#bagelBites", response, form, 0.75, CACHE_SITES ? inputVal : null))
+                    .then(response => macNCheese("#bagelBites", form, 0.75, response, CACHE_SITES ? inputVal : null))
                     .catch(error => console.error(error));
                 })
                 
@@ -308,16 +308,16 @@ https://observablehq.com/d/c56d1668ea7aa83a
 
             } else {
 
-                if (input.value.toLowerCase() === 'roam:') {
-                    input.value = input.value.substr(0, 5) + cachedFiles[Math.floor(Math.random() * cachedFiles.length)];
+                if (input.value.toLowerCase().trim() === 'roam:') {
+                    input.value = input.value.substr(0, 5) + ' ' + cachedFiles[Math.floor(Math.random() * cachedFiles.length)];
                 }
 
-                const inputVal = input.value.toLowerCase().slice(5);
+                const inputVal = input.value.toLowerCase().slice(5).trim();
 
                 const cachedSample = sampleJSON[inputVal + '-cached'];
 
                 if (cachedFiles.includes(inputVal) && cachedSample) {
-                    macNCheese("#bagelBites", cachedSample, form, 0.8, 'CACHE');
+                    macNCheese("#bagelBites", form, 0.8, cachedSample.embeddings, cachedSample.data, true);
                     return;
                 }
 
@@ -369,7 +369,7 @@ https://observablehq.com/d/c56d1668ea7aa83a
                     if (response.ok) return response.json();
                     throw new Error(response.statusText);
                 })
-                .then(response => macNCheese("#bagelBites", response, form, 0.8, CACHE_FILES ? inputVal : null))
+                .then(response => macNCheese("#bagelBites", form, 0.8, response, CACHE_FILES ? inputVal : null))
                 .catch(error => console.error(error));
 
             }

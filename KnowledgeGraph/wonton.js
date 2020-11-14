@@ -1,12 +1,12 @@
 let SIMILARITY_THRESHOLD;
 
-function macNCheese(selector, corpusEmbeddings, form, threshold=0.75, cacheTo=null) {
+function macNCheese(selector, form, threshold, corpusEmbeddings, cache=null, found=false) {
 
     SIMILARITY_THRESHOLD = threshold;
 
-    const data = cacheTo === "CACHE" ? corpusEmbeddings : organizeForD3(corpusEmbeddings);
+    const data = found ? cache : organizeForD3(corpusEmbeddings);
 
-    if (cacheTo && cacheTo !== "CACHE") saveVariableToFile(data, cacheTo);
+    if (!found && cache) saveVariableToFile({data: data, embeddings: corpusEmbeddings}, cache);
 
     const graph = getGraph(data);
 
@@ -270,7 +270,7 @@ function macNCheese(selector, corpusEmbeddings, form, threshold=0.75, cacheTo=nu
         // console.log("NEW SENTENCE ADD");
         // console.log(sentence, corpusEmbeddings[sentence]);
 
-        let newSentenceNode = {'id': sentence, 'sourceLinks': [], 'targetLinks': [], 'group': 99, 'y': 0}
+        let newSentenceNode = {'id': sentence, 'sourceLinks': [], 'targetLinks': [], 'group': 69420, 'y': 0}
 
         graph.nodes.forEach(function(otherSentenceNode) {
 
