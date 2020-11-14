@@ -76,7 +76,6 @@ https://observablehq.com/d/c56d1668ea7aa83a
             position: absolute;
             top: 20px;
             left: 58px;
-            text-shadow: 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 7px #fff;
 
         }
         rect{
@@ -90,7 +89,6 @@ https://observablehq.com/d/c56d1668ea7aa83a
             position: absolute;
             bottom: 25px;
             left: 60px;
-            text-shadow: 0px 0px 2px #fff, 0px 0px 5px #fff, 0px 0px 7px #fff;
         }
 
 
@@ -101,10 +99,8 @@ https://observablehq.com/d/c56d1668ea7aa83a
             position: absolute;
             top: 250px;
             left: 57px;
-            background: white;
             border-radius: 15px;
-            box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
-            border: 0px solid white;
+            border: 0px solid;
             outline-width: 0;
         }
 
@@ -117,10 +113,8 @@ https://observablehq.com/d/c56d1668ea7aa83a
             position: absolute;
             top: 180px;
             left:58px;
-            background: white;
             border-radius: 15px;
-            box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
-            border: 0px solid white;
+            border: 0px solid;
             border: 0px;
             outline-width: 0;
             width: 450px;
@@ -136,6 +130,126 @@ https://observablehq.com/d/c56d1668ea7aa83a
             width: 100px;
             height: 20px;
             display: none;
+        }
+
+
+        #container_loading{
+            /*align-items: center;
+            display: flex;
+            justify-content: space-between;*/
+            width: 480px;/* 262*/
+            /*height: 5px;*/
+            /* padding-top:2px; */
+            /*padding-bottom:2px;
+            padding-bottom:2px*/
+
+            position:absolute;
+            top: 217px;
+            left: 73px;
+
+
+        }
+
+
+        progress {
+            margin-top: 0px;
+            box-sizing: border-box;
+
+        }
+
+
+
+        progress[value] {
+            /* Reset the default appearance */
+            -webkit-appearance: none;
+            appearance: none;
+            width: 480px;
+            height: 3px;
+            position:absolute;
+        }
+
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: rgb(50,50,50);
+            }
+
+            .title,.subtitle {
+                color: #fff;
+                text-shadow: 0px 0px 2px rgba(0,0,0,.2), 0px 0px 5px rgba(0,0,0,.2), 0px 0px 7px rgba(0,0,0,.2);
+            }
+
+            .input,.order {
+                box-shadow: 0px 0px 15px 3px rgba(255,255,255,.2);
+                background-color: rgb(32,33,36);
+                color:#fff;
+            }
+
+            progress[value]::-webkit-progress-value {
+                background-color: rgb(132,133,136);/*#fff;*/
+                background-color: rgb(61, 236, 255);
+                background-color: #34cdef;
+            }
+
+
+            progress[value]::-webkit-progress-bar {
+                background-color: rgb(53,54,58);
+                box-shadow: 0 1px 2px rgba(200, 200, 200, 0.15) inset;
+            }
+        }
+
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #fff;
+            }
+
+            .title,.subtitle {
+                color: black;
+                text-shadow: 0px 0px 2px rgba(255,255,255,.2), 0px 0px 5px rgba(255,255,255,.2), 0px 0px 7px rgba(255,255,255,.2);
+            }
+
+            .input,.order {
+                box-shadow: 0px 0px 15px 3px rgba(0,0,0,.2);
+                background-color: #fff;
+                color:black;
+            }
+
+            progress[value]::-webkit-progress-bar {
+                background-color: lightgrey;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+                background-color: rgb(241,243,244);
+                background-color: white;
+
+            }
+
+            progress[value]::-webkit-progress-value {
+                background-color: rgb(98,99,101); /*rgb(132,133,136);*/
+                background-color: #00DEFA /*rgb(61, 236, 255)*/;
+
+            }
+        }
+
+
+        progress[value]::-webkit-progress-bar {
+            /*border-radius: 2.5px;*/
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+        }
+
+
+        progress::-webkit-progress-value {
+            -webkit-transition : all 1.1s ease-out;
+            -moz-transition : all 1.1s ease-out;
+                -o-transition : all 1.1s ease-out;
+                    transition : all 1.1s ease-out;
+        }
+
+
+        progress.immediate::-webkit-progress-value {
+            -webkit-transition : all 0s ease-in-out;
+            -moz-transition : all 0s ease-in-out;
+                -o-transition : all 0s ease-in-out;
+                    transition : all 0s ease-in-out;
         }
 
 
@@ -231,6 +345,10 @@ https://observablehq.com/d/c56d1668ea7aa83a
     </div>
 
     <input id="search" type="text" class="input" placeholder="Ask Hebbia" value="https://en.wikipedia.org/wiki/Homer"> </input>
+    <div id="container_loading">
+        <progress id="loadingBar" class="" max="1" value="0"> </progress>
+
+    </div>
 
     <div id="notFound"> Not found.</div>
 
@@ -256,10 +374,55 @@ https://observablehq.com/d/c56d1668ea7aa83a
             if (e.keyCode === 13) lookup();
         }
 
+
+
+        var loadingInterval;
+
+        function loadingUpdate(numberSentences) {
+            let numberIterations = Math.max(Math.floor(numberSentences / 125), 4);
+
+            const sentencesPerIteration = numberSentences / numberIterations;
+            const timePerSentence = 15;
+            const timePerIteration = sentencesPerIteration * timePerSentence;
+            const lengthOfIteration = 0.65 / numberIterations;
+            // console.log(numberIterations)
+            // console.log(sentencesPerIteration)
+            // console.log(lengthOfIteration)
+
+            let currentLoadingAmt = document.getElementById("loadingBar").value + lengthOfIteration;
+            var currentIteration = 1;
+            document.getElementById("loadingBar").value = currentLoadingAmt;
+
+            loadingInterval = setInterval(function() {
+                console.log("LOADING TO", currentLoadingAmt);
+                currentLoadingAmt += lengthOfIteration;
+                document.getElementById("loadingBar").value = currentLoadingAmt;
+
+                if (++currentIteration === numberIterations) clearInterval(loadingInterval);
+            }, timePerIteration);
+        }
+
+
+
         var notFoundTimeout;
+
+        function cannotFind(error) {
+            console.error(error);
+            clearTimeout(notFoundTimeout);
+            document.getElementById("notFound").style.display = "block";
+            notFoundTimeout = setTimeout(function() {
+                document.getElementById("notFound").style.display = "none";
+            }, 2000);
+            document.getElementById("loadingBar").value = 0;
+        }
+
+
 
         function lookup() {
             if (bagelBites.childNodes.length > 1) bagelBites.removeChild(bagelBites.lastElementChild);
+
+            clearInterval(loadingInterval);
+            document.getElementById("loadingBar").value = 0.1;
 
             if (input.value.toLowerCase().indexOf('roam:') !== 0) {
 
@@ -270,7 +433,9 @@ https://observablehq.com/d/c56d1668ea7aa83a
                 const cachedSample = sampleJSON[inputVal + '-cached'];
 
                 if (cachedSites.includes(inputVal) && cachedSample) {
+                    document.getElementById("loadingBar").value = 0.75;
                     macNCheese("#bagelBites", form, 0.75, cachedSample.embeddings, cachedSample.data, true);
+                    document.getElementById("loadingBar").value = 1;
                     return;
                 }
 
@@ -280,6 +445,8 @@ https://observablehq.com/d/c56d1668ea7aa83a
                     const data = sentence_splitter.splitSentences(page)
                                                 .map(sentence => sentence.trim())
                                                 .filter(sentence => sentence.length > 0);
+
+                    loadingUpdate(data.length);
 
                     const chunkJSON = JSON.stringify(Object.assign({}, data));
                     const sendingJSON = JSON.stringify({chunk: chunkJSON});
@@ -294,17 +461,16 @@ https://observablehq.com/d/c56d1668ea7aa83a
                         if (response.ok) return response.json();
                         throw new Error(response.statusText);
                     })
-                    .then(response => macNCheese("#bagelBites", form, 0.75, response, CACHE_SITES ? inputVal : null))
+                    .then(response => {
+                        clearInterval(loadingInterval);
+                        document.getElementById("loadingBar").value = 0.75;
+                        macNCheese("#bagelBites", form, 0.75, response, CACHE_SITES ? inputVal : null);
+                        document.getElementById("loadingBar").value = 1;
+                    })
                     .catch(error => console.error(error));
                 })
                 
-                .catch(error => {
-                    clearTimeout(notFoundTimeout);
-                    document.getElementById("notFound").style.display = "block";
-                    notFoundTimeout = setTimeout(function() {
-                        document.getElementById("notFound").style.display = "none";
-                    }, 2000);
-                });
+                .catch(cannotFind);
 
             } else {
 
@@ -317,7 +483,9 @@ https://observablehq.com/d/c56d1668ea7aa83a
                 const cachedSample = sampleJSON[inputVal + '-cached'];
 
                 if (cachedFiles.includes(inputVal) && cachedSample) {
+                    document.getElementById("loadingBar").value = 0.75;
                     macNCheese("#bagelBites", form, 0.8, cachedSample.embeddings, cachedSample.data, true);
+                    document.getElementById("loadingBar").value = 1;
                     return;
                 }
 
@@ -348,13 +516,11 @@ https://observablehq.com/d/c56d1668ea7aa83a
                     });
 
                 if (!data.length) {
-                    clearTimeout(notFoundTimeout);
-                    document.getElementById("notFound").style.display = "block";
-                    notFoundTimeout = setTimeout(function() {
-                        document.getElementById("notFound").style.display = "none";
-                    }, 2000);
+                    cannotFind();
                     return;
                 }
+
+                loadingUpdate(data.length);
 
                 const chunkJSON = JSON.stringify(Object.assign({}, data));
                 const sendingJSON = JSON.stringify({chunk: chunkJSON});
@@ -369,7 +535,12 @@ https://observablehq.com/d/c56d1668ea7aa83a
                     if (response.ok) return response.json();
                     throw new Error(response.statusText);
                 })
-                .then(response => macNCheese("#bagelBites", form, 0.8, response, CACHE_FILES ? inputVal : null))
+                .then(response => {
+                    clearInterval(loadingInterval);
+                    document.getElementById("loadingBar").value = 0.75;
+                    macNCheese("#bagelBites", form, 0.8, response, CACHE_FILES ? inputVal : null)
+                    document.getElementById("loadingBar").value = 1;
+                })
                 .catch(error => console.error(error));
 
             }

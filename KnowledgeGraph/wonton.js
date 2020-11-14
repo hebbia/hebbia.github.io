@@ -10,7 +10,7 @@ function macNCheese(selector, form, threshold, corpusEmbeddings, cache=null, fou
 
     const graph = getGraph(data);
 
-    const color = d3.scaleOrdinal(graph.nodes.map(d => d.group).sort(d3.ascending), ["#00D1FF", "#00A0FF", "#00E0FF", "#00F3FF", "#00FFFF", "#00FEFF","#1734FF","#00C4FF","#0EA8FF"]);
+    const color = d3.scaleOrdinal(graph.nodes.map(d => d.group).sort(d3.ascending), ["#00D1FF","#00A0FF","#00E0FF","#00F3FF","#00FFFF","#00FEFF",/*"#1734FF",*/"#00C4FF","#0EA8FF"]);
 
     const step = 25;
 
@@ -55,11 +55,11 @@ function macNCheese(selector, form, threshold, corpusEmbeddings, cache=null, fou
     }
     
     .hover g.secondary text {
-        fill: #333;
+        fill: black;
     }
     
     .hover path.primary {
-        stroke: #333;
+        stroke: black;
         stroke-opacity: 1;
     }
     
