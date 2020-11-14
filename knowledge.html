@@ -25,6 +25,7 @@ https://observablehq.com/d/c56d1668ea7aa83a
 
 
         var DEBUGGING = false;
+        // var DEBUGGING = true;
 
         if (!DEBUGGING) {
         // Standard Google Universal Analytics code
@@ -39,8 +40,32 @@ https://observablehq.com/d/c56d1668ea7aa83a
         } else ga = function() {};
     </script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script type="text/javascript" src="KnowledgeGraph/Dependencies/sentence_splitter.js"></script>
+    <script type="text/javascript" src="KnowledgeGraph/Dependencies/wiki.js"></script>
+    <script type="text/javascript" src="KnowledgeGraph/Dependencies/jLouvain-master/src/jLouvain.js"></script>
+    <!-- <script type="text/javascript" src="https://raw.githubusercontent.com/upphiminn/jLouvain/master/src/jLouvain.js"></script> -->
+    <script>
+        const CACHE_FILES = true;
+        const CACHE_SITES = false;
+        const cachedFiles = [
+            'covid19',
+            'roamhacker'
+        ];
+        const cachedSites = [
+            'homer'
+        ];
+        let sampleJSON = {};
+        for (let file of [...cachedFiles, ...cachedSites]) {
+            for (let version of ['', '-cached']) {
+                var path = 'KnowledgeGraph/files/' + file + version + '.js';
+                var script = document.createElement("script");
+                script.src = path;
+                document.head.appendChild(script);
+                script.onerror = () => console.log('"' + file + '" is not cached.');
+            }
+        }
+    </script>
     <script src="KnowledgeGraph/wonton.js"></script>
-    <script src="KnowledgeGraph/files/homer.js"></script>
 
     <style>
 
@@ -100,6 +125,17 @@ https://observablehq.com/d/c56d1668ea7aa83a
             outline-width: 0;
             width: 450px;
             height: 20px;
+        }
+
+        #notFound{
+            padding: 10px 30px;
+            position: absolute;
+            color: red;
+            top: 180px;
+            left:555px;
+            width: 100px;
+            height: 20px;
+            display: none;
         }
 
 
@@ -189,12 +225,14 @@ https://observablehq.com/d/c56d1668ea7aa83a
             <!--Visualizing + organizing your information in an entirely new way.--> Our AI connects related ideas. 
         </div> 
         <div class="rightHalf"> 
-            <input class="addTopic" id="addTopic" placeholder="+  Add information to your graph here. (Not yet, dude!) " type="text"> 
+            <input class="addTopic" id="addTopic" placeholder="+  Add information to your graph here." type="text"> 
             </input> 
         </div>
     </div>
 
-    <input type="text" class="input" placeholder="Ask Hebbia (not yet)" value="https://en.wikipedia.org/wiki/Homer"> </input>
+    <input id="search" type="text" class="input" placeholder="Ask Hebbia" value="https://en.wikipedia.org/wiki/Homer"> </input>
+
+    <div id="notFound"> Not found.</div>
 
     <div id="userProfile"> </div>
 
@@ -202,17 +240,140 @@ https://observablehq.com/d/c56d1668ea7aa83a
 
     <script type="module">
 
-        // import define from "./KnowledgeGraph/index.js";
-        // import { Runtime, Library, Inspector } from "./KnowledgeGraph/runtime.js";
-
-        // const runtime = new Runtime();
-        // const main = runtime.module(define, Inspector.into(document.body));
-
         const form = getForm();
 
-        document.getElementById("bagelBites").insertBefore(form, null);
+        const bagelBites = document.getElementById("bagelBites");
+        
+        bagelBites.insertBefore(form, null);
 
-        macNCheese("#bagelBites", data, form);
+        const input = document.getElementById("search");
+
+        setTimeout(lookup, 100);
+
+        input.addEventListener('keypress', keyPressEvent);
+
+        function keyPressEvent(e) {
+            if (e.keyCode === 13) lookup();
+        }
+
+        var notFoundTimeout;
+
+        function lookup() {
+            if (bagelBites.childNodes.length > 1) bagelBites.removeChild(bagelBites.lastElementChild);
+
+            if (input.value.toLowerCase().indexOf('roam:') !== 0) {
+
+                if (!input.value) input.value = cachedSites[Math.floor(Math.random() * cachedSites.length)];
+
+                const inputVal = input.value.toLowerCase().split('wikipedia.org/wiki/').slice(-1)[0];
+
+                const cachedSample = sampleJSON[inputVal + '-cached'];
+
+                if (cachedSites.includes(inputVal) && cachedSample) {
+                    macNCheese("#bagelBites", cachedSample, form, 0.75, 'CACHE');
+                    return;
+                }
+
+                wikijs.wikiSearch(input.value)
+                
+                .then(page => {
+                    const data = sentence_splitter.splitSentences(page)
+                                                .map(sentence => sentence.trim())
+                                                .filter(sentence => sentence.length > 0);
+
+                    const chunkJSON = JSON.stringify(Object.assign({}, data));
+                    const sendingJSON = JSON.stringify({chunk: chunkJSON});
+
+                    const proxyurl = 'https://api2.hebbia.ai/proxy/';
+                    fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: sendingJSON
+                    })
+                    .then(response => {
+                        if (response.ok) return response.json();
+                        throw new Error(response.statusText);
+                    })
+                    .then(response => macNCheese("#bagelBites", response, form, 0.75, CACHE_SITES ? inputVal : null))
+                    .catch(error => console.error(error));
+                })
+                
+                .catch(error => {
+                    clearTimeout(notFoundTimeout);
+                    document.getElementById("notFound").style.display = "block";
+                    notFoundTimeout = setTimeout(function() {
+                        document.getElementById("notFound").style.display = "none";
+                    }, 2000);
+                });
+
+            } else {
+
+                if (input.value.toLowerCase() === 'roam:') {
+                    input.value = input.value.substr(0, 5) + cachedFiles[Math.floor(Math.random() * cachedFiles.length)];
+                }
+
+                const inputVal = input.value.toLowerCase().slice(5);
+
+                const cachedSample = sampleJSON[inputVal + '-cached'];
+
+                if (cachedFiles.includes(inputVal) && cachedSample) {
+                    macNCheese("#bagelBites", cachedSample, form, 0.8, 'CACHE');
+                    return;
+                }
+
+                function parseRoam(roamGraph) {
+                    if (!roamGraph) return [];
+
+                    return roamGraph
+                        .map(block => {
+                            return [
+                                (block.string ?? block.title)
+                                    .replace(/(\b|\()(([^.]+\.){2}.+|.+:([^.]+\.).+)(\b|\))/g, '')
+                                    .replace(/\(\)/g, '')
+                                    .replace(/[\[\]{}*^_]|~~/g, '')
+                                    .replace(/::/g, ':')
+                                    .trim()
+                            ].concat(...parseRoam(block.children));
+                        })
+                        .reduce((sentenceArray, block) => {
+                            return sentenceArray
+                                .concat(...block);
+                        }, []);                    
+                }
+
+                const data = parseRoam(sampleJSON[inputVal])
+                    .filter(sentence => {
+                        return sentence.split(/\s+/).length >= 7
+                            && sentence.length > 50;
+                    });
+
+                if (!data.length) {
+                    clearTimeout(notFoundTimeout);
+                    document.getElementById("notFound").style.display = "block";
+                    notFoundTimeout = setTimeout(function() {
+                        document.getElementById("notFound").style.display = "none";
+                    }, 2000);
+                    return;
+                }
+
+                const chunkJSON = JSON.stringify(Object.assign({}, data));
+                const sendingJSON = JSON.stringify({chunk: chunkJSON});
+
+                const proxyurl = 'https://api2.hebbia.ai/proxy/';
+                fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: sendingJSON
+                })
+                .then(response => {
+                    if (response.ok) return response.json();
+                    throw new Error(response.statusText);
+                })
+                .then(response => macNCheese("#bagelBites", response, form, 0.8, CACHE_FILES ? inputVal : null))
+                .catch(error => console.error(error));
+
+            }
+        }
 
     </script>
 </body>

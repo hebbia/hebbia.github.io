@@ -1,5 +1,13 @@
-function macNCheese(selector, data, form) {
-    
+let SIMILARITY_THRESHOLD;
+
+function macNCheese(selector, corpusEmbeddings, form, threshold=0.75, cacheTo=null) {
+
+    SIMILARITY_THRESHOLD = threshold;
+
+    const data = cacheTo === "CACHE" ? corpusEmbeddings : organizeForD3(corpusEmbeddings);
+
+    if (cacheTo && cacheTo !== "CACHE") saveVariableToFile(data, cacheTo);
+
     const graph = getGraph(data);
 
     const color = d3.scaleOrdinal(graph.nodes.map(d => d.group).sort(d3.ascending), ["#00D1FF", "#00A0FF", "#00E0FF", "#00F3FF", "#00FFFF", "#00FEFF","#1734FF","#00C4FF","#0EA8FF"]);
@@ -10,14 +18,14 @@ function macNCheese(selector, data, form) {
 
     const margin = ({top: 20, right: 20, bottom: 20, left: width*0.05 + 640});
 
-    const height = (data.nodes.length - 1) * step + margin.top + margin.bottom;
+    let height = (data.nodes.length - 1) * step + margin.top + margin.bottom;
 
-    const y = d3.scalePoint(graph.nodes.map(d => d.id).sort(d3.ascending), [margin.top, height - margin.bottom]);
+    let y = d3.scalePoint(graph.nodes.sort(form.value).map(d => d.id), [margin.top, height - margin.bottom]);
 
     function arc(d) {
         const y1 = d.source.y;
         const y2 = d.target.y;
-        const r = Math.abs(y2 - y1) / 2;//
+        const r = Math.abs(y2 - y1) / 2;
         return `M${margin.left},${y1}A${r},${r} 0,0,${y1 < y2 ? 0 : 1} ${margin.left},${y2}`;
     }
 
@@ -81,106 +89,149 @@ function macNCheese(selector, data, form) {
   
     }
   
-
-
     `);
+
+    function bindLabels(selection) {
+        return selection
+            .data(graph.nodes)
+            .join(
+                enter => bindSingularLabel(enter.append("g"), "append"),
+                update => bindSingularLabel(update, "select")
+            );
+    }
+
+    function bindSingularLabel(selection, method) {
+        return selection
+            .attr("transform", d => `translate(${margin.left + 0},${d.y = y(d.id)})`)
+            .call(g => g[method]("text")
+                .attr("x", 10)
+                .attr("dy", "0.35em")
+                .attr("overflow", "scroll")
+                .attr("fill", d => d3.lab(color(d.group)).darker(1))
+                .text(d => d.id))
+            .call(g => g[method]("circle")
+                //.attr("r", d => d.sourceLinks.length)
+                .attr("r", 2)
+                .attr("fill", d => color(d.group)));
+                //.style("opacity", 0.1);
+    }
+
+    function bindPaths(selection) {
+        return selection
+            .data(graph.links)
+            .join("path")
+            .attr("stroke", d => d.source.group === d.target.group ? color(d.source.group) : "#aaa")
+            .attr("stroke-width", d => (d.value-SIMILARITY_THRESHOLD)*SIMILARITY_THRESHOLD*75 + 1)
+            .attr("d", arc);
+    }
+
+    function bindOverlays(selection) {
+        return selection
+            .data(graph.nodes)
+            .join("rect")
+            .attr("width", margin.left + 40)
+            .attr("height", step)
+            .attr("y", d => y(d.id) - step / 2)
+            .attr("x", margin.left)
+            .on("mouseover", d => {
+                d = d.target.__data__;
+                svg.classed("hover", true);
+                label.classed("primary", n => n === d);
+                label.classed("secondary", n => n.sourceLinks.some(l => l.target === d) || n.targetLinks.some(l => l.source === d));
+                path.classed("primary", l => l.source === d || l.target === d).filter(".primary").raise();
+            })
+            .on("mouseout", d => {
+                svg.classed("hover", false);
+                // label.classed("primary", false);
+                // label.classed("secondary", false);
+                // path.classed("primary", false).order();
+            })
+            .on("click", d => {
+                d = d.target.__data__;
+                svg.classed("clicked", true);
+                label.classed("primaryClicked", n => n === d);
+                label.classed("secondaryClicked", n => n.sourceLinks.some(l => l.target === d) || n.targetLinks.some(l => l.source === d));
+                path.classed("primaryClicked", l => l.source === d || l.target === d).filter(".primary").raise();
+            });
+    }
     
-    const label = svg.append("g")
-        .attr("font-family", "sans-serif")
-        .attr("font-size", 12.5)
-        .attr("text-anchor", "start")
-        .selectAll("g")
-        .data(graph.nodes)
-        .join("g")
-        .attr("transform", d => `translate(${margin.left + 0},${d.y = y(d.id)})`)
-        .call(g => g.append("text")
-            .attr("x", 10)
-            .attr("dy", "0.35em")
-            .attr("overflow", "scroll")
-            .attr("fill", d => d3.lab(color(d.group)).darker(1))
-            .text(d => d.id))
-        .call(g => g.append("circle")
-            //.attr("r", d => d.sourceLinks.length)
-            .attr("r", 2)
-            .attr("fill", d => color(d.group)));
-            //.style("opacity", 0.1);
+    let label = bindLabels(
+        svg.append("g")
+            .attr("font-family", "sans-serif")
+            .attr("font-size", 12.5)
+            .attr("text-anchor", "start")
+            .selectAll("g")
+    );
     
-    const path = svg.insert("g", "*")
-        .attr("fill", "none")
-        .attr("stroke-opacity", 0.3)
-        // .attr("stroke-width", 4)
-        .selectAll("path")
-        .data(graph.links)
-        .join("path")
-        .attr("stroke", d => d.source.group === d.target.group ? color(d.source.group) : "#aaa")
-        .attr("stroke-width", d => (d.value-0.65)*35 + 1)
-        .attr("d", arc);
+    let path = bindPaths(
+        svg.insert("g", "*")
+            .attr("fill", "none")
+            .attr("stroke-opacity", 0.3)
+            // .attr("stroke-width", 4)
+            .selectAll("path")
+    );
     
-    const overlay = svg.append("g")
-        .attr("fill", "none")
-        .attr("pointer-events", "all")
-        .selectAll("rect")
-        .data(graph.nodes)
-        .join("rect")
-        .attr("width", margin.left + 40)
-        .attr("height", step)
-        .attr("y", d => y(d.id) - step / 2)
-        .attr("x", margin.left)
-        .on("mouseover", d => {
-            d = d.target.__data__;
-            svg.classed("hover", true);
-            label.classed("primary", n => n === d);
-            label.classed("secondary", n => n.sourceLinks.some(l => l.target === d) || n.targetLinks.some(l => l.source === d));
-            path.classed("primary", l => l.source === d || l.target === d).filter(".primary").raise();
-        })
-        .on("mouseout", d => {
-            svg.classed("hover", false);
-            // label.classed("primary", false);
-            // label.classed("secondary", false);
-            // path.classed("primary", false).order();
-        })
-        .on("click", d => {
-            d = d.target.__data__;
-            svg.classed("clicked", true);
-            label.classed("primaryClicked", n => n === d);
-            label.classed("secondaryClicked", n => n.sourceLinks.some(l => l.target === d) || n.targetLinks.some(l => l.source === d));
-            path.classed("primaryClicked", l => l.source === d || l.target === d).filter(".primary").raise();
-        });
-    
-    function update() {
+    let overlay = bindOverlays(
+        svg.append("g")
+            .attr("fill", "none")
+            .attr("pointer-events", "all")
+            .selectAll("rect")
+    );
+
+    function updateOrder() {
         y.domain(graph.nodes.sort(form.value).map(d => d.id));
-    
+
         const t = svg.transition()
             .duration(750);
-    
+
         label.transition(t)
             .delay((d, i) => i * 20)
             .attrTween("transform", d => {
                 const i = d3.interpolateNumber(d.y, y(d.id));
                 return t => `translate(${margin.left},${d.y = i(t)})`;
             });
-    
+
         path.transition(t)
             .duration(750 + graph.nodes.length * 20)
             .attrTween("d", d => () => arc(d));
-    
+
         overlay.transition(t)
             .delay((d, i) => i * 20)
             .attr("y", d => y(d.id) - step / 2);
     }
-    
-    form.addEventListener("input", update);
+
+    function updateContent() {
+        height = (graph.nodes.length - 1) * step + margin.top + margin.bottom;
+
+        svg.attr("height", height);
+
+        y = d3.scalePoint(graph.nodes.sort(form.value).map(d => d.id), [margin.top, height - margin.bottom]);
+
+        label = bindLabels(label);
+
+        path = bindPaths(path);
+
+        overlay = bindOverlays(overlay);
+    }
+
+
+
+    form.addEventListener("input", updateOrder);
     // invalidation.then(() => form.removeEventListener("input", update));
 
     //On enter, call sentenceAdd to insert new info to the graph 
     d3.select("#addTopic")
         .on("keypress", function(event) {
         if(event.keyPress === 13 || event.keyCode === 13){
-            console.log("Congrats, you pressed enter!");
+            // console.log("Congrats, you pressed enter!");
             //alert(this.value);
-            console.log(this.value);
+            let sentences = sentence_splitter.splitSentences(this.value)
+                                             .map(sentence => sentence.trim())
+                                             .filter(sentence => sentence.length > 0);
 
-            newEmbeddings([this.value]);
+            // console.log(sentences);
+
+            newEmbeddings(sentences);
             // sentenceAdd(newEmbeddings);
 
         }
@@ -188,78 +239,72 @@ function macNCheese(selector, data, form) {
 
 
 
-
-
     function newEmbeddings(sentenceArray){
-
-        let sentEmbeddingDict = {};
 
         const chunkJSON = JSON.stringify(Object.assign({}, sentenceArray));
         const sendingJSON = JSON.stringify({chunk: chunkJSON});
-        const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-        fetch(proxyurl + 'http://api.hebbia.ai/chunk_embeddings/', {
+        const proxyurl = 'https://api2.hebbia.ai/proxy/';
+        fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'api.hebbia.ai/*'
-            },
+            headers: {'Content-Type': 'application/json'},
             body: sendingJSON
-        }).then(response => response.json()).then(response => sentencesAdd(response));
+        })
+        .then(response => response.json())
+        .then(response =>
+            Object.keys(response).forEach(sentence => {
+                if (corpusEmbeddings[sentence]) return;
+
+                corpusEmbeddings[sentence] = response[sentence];
+
+                addSentence(sentence);
+            })
+        );
 
     }
 
 
 
     //Add new sentence as a node, and call to check if other sentences that exist are links to your OG sentence 
-    function sentencesAdd(sentenceEmbeddingDict){
-
-        for (let sentence of Object.keys(sentEmbeddingDict)) {
-            sentenceAdd(sentence, sentEmbeddingDict[sentence].split(", ").map(Number));
-
-        }
-
-    }
-    
-
-
-
-    //Add new sentence as a node, and call to check if other sentences that exist are links to your OG sentence 
-    function sentenceAdd(sentence, embeddingArray){
+    function addSentence(sentence){
         
-        console.log("NEW SENTENCE ADD");
-        console.log(sentence, embeddingArray);
+        // console.log("NEW SENTENCE ADD");
+        // console.log(sentence, corpusEmbeddings[sentence]);
 
-        let newSentenceNode = {'id':sentence, 'sourceLinks': [], 'targetLinks': [], 'group': 99, 'y': 0}
-        let n = graph.nodes.push(newSentenceNode);      
+        let newSentenceNode = {'id': sentence, 'sourceLinks': [], 'targetLinks': [], 'group': 99, 'y': 0}
 
-        let newLinks = [];
         graph.nodes.forEach(function(otherSentenceNode) {
 
             //Some bullshit cosine similarity to test
-            var currCosineSimilarity = .69 * (otherSentenceNode.id[0] == newSentenceNode.id[0]);
-            console.log(currCosineSimilarity);
+            var currCosineSimilarity = cosineSim(corpusEmbeddings[sentence], corpusEmbeddings[otherSentenceNode.id]);
+            // console.log(currCosineSimilarity);
 
             //If cosine similarity above a threshold (here if it is not zero/null/false)
-            if(currCosineSimilarity){
+            if(currCosineSimilarity > SIMILARITY_THRESHOLD){
                 let newLink = {source: newSentenceNode, target: otherSentenceNode, value: currCosineSimilarity};
+                newSentenceNode.sourceLinks.push(newLink);
+                otherSentenceNode.targetLinks.push(newLink);
+                // console.log(newLink);
                 graph.links.push(newLink);
-                newLinks.push(newLink);
             }
 
         });
+
+        graph.nodes.push(newSentenceNode);      
+
+        updateContent();
+
         //update();
         //form.dispatchEvent(new CustomEvent("input"));
         //update2(newSentenceNode, newLinks);
-        var nodes = svg.selectAll("g")			//Select all bars
-            .enter()
-            .data(graph.nodes)
-            .transition();
-        
-        update();
+        // var nodes = svg.selectAll("g")			//Select all bars
+        //     .enter()
+        //     .data(graph.nodes)
+        //     .transition();
     }
     
-    return svg.node();
+    // return svg.node();
 }
+
 
 
 function getGraph(data) {
@@ -289,9 +334,9 @@ function getGraph(data) {
 
 function getForm() {
     const options = [
-        { name: "Order by name", value: (a, b) => d3.ascending(a.id, b.id) },
-        { name: "Order by group", value: (a, b) => a.group - b.group || d3.ascending(a.id, b.id) },
-        { name: "Order by degree", value: (a, b) => d3.sum(b.sourceLinks, l => l.value) + d3.sum(b.targetLinks, l => l.value) - d3.sum(a.sourceLinks, l => l.value) - d3.sum(a.targetLinks, l => l.value) || d3.ascending(a.id, b.id) }
+        { name: "Order by name", value: (a, b) => d3.ascending(a.id.toLowerCase(), b.id.toLowerCase()) },
+        { name: "Order by group", value: (a, b) => a.group - b.group || d3.ascending(a.id.toLowerCase(), b.id.toLowerCase()) },
+        { name: "Order by degree", value: (a, b) => d3.sum(b.sourceLinks, l => l.value) + d3.sum(b.targetLinks, l => l.value) - d3.sum(a.sourceLinks, l => l.value) - d3.sum(a.targetLinks, l => l.value) || d3.ascending(a.id.toLowerCase(), b.id.toLowerCase()) }
     ];
 
     /**
@@ -316,7 +361,7 @@ function getForm() {
     const timeout = setTimeout(() => {
         form.i.selectedIndex = 1;
         form.dispatchEvent(new CustomEvent("input"));
-    }, 2000);
+    }, 1000);
 
     form.onchange = () => {
         form.dispatchEvent(new CustomEvent("input")); // Safari
@@ -330,4 +375,157 @@ function getForm() {
     form.value = options[form.i.selectedIndex].value;
     
     return form;
+}
+
+
+
+//EXTRA CODE TO CREATE D3 READABLE GRAPHS COPIED BELOW
+function organizeForD3(corpusEmbeddings) {
+	let nodes = []; //Array of objects {id: "SENTENCE", group: SENTENCE_GROUP_NUMBER}
+	let links = []; //Array of objects Object {source: "SENTENCE1", target: "SENTENCE2", value: WEIGHT_OF_CONNECTION}
+
+
+
+
+	let node_ids = [];
+	let link_ids = [];
+	let curr_id_1 = 0;
+
+	for (sentence in corpusEmbeddings) {
+		//GET EMBEDDING OF SENTENCE
+		//console.log(sentence);
+		//console.log(current_embedding);
+
+		//GET SIMILARITY SCORES W/ EVERY OTHER SENTENCE
+		let currSentScoresDict = compareVectorsNoQuery(sentence, corpusEmbeddings);
+		//console.log(currSentScoresDict);
+
+		//THRESHOLD SIMILARITY SCORES
+		let thresholdedCurrSentScoresDict = Object.fromEntries(Object.entries(currSentScoresDict).filter(([k, v]) => v > SIMILARITY_THRESHOLD));
+		//console.log("THRESHOLD CROSSING: ", thresholdedCurrSentScoresDict);
+
+		//POPULATE NODES
+		nodes.push({id: sentence}); //, group: 1
+
+		//POPULATE NUMERICAL NODES
+		curr_id_1++;
+		node_ids.push(curr_id_1);
+
+		//POPULATE LINKS
+		let curr_id_2 = 0;
+		for (let sentence2 in thresholdedCurrSentScoresDict) {
+			//NO IDENTITY LINKS
+			curr_id_2++;
+			if (sentence !== sentence2) {
+				links.push({source: sentence, target: sentence2, value: thresholdedCurrSentScoresDict[sentence2]});
+				link_ids.push({source: curr_id_1, target: curr_id_2, weight: thresholdedCurrSentScoresDict[sentence2]});
+			}
+		}
+		//let groups = getGroupsFromSentScores(currSentScoresDict, previousGroup);
+	}
+
+	//CALCULATE GROUPS ONCE DONE
+
+
+	// console.log(node_ids);
+	// console.log(link_ids);
+
+	let community = jLouvain().nodes(node_ids).edges(link_ids);
+
+	var community_assignment_result = community();
+
+	// console.log('Resulting Community Data', community_assignment_result);
+
+	var new_nodes = [];
+
+	var max_community_number = 0;
+	node_ids.forEach(function(d) {
+		// console.log(d);
+		//nodes[d].group = community_assignment_result[d];
+		new_nodes.push({id: nodes[d - 1].id, group: community_assignment_result[d]});
+		max_community_number = max_community_number < community_assignment_result[d] ?
+			community_assignment_result[d] : max_community_number;
+
+	});
+
+	// console.log(max_community_number);
+
+	//SANITY CHECK PRINT STATEMENTS
+	// console.log(nodes);
+	// console.log(new_nodes);
+	// console.log(links);
+
+	let togetherboy = {nodes: new_nodes, links: links};
+	// console.log(togetherboy);
+
+
+    return togetherboy;
+
+}
+
+
+
+function getGroupsFromSentScores(currSentScoresDict, previousGroup) {
+
+	let group = previousGroup++;
+
+
+
+}
+
+
+
+
+function compareVectorsNoQuery(current_sentence, corpusEmbeddings) {
+    
+    return Object.keys(corpusEmbeddings).reduce((sentScoresDict, sent) => {
+        sentScoresDict[sent] = cosineSim(corpusEmbeddings[current_sentence], corpusEmbeddings[sent]);
+        return sentScoresDict;
+    }, {});
+
+}
+
+
+
+//MATH FUNCTION TO CALCULATE COSINE SIMILARITY BETWEEN VECTORS
+function cosineSim(A, B) {
+	if (typeof A === "string") {
+		A = A.split(',').map(Number);
+		B = B.split(',').map(Number);
+	}
+
+	var dotproduct = 0;
+	var mA = 0;
+	var mB = 0;
+
+	for (let i = 0; i < A.length; i++) {
+		dotproduct += (A[i] * B[i]);
+		mA += (A[i] * A[i]);
+		mB += (B[i] * B[i]);
+	}
+
+	mA = Math.sqrt(mA);
+	mB = Math.sqrt(mB);
+	var similarity = (dotproduct) / ((mA) * (mB));
+	return similarity;
+}
+
+
+
+function saveVariableToFile(variable, cacheTo) {
+
+    var hiddenElement = document.createElement('a');
+
+    let dataBlob = new Blob([
+        'sampleJSON["'
+        + cacheTo.toLowerCase()
+        + '-cached"] = '
+        + JSON.stringify(variable)
+    ],{type:"attachment/javascript"});
+
+    hiddenElement.href = URL.createObjectURL(dataBlob);
+	hiddenElement.target = '_blank';
+	hiddenElement.download = cacheTo + '-cached.js';
+	hiddenElement.click();
+
 }
