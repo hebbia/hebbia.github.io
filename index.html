@@ -449,13 +449,7 @@
           const form = document.forms['submit-to-google-sheet'];
 
           const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJAmhcbt46gCf_zr0MZtuZKNTLHkcFhQ/exec';
-          const proxyURL = 'https://api2.hebbia.ai/proxy/';
-          const mailingListURL = proxyURL + 'https://us2.api.mailchimp.com/3.0/lists/79bd292e7b/members';
-
-          const mailingListHeaders = {
-            'Content-Type': 'application/json',
-            'Authorization': 'Basic ' + btoa('user:021843c8e0ab48eacd7d71c2b10f2b69-us2')
-          };
+          const mailingListURL = 'https://api2.hebbia.ai/mailing_list/';
 
           const mailingListTags = ["Mobile Signup"];
 
@@ -465,25 +459,13 @@
             let formData = new FormData(form);
             let emailEntered = document.getElementById('email').value;
             let mailingListData = JSON.stringify({
-              "email_address": emailEntered,
-              "email_type": "html",
-              "status": "subscribed",
-              "merge_fields": {},
-              "interests": {},
-              "language": "",
-              "vip": false,
-              "location": {"latitude": 0, "longitude": 0},
-              "marketing_permissions": [],
-              "ip_signup": "",
-              "timestamp_signup": "",
-              "ip_opt": "",
-              "timestamp_opt": "",
-              "tags": mailingListTags
-            });
+              email: emailEntered,
+              tags: mailingListTags
+            })
 
             Promise.allSettled([
               fetch(scriptURL, {method: 'POST', body: formData}),
-              fetch(mailingListURL, {method: 'POST', headers: mailingListHeaders, body: mailingListData})
+              fetch(mailingListURL, {method: 'POST', body: mailingListData})
             ])
               .then(responses => responses.map(response => 
                 response.status === "fulfilled" ? response.value

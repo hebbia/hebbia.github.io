@@ -21,13 +21,7 @@ const form = document.forms['submit-to-google-sheet'];
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ9Jung9Yd-fMDobAnIBPiuuwkRrCkjqNqwiJEqZCQ0q23gFB-/exec';
 const promoCodeBaseURL = 'https://api2.hebbia.ai/promo_code_check/?promo_code=';
-const proxyURL = 'https://api2.hebbia.ai/proxy/';
-const mailingListURL = proxyURL + 'https://us2.api.mailchimp.com/3.0/lists/79bd292e7b/members';
-
-const mailingListHeaders = {
-  'Content-Type': 'application/json',
-  'Authorization': 'Basic ' + btoa('user:021843c8e0ab48eacd7d71c2b10f2b69-us2')
-};
+const mailingListURL = 'https://api2.hebbia.ai/mailing_list/';
 
 const mailingListTags = ["Access Code Signup"];
 
@@ -39,21 +33,9 @@ form.addEventListener('submit', e => {
   let promoCodeURL = promoCodeBaseURL + promoEntered;
   let emailEntered = document.getElementById('email').value;
   let mailingListData = JSON.stringify({
-    "email_address": emailEntered,
-    "email_type": "html",
-    "status": "subscribed",
-    "merge_fields": {},
-    "interests": {},
-    "language": "",
-    "vip": false,
-    "location": {"latitude": 0, "longitude": 0},
-    "marketing_permissions": [],
-    "ip_signup": "",
-    "timestamp_signup": "",
-    "ip_opt": "",
-    "timestamp_opt": "",
-    "tags": mailingListTags
-  });
+    email: emailEntered,
+    tags: mailingListTags
+  })
 
   if(promoEntered){
     fetch(promoCodeURL, {method: 'GET'})
@@ -65,7 +47,7 @@ form.addEventListener('submit', e => {
           Promise.allSettled([
             response.text(),
             fetch(scriptURL, {method: 'POST', body: formData}),
-            fetch(mailingListURL, {method: 'POST', headers: mailingListHeaders, body: mailingListData})
+            fetch(mailingListURL, {method: 'POST', body: mailingListData})
           ])
 
             .then(responses => responses.map(response => 
