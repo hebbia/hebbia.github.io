@@ -16,6 +16,7 @@
     z-index: 100000;
     height: 40px;
     width: auto;
+    opacity: 77%;
 }
 
 
@@ -152,7 +153,19 @@
     border: 0px solid black;
 }
 
-#cover {position: fixed; height: 100%; width: 100%; top:0; left: 0; background: white; z-index:9999;}
+#cover {
+    position: fixed; 
+    height: 100%; 
+    width: 100%; 
+    top:0; 
+    left: 0; 
+    background: white;
+    background: url('/img/sidebackblue.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:9999;
+}
 
 .signup {
     position: fixed;
@@ -167,7 +180,7 @@
     border-radius: 4px;
 }
 
-.logo_hebbia {
+#logo_hebbia {
     position: relative;
     width: 144px;
     top: 5%;
@@ -204,17 +217,16 @@
 
 .signup_subheader {
     margin-top: 5px;
-
-    font-size: 20px;
+    font-size: 17px;
 }
 
 #enter_email,#select_cohort {
-    width: 400px;
+    width: 600px;
 }
 
 #email {
-    width: 300px;
-    padding: 8px 17px;
+    width: 370px;
+    padding: 10px 17px;
     box-shadow: 0px 0px 40px 0px rgba(198,203,222,.45);  
     margin-top:20px;
     font-size:20px;
@@ -224,8 +236,10 @@
 }
 
 #cohort {
-    width: 234px;
-    padding: 6px;
+    margin-top: 30px;
+    width: 404px;
+    padding: 10px;
+    border-radius: 12px;
     box-shadow: 0px 0px 40px 0px rgba(198,203,222,.45);  
     margin-top:20px;
     font-size:20px;
@@ -251,10 +265,9 @@
 
 .glow-on-hover {
     /*width: 240px; */
-    width: 334px; 
-    height: 37px;
+    width: 404px; 
     letter-spacing: 0px !important;
-    padding: 7px 17px;
+    padding: 11px 17px;
     /* padding-top: 12px; */
     margin-top:15px;
     /* margin-right:14px; */

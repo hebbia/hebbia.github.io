@@ -51,6 +51,7 @@ $(window).on('load', function() {
         $("#signup_p2").hide();
         $("#wikiContent").show();
         $("#cover").fadeOut(1000)
+        $('#logo_hebbia').hide();
         document.body.style['overflow-y'] = 'scroll';
         window.addEventListener("HebbiaExtension", handleStateChange);
     });
@@ -66,6 +67,8 @@ $(window).on('load', function() {
         $("#signup_p2").hide();
         $("#wikiContent").show();
         $("#cover").fadeOut(1000)
+        $('#logo_hebbia').hide();
+
         document.body.style['overflow-y'] = 'scroll';
         window.addEventListener("HebbiaExtension", handleStateChange);
     });
