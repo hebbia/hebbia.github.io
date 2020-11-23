@@ -6,7 +6,20 @@
  * https://raw.github.com/zmyaro/crx-options-page/master/LICENSE.txt
  */
 
- #tutorialContent {
+
+
+
+#absolute_logo{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100000;
+    height: 40px;
+    width: auto;
+}
+
+
+#tutorialContent {
     margin: 0px !important;
     font-size: 12px;
     color: rgb(48, 57, 66);
@@ -143,7 +156,7 @@
 
 .signup {
     position: fixed;
-    height: 400px;
+    height: 440px;
     width: 600px;
     top: 50%;
     left: 50%;
@@ -156,7 +169,7 @@
 
 .logo_hebbia {
     position: relative;
-    width: 200px;
+    width: 144px;
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
@@ -166,6 +179,7 @@
 .signup_content {
     position: relative;
     top: 5%;
+    margin-top: 30px;
     left: 50%;
     transform: translateX(-50%);
     font-weight: 300;
@@ -183,11 +197,14 @@
 }
 
 .signup_header {
+
     font-size: 30px;
-    font-weight: 400;
+    font-weight: 500;
 }
 
 .signup_subheader {
+    margin-top: 5px;
+
     font-size: 20px;
 }
 
@@ -196,13 +213,14 @@
 }
 
 #email {
-    width: 200px;
-    padding: 7px 17px;
+    width: 300px;
+    padding: 8px 17px;
     box-shadow: 0px 0px 40px 0px rgba(198,203,222,.45);  
     margin-top:20px;
     font-size:20px;
     outline-color: #5ee4fe;
     outline-width: 0;
+    border-radius: 12px;
 }
 
 #cohort {
@@ -233,10 +251,10 @@
 
 .glow-on-hover {
     /*width: 240px; */
-    width: 200px; 
-    height: 35px;
+    width: 334px; 
+    height: 37px;
     letter-spacing: 0px !important;
-    padding: 7.5px 10px;
+    padding: 7px 17px;
     /* padding-top: 12px; */
     margin-top:15px;
     /* margin-right:14px; */
@@ -249,9 +267,10 @@
     cursor: pointer;
     position: relative;
     z-index: 0;
-    border-radius: 20px;
-    font-size: 20px;
+    border-radius: 12px;
+    font-size: 17px;
     font-weight: 400;
+    margin-bottom: 30px;
 }
 
 .glow-on-hover:before {
