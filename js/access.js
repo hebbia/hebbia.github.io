@@ -58,7 +58,7 @@ form.addEventListener('submit', e => {
               responses
                 .slice(1)
                 .filter(response => !response.ok)
-                .forEach(response => response.text().then(text => console.error("Error:", text)));
+                .forEach(response => response.text().then(console.error));
               if (responses.slice(1).every(response => response.ok)) console.log('Success!');
               // document.getElementById("thanks").innerText = "Rerouting...";
               let url = responses[0].substr(1, (responses[0].length - 3));
@@ -73,7 +73,8 @@ form.addEventListener('submit', e => {
 
       })
 
-      .catch(error => console.error('Error!', error.message));
+      .catch(error => error.message)
+      .then(console.error);
   }
   
 

@@ -474,7 +474,7 @@
               .then(responses => {
                 responses
                   .filter(response => !response.ok)
-                  .forEach(response => response.text().then(text => console.error("Error:", text)));
+                  .forEach(response => response.text().then(console.error));
                 if (responses.every(response => response.ok)) console.log('Success!');
               });
 

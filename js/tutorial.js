@@ -57,6 +57,21 @@ $(window).on('load', function() {
     });
     emailForm.addEventListener('submit', e => {
         e.preventDefault();
+
+        const mailingListURL = 'https://api2.hebbia.ai/mailing_list/';
+        const mailingListTags = ["Tutorial Signup"];
+        const mailingListData = JSON.stringify({
+            email: $("#email").val(),
+            tags: mailingListTags
+        });
+        fetch(mailingListURL, {method: 'POST', body: mailingListData})
+            .then(response => {
+                if (!response.ok) {
+                    response.text().then(err => {throw Error(err);});
+                }
+            })
+            .catch(console.error);
+
         window.postMessage({type: "storeData", field: "email", value: $("#email").val()}, '*');
         $("#signup_p1").hide();
         $("#signup_p2").show();
@@ -68,7 +83,6 @@ $(window).on('load', function() {
         $("#wikiContent").show();
         $("#cover").fadeOut(1000)
         $('#logo_hebbia').hide();
-
         document.body.style['overflow-y'] = 'scroll';
         window.addEventListener("HebbiaExtension", handleStateChange);
     });
@@ -78,14 +92,14 @@ function sendAnalytics(action, label=null) {
     const page = '/tutorial.html';
     if (label) {
         ga('send', 'event', 'tutorial', action, label);
-        window.postMessage({type: analytics, location: page, data: {
+        window.postMessage({type: 'analytics', location: page, data: {
             eventCategory: 'tutorial',
             eventAction: action,
             eventLabel: label
         }}, '*');
     } else {
         ga('send', 'event', 'tutorial', action);
-        window.postMessage({type: analytics, location: page, data: {
+        window.postMessage({type: 'analytics', location: page, data: {
             eventCategory: 'tutorial',
             eventAction: action
         }}, '*');

@@ -236,15 +236,14 @@
 }
 
 #cohort {
-    margin-top: 30px;
     width: 404px;
-    padding: 10px;
-    border-radius: 12px;
+    padding: 9px;
     box-shadow: 0px 0px 40px 0px rgba(198,203,222,.45);  
     margin-top:20px;
     font-size:20px;
     outline-color: #5ee4fe;
     outline-width: 0;
+    border-radius: 12px;
 }
 
 .signup_text_small {
