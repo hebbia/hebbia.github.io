@@ -25,6 +25,7 @@ const mailingListURL = 'https://api2.hebbia.ai/mailing_list/';
 
 const mailingListTags = ["Access Code Signup"];
 
+let thanksTimeout;
 form.addEventListener('submit', e => {
   e.preventDefault();
 
@@ -69,6 +70,10 @@ form.addEventListener('submit', e => {
         } else {
           console.log('Wrong code');
           document.getElementById("thanks").innerText = "Incorrect Access Key";
+          clearTimeout(thanksTimeout);
+          thanksTimeout = setTimeout(() => {
+            document.getElementById("thanks").innerText = "";
+          }, 1000);
         }
 
       })
@@ -92,4 +97,11 @@ function showSurvey() {
   document.getElementById("welcome_msg").innerText = "Sign up below: we'll forward an invite shortly!";
   document.getElementById("invitecode").style.display = "none";
 
+}
+
+function finishSurvey() {
+  if (document.getElementById("iframe").style.display !== "none") {
+    document.getElementById("welcome_msg").innerText = "Thanks for signing up: we'll forward an invite shortly!";
+    window.scrollTo({top: 0, left: 0, behavior: "smooth"});
+  }
 }

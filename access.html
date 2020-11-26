@@ -22,9 +22,10 @@
 		}
 
 		#iframe{
-			display: none;
 			top: -87px;
 			left: -80px;
+			height: 1465px;
+			border: 0;
 		}
 
 
@@ -45,7 +46,7 @@
 	<body>
 
 
-		<div id="container">
+	<div id="container">
 		<header>
 
 			<!-- Replace this with your extension's title. -->
@@ -62,7 +63,7 @@
 
 			<p class="subtitle"> 
 				<!--Welcome to Hebbia, AI-powered in-page search.-->
-				<br />
+				<!-- <br /> -->
 
 				<h3 class="styled" id="welcome_msg"> 
 					Welcome to our private beta! 
@@ -103,32 +104,37 @@
 				</button>-->
 				<br>
 				<span id="thanks"> </span>
+
+				<br>
+				<div>
+					<h4 class="black" id="showsurveyspan"> Don't have a code?
+						<span id="button_link" type="showsurvey" onclick="showSurvey()">Sign up here for beta access!</span>
+					</h4>
+				</div>
+				
 			</form>
 			<div id='outerdiv'>
 				<!--<iframe class="right" id="iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfWacp6Xr1ghqqptzCP7X3XemgUmdYEqvGcDMlZjdPIF6cdxg/viewform?embedded=true" width="800" height="1517">Loading…</iframe>-->
-				<iframe  class="right" id="iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfWacp6Xr1ghqqptzCP7X3XemgUmdYEqvGcDMlZjdPIF6cdxg/viewform?embedded=true" width="900" height="1465" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+				<iframe  class="right" id="iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfWacp6Xr1ghqqptzCP7X3XemgUmdYEqvGcDMlZjdPIF6cdxg/viewform?embedded=true" style="display: none;" onload="finishSurvey()">Loading…</iframe>
 			</div> 
 
 		</section>
-			<h4 class="black" id="showsurveyspan"> Don't have a code?
-				<span id="button_link" type="showsurvey" onclick="showSurvey()">Sign up here for beta access!</span>
-			</h4>
 
-		<section>
+		<!-- <section>
 			
-		</section>
+		</section> -->
 
 
 
 
-		<section>
+		<!-- <section> -->
 
 
 			<!--<div id=''>
 				<iframe class="" id="iframe" src="https://docs.google.com/forms/d/e/1FAIpQLSfWacp6Xr1ghqqptzCP7X3XemgUmdYEqvGcDMlZjdPIF6cdxg/viewform?embedded=true" width="700" height="1517" frameborder="0" marginheight="-177" marginwidth="0">Loading…</iframe>	
 			</div> -->
 
-		</section>
+		<!-- </section> -->
 	</div>
 
 
