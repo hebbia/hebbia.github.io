@@ -257,7 +257,7 @@
 
       <div id="FixedCenterHero">
         <div id="LeftCenterHero"> 
-          <h1 class="name"> Ctrl+F, <br> Reinvented<!--Knowledge is power. We help you find it.--></h1> 
+          <h1 class="name"> <span id='metakey'>Ctrl</span>+F, <br> Reinvented<!--Knowledge is power. We help you find it.--></h1> 
         
           <br /> 
           <h4 class="subtitle" id="subtitle">Immediately find relevant info with Hebbia's AI-powered in-page search.</h4>
@@ -446,6 +446,15 @@
 
 
         <script>
+          let platform = window.navigator.platform,
+              macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K', 'darwin'],
+              iosPlatforms = ['iPhone', 'iPad', 'iPod'];
+
+          if (macosPlatforms.indexOf(platform) !== -1
+              || iosPlatforms.indexOf(platform) !== -1) {
+            document.getElementById('metakey').innerText = "Cmd";
+          }
+
           const form = document.forms['submit-to-google-sheet'];
 
           const scriptURL = 'https://script.google.com/macros/s/AKfycbw40jIFq3G0nHinvoJqJAmhcbt46gCf_zr0MZtuZKNTLHkcFhQ/exec';
@@ -474,7 +483,7 @@
               .then(responses => {
                 responses
                   .filter(response => !response.ok)
-                  .forEach(response => response.text().then(text => console.error("Error:", text)));
+                  .forEach(response => response.text().then(console.error));
                 if (responses.every(response => response.ok)) console.log('Success!');
               });
 

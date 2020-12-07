@@ -3,7 +3,7 @@
 
 <head>
     <!-- Replace this with your extension's title. -->
-    <title>Hebbia Privacy Policy</title>
+    <title>Hebbia Terms of Service</title>
     <link rel="stylesheet" type="text/css" href="css/terms.css" />
 
 
@@ -36,15 +36,13 @@
 
 
 
-    <link href="https://fonts.googleapis.com/css?family=Khula:100,200,300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Khula:100,200,300,400,700" rel="stylesheet">
 
     <script>
         //INIT GOOGLE ANALYTICS SHIT
     
     
-        var DEBUGGING = false;
-    
-        if (!DEBUGGING) {
+        if (window.location.hostname === "hebbia.ai") {
         // Standard Google Universal Analytics code
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -54,7 +52,9 @@
         ga('create', 'UA-157284380-2', 'auto'); // Enter your GA identifier
         ga('set', 'checkProtocolTask', function(){}); // Removes failing protocol check. @see: http://stackoverflow.com/a/22152353/1958200
         ga('send', 'pageview', '/terms.html'); // Specify the virtual path
-        } else ga = function() {};
+        } else ga = function() {
+            console.log('ga(' + [...arguments].map(JSON.stringify).join(', ') + ')');
+        };
     </script>
 
 </head>
@@ -73,641 +73,818 @@
             <a id="logo" href="http://hebbia.ai/"> </a>
 
             <div class="logo" id="title_right">
-                <h1> | Privacy Policy</h1>
+                <h1> | Terms of Service</h1>
             </div>
         </div>
 
-
-        
-        <div>
-            <p class="asdf">Together with its subsidiaries and other affiliates, Hebbia, Inc., a Delaware
-                corporation (“Hebbia”), makes available the “Site” (websites including, without limitation,
-                www.hebbia.ai and all sub-domains), “Software” (software and mobile applications), and “Services”
-                (including, without limitation, writing feedback suggestions and/or corrections, plagiarism detection,
-                and human proofreading services) to help people research more effectively. Access to and use of
-                Hebbia’s existing Site, Software and Services, as well as any future Sites, Software or Services
-                provided by Hebbia are governed by this Terms of Service and License Agreement (this “Agreement”).
-            </p>
-            <p class="asdfasdfas">THIS IS A LEGALLY BINDING AGREEMENT. IF YOU DO NOT UNDERSTAND THIS AGREEMENT, OR DO NOT
-                AGREE TO BE BOUND BY IT OR THE PRIVACY POLICY REFERENCED HEREIN, YOU MUST IMMEDIATELY LEAVE THE SITE AND
-                YOU ARE NOT AUTHORIZED TO ACCESS OR USE ANY OF THE SERVICES OR SOFTWARE. BY ACCESSING OR USING THE SITE,
-                SERVICES AND/OR SOFTWARE, YOU CONFIRM THAT YOU ARE AT LEAST 18 YEARS OLD (OR IF YOU ARE BETWEEN 13 AND
-                17 YEARS OLD, INCLUSIVE, THAT YOU ARE USING THE SITE, SERVICES AND/OR SOFTWARE ONLY WITH THE APPROVAL OF
-                YOUR PARENT OR GUARDIAN), THAT YOU ARE LEGALLY ABLE TO ENTER INTO THIS AGREEMENT, AND THAT YOU HAVE
-                READ, UNDERSTAND AND AGREE TO BE BOUND BY THIS AGREEMENT.</p>
-            <p class="asdf">If you are an individual subscriber, or are accessing the Site to use a Trial (as
-                defined below) of the Services or Software, or are otherwise browsing the Site, this Agreement is
-                between you, individually, and Hebbia.</p>
-            <p class="asdf">If you are an employee, faculty member or student of a university, school or other
-                entity or organization that has subscribed to the Services and Software (an “Enterprise Subscriber”),
-                you are an “Authorized User” of your Enterprise Subscriber and (i) you represent that you have your
-                Enterprise Subscriber’s permission and authority to use the Site, Services, Software and your Enterprise
-                Subscriber’s “User Content” (as defined below) subject to this Agreement, (ii) this Agreement is an
-                agreement between you, individually, and Hebbia, and (iii) your Enterprise Subscriber is jointly
-                responsible for your use of the Site, Services and Software.</p>
-            <!--<p class="asdf">If you&#x27;re an Enterprise Subscriber and need a Data Privacy Addendum to comply with
-                your obligations under the General Data Protection Regulation or California Consumer Privacy Act, our
-                DPA located <a class="asdfasdf" href="https://hebbia.ai/online-DPA" target="_blank">here</a> is
-                hereby incorporated into this Agreement at your option.</p> -->
-            <p class="asdf">If you are entering into this Agreement on behalf of an Enterprise Subscriber, you
-                represent that you have the authority to bind the Enterprise Subscriber to this Agreement, in which case
-                references to “you” in this Agreement shall mean the Enterprise Subscriber. If you do not have such
-                authority, you must not accept this Agreement and may not use the Site, Software or Services.</p>
-            <p class="asdfasdfas">THIS AGREEMENT CONTAINS AN ARBITRATION AGREEMENT, WHICH WILL, WITH LIMITED EXCEPTIONS,
-                REQUIRE YOU TO SUBMIT CLAIMS YOU HAVE AGAINST Hebbia AND ITS LICENSORS AND ITS SUPPLIERS TO BINDING
-                AND FINAL ARBITRATION. UNDER THE ARBITRATION AGREEMENT (1) YOU WILL ONLY BE PERMITTED TO PURSUE CLAIMS
-                AGAINST Hebbia AND ITS LICENSORS AND ITS SUPPLIERS ON YOUR OWN BEHALF, NOT AS A PLAINTIFF OR CLASS
-                MEMBER IN ANY CLASS OR REPRESENTATIVE ACTION OR PROCEEDING, (2) YOU WILL ONLY BE PERMITTED TO SEEK
-                RELIEF (INCLUDING MONETARY, INJUNCTIVE, AND DECLARATORY RELIEF) ON YOUR OWN BEHALF, AND (3) YOU ARE
-                WAIVING YOUR RIGHT TO A JURY TRIAL AND YOUR RIGHT TO HAVE YOUR CLAIMS DECIDED BY A JUDGE OR JURY.</p>
-        </div>
-        <h2 class="asdfasdfasdf">Table of contents</h2>
-        <div class="_1TDQRTa">
-            <ul class="_1PUX1Gr">
-                <li class="_50DQdwf"><a href="/terms/#licenses" class="_2IZpYvo">Licenses</a></li>
-                <li class="_50DQdwf"><a href="/terms/#registration-and-security" class="_2IZpYvo">Registration and
-                        security</a></li>
-                <li class="_50DQdwf"><a href="/terms/#billing" class="_2IZpYvo">Enterprise Subscriber responsibility for
-                        Authorized Users</a></li>
-                <li class="_50DQdwf"><a href="/terms/#fees-payment-and-trial-memberships" class="_2IZpYvo">Fees,
-                        payment, and trial memberships</a></li>
-                <li class="_50DQdwf"><a href="/terms/#termination-and-refund-policy" class="_2IZpYvo">Termination and
-                        refund policy</a></li>
-                <li class="_50DQdwf"><a href="/terms/#termination-of-agreement-with-enterprise-subscriber"
-                        class="_2IZpYvo">Termination of Agreement with Enterprise Subscriber</a></li>
-                <li class="_50DQdwf"><a href="/terms/#access-to-services" class="_2IZpYvo">Access to Services</a></li>
-                <li class="_50DQdwf"><a href="/terms/#mobile-services" class="_2IZpYvo">Mobile Services</a></li>
-                <li class="_50DQdwf"><a href="/terms/#user-content" class="_2IZpYvo">User Content</a></li>
-                <li class="_50DQdwf"><a href="/terms/#changes-to-services-or-terms" class="_2IZpYvo">Changes to Services
-                        or Terms</a></li>
-                <li class="_50DQdwf"><a href="/terms/#links-to-third-party-sites" class="_2IZpYvo">Links to third party
-                        sites</a></li>
-                <li class="_50DQdwf"><a href="/terms/#consent-to-receive-email" class="_2IZpYvo">Consent to receive
-                        email</a></li>
-                <li class="_50DQdwf"><a href="/terms/#data-collection-and-privacy" class="_2IZpYvo">Data collection and
-                        privacy</a></li>
-                <li class="_50DQdwf"><a href="/terms/#ownership" class="_2IZpYvo">Ownership</a></li>
-                <li class="_50DQdwf"><a href="/terms/#indemnity" class="_2IZpYvo">Indemnity</a></li>
-                <li class="_50DQdwf"><a href="/terms/#warranty-disclaimers" class="_2IZpYvo">Warranty disclaimers</a>
+        <div class="terms_content">
+            <p><span class="c2 c1">Welcome to the Hebbia
+                Inc. (&ldquo;</span><span class="c2 c4">Hebbia</span><span
+                  class="c2 c1">&rdquo;, &ldquo;</span><span
+                  class="c2 c4">we</span><span class="c2 c1">&rdquo;,
+                &ldquo;</span><span class="c2 c4">us</span><span
+                  class="c2 c1">&rdquo;, or &ldquo;</span><span
+                  class="c2 c4">our</span><span class="c2 c1">&rdquo;) website
+                located at https://hebbia.ai/ (the &ldquo;</span><span
+                  class="c2 c4">Site</span><span class="c2 c1">&rdquo;). Please
+                read these Terms of Service (the &ldquo;</span><span
+                  class="c2 c4">Terms</span><span class="c2 c1">&rdquo;) and our
+                Privacy Policy (&ldquo;</span><span class="c2 c4">Privacy
+                Polic</span><span class="c2 c1">y&rdquo;)</span><span
+                  class="c1">, located at </span><span class="c1 c3"><a
+                   href="https://www.google.com/url?q=https://hebbia.ai/privacy-policy&amp;sa=D&amp;ust=1606274671807000&amp;usg=AOvVaw14L_MI3zEjx69ZbNAoU_Vd">https://hebbia.ai/privacy-policy</a></span><span
+                  class="c1">, </span><span class="c2 c1">carefully because they
+                govern your use of the Site and our artificial
+                intelligence-powered productivity and research services
+                accessible via the Site offered by us. To make these Terms
+                easier to read, the Site, and our services are collectively
+                called the &ldquo;</span><span
+                  class="c2 c4">Services</span><span
+                  class="c2 c1">&rdquo;.</span></p>
+        <p><span class="c4">IMPORTANT NOTICE
+                REGARDING ARBITRATION FOR U.S. CUSTOMERS: WHEN YOU AGREE TO
+                THESE TERMS YOU ARE AGREEING (WITH LIMITED EXCEPTION) TO RESOLVE
+                ANY DISPUTE BETWEEN YOU AND HEBBIA THROUGH BINDING, INDIVIDUAL
+                ARBITRATION RATHER THAN IN COURT. PLEASE REVIEW CAREFULLY
+                SECTION 16 &ldquo;DISPUTE RESOLUTION&rdquo; BELOW FOR DETAILS
+                REGARDING ARBITRATION.</span></p>
+        <ol id="main_list" start="1">
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Agreement to Terms.</span><span
+                          class="c1">&nbsp;By using our Services, you agree to
+                        be bound by these Terms. If you don&rsquo;t agree to be
+                        bound by these Terms, do not use the Services. If you
+                        are accessing and using the Services on behalf of a
+                        company (such as your employer) or other legal entity,
+                        you represent and warrant that you have the authority to
+                        bind that entity to these Terms. In that case,
+                        &ldquo;</span><span class="c4">you</span><span
+                          class="c1">&rdquo; and &ldquo;</span><span
+                          class="c4">your</span><span class="c1">&rdquo; will
+                        also refer to that entity.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span class="c4">Privacy
+                        Policy.</span><span class="c1">&nbsp;Please review our
+                        Privacy Policy, which also governs your use of the
+                        Services, for information on how we collect, use and
+                        share your information.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Changes to these Terms or the
+                        Services.</span><span class="c1">&nbsp;We may update the
+                        Terms from time to time in our sole discretion. If we
+                        do, we&rsquo;ll let you know by posting the updated
+                        Terms on the Site and/or may also send other
+                        communications. It&rsquo;s important that you review the
+                        Terms whenever we update them or you use the Services.
+                        If you continue to use the Services after we have posted
+                        updated Terms it means that you accept and agree to the
+                        changes. If you don&rsquo;t agree to be bound by the
+                        changes, you may not use the Services anymore. Because
+                        our Services are evolving over time we may change or
+                        discontinue all or any part of the Services, at any time
+                        and without notice, at our sole discretion.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span class="c4">Who May Use the
+                        Services? </span></p>
+            </li>
+        <p><span class="c1">You may use the Services only if you are
+                at least fourteen (14) years of age (or such other minimum age
+                at which you can provide consent to data processing under the
+                laws of your territory), and not otherwise barred from using the
+                Services under applicable law. </span></p>
+        <p><span class="c1">For certain features of the Services
+                you&rsquo;ll need an account. It&rsquo;s important that you
+                provide us with accurate, complete and current account
+                information and keep this information up to date. If you
+                don&rsquo;t, we might have to suspend or terminate your account.
+                To protect your account, keep the account details and password
+                confidential, and notify us right away of any unauthorized use.
+                You&rsquo;re responsible for all activities that occur under
+                your account.</span></p>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Feedback.</span><span class="c1">&nbsp;We
+                        appreciate feedback, comments, ideas, proposals and
+                        suggestions for improvements to the Services
+                        (&ldquo;</span><span class="c4">Feedback</span><span
+                          class="c1">&rdquo;). If you choose to submit Feedback,
+                        you agree that we are free to use it without any
+                        restriction or compensation to you. </span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Payments and Subscriptions.</span><span
+                          class="c1">&nbsp;Hebbia requires payment of a fee for
+                        use of the Services (or certain portions thereof) and
+                        you agree to pay such fees. You have the option of
+                        making a one-time payment (&ldquo;</span><span
+                          class="c4">One-Time Payment</span><span
+                          class="c1">&rdquo;) or purchasing a subscription
+                        (&ldquo;</span><span class="c4">Subscription</span><span
+                          class="c1">&rdquo;), as applicable, for such
+                        use.</span></p>
+            </li>
+            <ol start="1">
+              <li>
+                  <p style="display:inline"><span
+                            class="c1 c3">General</span><span class="c1">. Whether
+                          you make a One-Time Payment or purchase a Subscription
+                          (each, a &ldquo;</span><span
+                            class="c4">Transaction</span><span
+                            class="c1">&rdquo;), you expressly authorize us (or
+                          our third-party payment processor) to charge you for
+                          such Transaction. We may ask you to supply additional
+                          information relevant to your Transaction, including your
+                          credit card number, the expiration date of your credit
+                          card and your email and postal addresses for billing and
+                          notification (such information, &ldquo;</span><span
+                            class="c4">Payment Information</span><span
+                            class="c1">&rdquo;). You represent and warrant that
+                          you have the legal right to use all payment method(s)
+                          represented by any such Payment Information. When you
+                          initiate a Transaction, you authorize us to provide your
+                          Payment Information to third parties so we can complete
+                          your Transaction and to charge your payment method for
+                          the type of Transaction you have selected (plus any
+                          applicable taxes and other charges). You may need to
+                          provide additional information to verify your identity
+                          before completing your Transaction (such information is
+                          included within the definition of Payment Information).
+                          By initiating a Transaction, you agree to the pricing,
+                          payment and billing policies applicable to such fees and
+                          charges, as posted or otherwise communicated to you. All
+                          payments for Transactions are non-refundable and
+                          non-transferable except as expressly provided in these
+                          Terms. All fees and applicable taxes, if any, are
+                          payable in United States dollars.</span></p>
+              </li>
+              <li>
+                  <p style="display:inline"><span
+                            class="c1 c3">Subscriptions</span><span class="c1">.
+                          If you purchase a Subscription, you will be charged the
+                          monthly or annual, as applicable, Subscription fee, plus
+                          any applicable taxes, and other charges
+                          (&ldquo;</span><span class="c4">Subscription
+                          Fee</span><span class="c1">&rdquo;), at the beginning of
+                          your Subscription and each month or year, as applicable,
+                          thereafter, at the then-current Subscription Fee. BY
+                          PURCHASING A SUBSCRIPTION, YOU AUTHORIZE HEBBIA TO
+                          INITIATE RECURRING NON-REFUNDABLE PAYMENTS AS SET FORTH
+                          BELOW. If you purchase a Subscription, we (or our
+                          third-party payment processor) will automatically charge
+                          you each month or year, as applicable, on the
+                          anniversary of the commencement of your Subscription,
+                          using the Payment Information you have provided until
+                          you cancel your Subscription. No less than fourteen (14)
+                          &nbsp;days before your Subscription term ends in the
+                          case of monthly Subscriptions, or no less than thirty
+                          (30) days and no more than sixty (60) days before your
+                          Subscription term ends</span><span>&nbsp;</span><span
+                            class="c1">in the case of annual Subscriptions, or
+                          otherwise in accordance with applicable law, Hebbia will
+                          send you a reminder with the then-current Subscription
+                          Fee. By agreeing to these Terms and electing to purchase
+                          a Subscription, you acknowledge that your Subscription
+                          has recurring payment features and you accept
+                          responsibility for all recurring payment obligations
+                          prior to cancellation of your Subscription by you or
+                          Hebbia. Your Subscription continues until cancelled by
+                          you or we terminate your access to or use of the
+                          Services or Subscription in accordance with these Terms.
+                          From time to time we may introduce new features,
+                          upgrades, or other benefits for higher membership tiers
+                          not currently offered by us under these Terms.</span>
+                  </p>
+              </li>
+              <li>
+                  <p style="display:inline"><span
+                            class="c1 c3">Cancelling Payment or
+                          Subscription</span><span class="c1">. </span><span
+                            class="c1">You may cancel a Transaction for a full
+                          refund within ten (10) calendar days of your initial
+                          purchase</span><span class="c1">. AFTER THAT, YOUR
+                          PURCHASE IS FINAL AND YOU WILL NOT BE ABLE TO CANCEL THE
+                          PURCHASE AND/OR RECEIVE A REFUND OF YOUR ONE-TIME
+                          PAYMENT OR SUBSCRIPTION FEE AT ANY TIME. But if
+                          something unexpected happens in the course of completing
+                          a Transaction, we reserve the right to cancel your
+                          Transaction for any reason; if we cancel your
+                          Transaction we&rsquo;ll refund any payment you have
+                          already remitted to us for such Transaction. Without
+                          limiting the foregoing, you may cancel your Subscription
+                          at any time, but please note that such cancellation will
+                          be effective at the end of the then-current Subscription
+                          period. EXCEPT AS SET FORTH ABOVE WITH RESPECT TO YOUR
+                          INITIAL SUBSCRIPTION PURCHASE, YOU WILL NOT RECEIVE A
+                          REFUND OF ANY PORTION OF THE SUBSCRIPTION FEE PAID FOR
+                          THE THEN CURRENT SUBSCRIPTION PERIOD AT THE TIME OF
+                          CANCELLATION. To cancel, you can send an email to
+                          hello@hebbia.ai</span><span class="c1">. You will be
+                          responsible for all Subscription Fees (plus any
+                          applicable taxes and other charges) incurred for the
+                          then-current Subscription period. If you cancel, your
+                          right to use the Services will continue until the end of
+                          your then current Subscription period and will then
+                          terminate without further charges.</span></p>
+              </li>
+            </ol>        
+            <li>
+                <p style="display:inline"><span class="c4">Free Trials and
+                        Promotions</span><span class="c1">. &nbsp;We may offer
+                        Subscriptions on a free trial basis (&ldquo;</span><span
+                          class="c4">Free Trial</span><span class="c1">&rdquo;)
+                        for a specified period of time or other discounts or
+                        promotions (&ldquo;</span><span
+                          class="c4">Promotions</span><span class="c1">&rdquo;)
+                        from time to time. If we offer you a Free Trial, the
+                        specific terms of your Free Trial will be provided at
+                        the time of signup and/or in the promotional materials
+                        describing the Free Trial and your use of the Free Trial
+                        is subject to your compliance with such specific terms.
+                        Free Trials may not be combined with any other offer.
+                        Except as may otherwise be provided in the specific
+                        terms for the Free Trial offer, Free Trials are only
+                        available to users who have not previously subscribed to
+                        the Services in connection with which the Free Trial is
+                        being offered. When you agree to a Free Trial, you are
+                        also agreeing to sign up for a Subscription as described
+                        above and, consequently, unless you cancel your
+                        Subscription prior to the end of your Free Trial, we (or
+                        our third party payment processor) will begin charging
+                        your payment method on a recurring basis for the
+                        Subscription Fee (plus any applicable taxes) until you
+                        cancel your Subscription. Instructions for cancelling
+                        your Subscription are stated above in Section 6(c). In
+                        the case of Promotions, any applicable sales and use
+                        taxes and services fees will be calculated based on the
+                        discounted Subscription value after the Promotion is
+                        applied. Unless otherwise stated by us in writing, only
+                        one Promotion may be used per account and cannot be
+                        combined with other Promotions or any other discounted
+                        offers. You may not sell or transfer your Promotion or
+                        create multiple accounts in order to take advantage of
+                        our Promotions. We may modify or cancel any Promotion at
+                        any time. If you violate these Terms, we reserve the
+                        right to cancel your Promotion.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span class="c4">Your
+                        Content.</span><span class="c1">&nbsp;</span></p>
+            </li>
+            <ol start="1">
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Posting Content</span><span class="c1">.
+                            Our Services (including any third party chat functions
+                            or channels offered in connection with the Services) may
+                            allow you to store or share content such as text (in
+                            posts or communications with others), files, documents,
+                            graphics, images, and software. Anything (other than
+                            Feedback) that you post or otherwise make available
+                            through the Services is referred to as
+                            &ldquo;</span><span class="c4">User Content</span><span
+                              class="c1">&rdquo;. Hebbia does not claim any
+                            ownership rights in any User Content and nothing in
+                            these Terms will be deemed to restrict any rights that
+                            you may have to your User Content.</span></p>
                 </li>
-                <li class="_50DQdwf"><a href="/terms/#limitation-of-liability" class="_2IZpYvo">Limitation of
-                        liability</a></li>
-                <li class="_50DQdwf"><a href="/terms/#dispute-resolution-by-binding-arbitration"
-                        class="_2IZpYvo">Dispute resolution by binding arbitration</a></li>
-                <li class="_50DQdwf"><a href="/terms/#general-provisions" class="_2IZpYvo">General provisions</a></li>
-                <li class="_50DQdwf"><a href="/terms/#notice-for-california-users" class="_2IZpYvo">Notice for
-                        California users</a></li>
-            </ul>
-        </div>
-        <div>
-            <h2 id="licenses" class="asdfasdfasdf">Licenses</h2>
-            <p class="asdf">If you are an individual subscriber: In consideration for your acceptance of this
-                Agreement and your payment of all applicable Fees (as defined below), Hebbia grants you a personal,
-                limited, non-exclusive, non-sublicensable, non-transferable, revocable license to access and use the
-                Site, the Services and the Software solely for your own personal purposes.</p>
-            <p class="asdf">If you are an Enterprise Subscriber: In consideration for your agreement to this
-                Agreement and your payment of all applicable Fees (as defined below), Hebbia grants you a limited,
-                non-exclusive, non-sublicensable, non-transferable, revocable license to access and make use of the
-                Site, the Services and the Software solely for your internal business purposes. In addition, you may
-                permit such number of Authorized Users as has been agreed between you and Hebbia to access and make
-                use of the Site, Services and Software.</p>
-            <p class="asdf">If you are an Authorized User: In consideration for your agreement to this Agreement and
-                your Enterprise Subscriber’s payment of all applicable Fees (as defined below), Hebbia grants you a
-                personal, limited, non-exclusive, non-sublicensable, non-transferable, revocable license to access and
-                make use of the Site, the Services and the Software solely for the internal business purposes of your
-                Enterprise Subscriber.</p>
-            <p class="asdf">You may access and use the Site, Services and Software only in accordance with any
-                instruction manuals, user guides and other documentation as made available by Hebbia from time to
-                time (“Documentation”).</p>
-            <p class="asdfasdfas">YOU MAY NOT ANALYZE MORE THAN 300 DOCUMENTS OR 150,000 WORDS IN ANY 30-DAY PERIOD OR 100
-                DOCUMENTS OR 50,000 WORDS IN ANY 24-HOUR PERIOD.</p>
-            <p class="asdf">If you are an Enterprise Subscriber, this restriction applies to each of your Authorized
-                Users individually, not to your overall use of the Site, Services and Software.</p>
-            <p class="asdf">In addition, you may not:</p>
-            <p class="asdf"><strong>a.</strong> copy, modify or create derivative works based on the Site, Services,
-                Software or Documentation, or any portion(s) of any of the foregoing (individually and collectively,
-                “Hebbia IP”);</p>
-            <p class="asdf"><strong>b.</strong> distribute, transmit, publish or otherwise disseminate any Hebbia
-                IP;</p>
-            <p class="asdf"><strong>c.</strong> download or store any Hebbia IP except to the extent explicitly
-                permitted on the Site;</p>
-            <p class="asdf"><strong>d.</strong> transfer to any third party any of your rights under this Agreement
-                (except to the extent that an Enterprise Subscriber may permit such number of Authorized Users as has
-                been agreed between the Enterprise Subscriber and Hebbia to access and make use of the Site, Services
-                and Software);</p>
-            <p class="asdf"><strong>e.</strong> access or use the Services, Software or Hebbia IP for the benefit
-                of any third party (except to the extent that Authorized Users may access and make use of the Site, the
-                Services and the Software solely for the internal business purposes of their Enterprise Subscriber);</p>
-            <p class="asdf"><strong>f.</strong> access content or data not intended for you, log onto a server or
-                account that you are not authorized to access, or otherwise violate or attempt to violate any security
-                or authentication feature or measures of the Site, Software or Services;</p>
-            <p class="asdf"><strong>g.</strong> attempt to access or derive the source code or architecture of any
-                Software;</p>
-            <p class="asdf"><strong>h.</strong> attempt to probe, scan or test the vulnerability of the Site,
-                Services and/or Software, or any associated system or network, or to breach any security or
-                authentication feature or measures of the Site, Software or Services (except with Hebbia’s express
-                permission in connection with your participation in one of Hebbia’s security testing programs), and
-                if you are blocked by Hebbia from accessing the Site, Software or Services (including by blocking
-                your IP address), you will not implement any measures to circumvent such blocking (e.g., by masking your
-                IP address or using a proxy IP address);</p>
-            <p class="asdf"><strong>i.</strong> interfere or attempt to interfere with service to any user, host or
-                network, including, without limitation, by means of submitting malicious software or computer code
-                (“Malicious Code”) to the Site or Services, load testing, overloading, “flooding,” “spamming,” “mail
-                bombing,” “crashing,”;</p>
-            <p class="asdf"><strong>j.</strong> email or otherwise transmit any content that (i) infringes any
-                intellectual property or other proprietary rights of any party; (ii) you do not have a right to upload
-                under any law or under contractual or fiduciary relationships; (iii) contains any Malicious Code, files
-                or programs designed to interrupt, destroy or limit the functionality of any computer software or
-                hardware or telecommunications equipment; (iv) poses or creates a privacy or security risk to any person
-                or entity; (v) constitutes unsolicited or unauthorized materials; or (vi) is otherwise objectionable;
-            </p>
-            <p class="asdf"><strong>k.</strong> automate access to the Site or the Services, including, without
-                limitation, through the use of APIs, bots, scrapers or other similar devices;</p>
-            <p class="asdf"><strong>l.</strong> export or re-export any Hebbia IP;</p>
-            <p class="asdf"><strong>m.</strong> use or access any Services, Software or Hebbia IP in order to
-                build a competitive product, service or solution;</p>
-            <p class="asdf"><strong>n.</strong> violate any applicable law or regulations in connection with your
-                use of the Site, Services or Software;</p>
-            <p class="asdf"><strong>o.</strong> impersonate any person or entity, or falsely state or otherwise
-                misrepresent your affiliation with a person or entity, including, without limitation, an Enterprise
-                Subscriber; or</p>
-            <p class="asdf"><strong>p.</strong> permit any third party to do any of the foregoing.</p>
-            <p class="asdf">Hebbia may offer certain Software, including certain interfaces, for download from
-                the Site (“Ancillary Software”). Subject to the other terms and conditions of this Agreement, you may
-                install and use Ancillary Software on computers owned, leased or otherwise controlled by you, solely in
-                conjunction with your authorized use of the Services. Upon expiration or termination of this Agreement
-                for any reason, you shall cease any further use of the Ancillary Software and shall promptly destroy all
-                copies thereof in your possession.</p>
-            <p class="asdf">Certain Services or Software (including Ancillary Software) may be subject to additional
-                limitations, restrictions, terms and/or conditions specific to such Services or Software (“Specific
-                Terms”). In such cases, the applicable Specific Terms will be made available to you and your access to
-                and use of the relevant Services or Software will be contingent upon your acceptance of and compliance
-                with such Specific Terms.</p>
-            <p class="asdf">Certain Services or Software (including Ancillary Software) may contain or otherwise
-                make use of software, code or related materials from third parties, including “open source” or
-                “freeware” software (“Third Party Components”). Certain Third Party Components may be subject to
-                separate license terms that accompany such Third Party Components that, to the extent they conflict with
-                the terms of this Agreement, supersede the terms of this Agreement. For your convenience, Hebbia
-                makes available a list of Third Party Components on its website at <a class="asdfasdf"
-                    href="https://hebbia.ai/terms"
-                    target="_blank">https://hebbia.ai/terms</a>. If required by any license for a
-                particular Third Party Component, Hebbia makes the source code of such Third Party Component, and any
-                of Hebbia’s modifications to such Third Party Component, as required, available upon written request
-                to Hebbia.</p>
-            <h2 id="registration-and-security" class="asdfasdfasdf">Registration and security</h2>
-            <p class="asdf">By completing the registration process for any given Services, you are agreeing to
-                subscribe to the selected Services, subject to the terms and conditions of this Agreement. You agree to
-                provide Hebbia with accurate and complete registration information and to promptly notify Hebbia
-                in the event of any changes to any such information.</p>
-            <p class="asdf">You shall be solely responsible for the security and proper use of all user IDs,
-                passwords or other security devices used in connection with the Site and/or the Services, and shall take
-                all reasonable steps to ensure that they are kept confidential and secure, are used properly and are not
-                disclosed to or used by any other person or entity. You shall immediately inform Hebbia if there is
-                any reason to believe that a user ID, password or any other security device issued by Hebbia has or
-                is likely to become known to someone not authorized to use it, or is being or is likely to be used in an
-                unauthorized way. Hebbia reserves the right (at its sole discretion) to request that you change your
-                password(s) in connection with the Services, and you shall promptly comply with any such request.</p>
-            <p class="asdf">You are solely responsible for all activity in connection with access to the Site and/or
-                Services through your account or using your password, and for the security of your computer systems, and
-                in no event shall Hebbia be liable for any loss or damages relating to such activity.</p>
-            <h2 id="billing" class="asdfasdfasdf">Enterprise Subscriber responsibility for Authorized Users</h2>
-            <p class="asdf">Enterprise Subscribers shall ensure that the total number of Authorized Users does not
-                exceed the maximum number of seats authorized by and purchased from Hebbia (each of which seats
-                represents a unique (named) Authorized User). Enterprise Subscribers may assign different Authorized
-                Users to the seats authorized by and purchased from Hebbia, so long as the total number of Authorized
-                Users at any time does not exceed the maximum number of seats authorized by and purchased from
-                Hebbia, but Authorized Users may not transfer (including by way of sublicense, lease, assignment or
-                other transfer, including by operation of law) their seat, user name or right to use the Site, Services
-                or Software to any third party. You, the Enterprise Subscriber, and your Authorized Users are jointly
-                responsible for your Authorized Users’ use of the Site, Services and Software. You are also responsible
-                for ensuring that all of your Authorized Users comply with all of the terms and conditions of this
-                Agreement. Any violation of the terms and/or conditions of this Agreement by any of your Authorized
-                Users shall be deemed to be a violation thereof by you.</p>
-            <h2 id="fees-payment-and-trial-memberships" class="asdfasdfasdf">Fees, payment, and trial memberships</h2>
-            <p class="asdf">If you have registered to use certain Services and/or Software on a trial basis, then
-                you may use such Services and Software only for noncommercial evaluation purposes during the applicable
-                trial period.</p>
-            <p class="asdf">Your access to or use of the Services and/or Software shall be contingent upon your
-                payment of all applicable fees as described on the Site or Software at the time (“Fees”); unless you are
-                an Authorized User, in which case your access to or use of the Services and/or Software shall be
-                contingent upon your Enterprise Subscriber’s payment of the Fees.</p>
-            <p class="asdf">Upon registering for Services, unless you are an Authorized User, you will be required
-                to designate a valid payment method. You hereby authorize Hebbia to charge to your designated account
-                all Fees relating to the Services you select, and you agree to pay all such Fees in accordance with the
-                applicable payment method terms and conditions.</p>
-            <p class="asdf">Hebbia reserves the right to revise its Fees, including by increasing or adding new
-                Fees, at any time on ten (10) days’ notice. Such notice may be sent to you by email to your most
-                recently provided email address or posted on the Site or by any other manner chosen by Hebbia in its
-                commercially reasonable discretion. You will be deemed to have received any such notice that is posted
-                on the Site on the day it was posted. Your use of the Services after the ten (10) day notice period
-                constitutes your acceptance of the new or revised Fees. If you do not agree to the revised Fees, you may
-                cancel your subscription by following the “View cancellation instructions” link below.</p>
-            <h4 class="_277Af4e">Continuous membership</h4>
-            <p class="asdf">To ensure uninterrupted service, all subscriptions to the Site, Software and Services
-                are renewed automatically. You hereby authorize Hebbia to charge subscription Fees for the renewal
-                period to the payment method on file. All subscriptions are renewed at the subscription level(s) and
-                Fees in effect at the time the then-current subscription term ends. You may cancel the subscription at
-                any time by following the “View cancellation instructions” link below.</p>
-            <h4 class="_277Af4e">Free trial</h4>
-            <p class="asdf">Hebbia may offer a free trial membership from time to time with regard to certain
-                Software or Services (a “Trial”). By accessing or using the Site, Services or Software, you agree to the
-                terms of any such Trial and further agree to any changes Hebbia may make to such Trial as described
-                in “Changes to Services or Terms” below. If you cancel the Services before the end of the trial period,
-                all your rights to any remaining free trial period will be waived (unless you started your Trial via our
-                iOS app, in which case your trial will continue until the end of the trial period), and you will not be
-                eligible to participate in any further Trials, except as allowed by Hebbia in its sole discretion.
-            </p>
-            <h2 id="termination-and-refund-policy" class="asdfasdfasdf">Termination and refund policy</h2>
-            <p class="asdf">This Agreement shall continue until you cancel your subscription or until terminated by
-                Hebbia. You may cancel your subscription at any time, although only an authorized representative of
-                an Enterprise Subscriber may cancel the Enterprise Subscriber’s account. View cancellation instructions
-                at <a class="asdfasdf"
-                    href="https://hebbia.ai/cancel"
-                    target="_blank">https://hebbia.ai/cancel</a>.
-                If you cancel after your subscription renewal date, you will not receive a refund for any amounts that
-                have been charged. Your cancellation will be effective at the end of your then-current subscription
-                period, subject to applicable law, and you may use the Services until your cancellation is effective
-                (unless your access is suspended or terminated as set forth below).</p>
-            <p class="asdf">Hebbia may deny you access to all or any part of the Services or terminate your
-                account with or without prior notice if you engage in any conduct or activities that Hebbia
-                determines, in its sole discretion, violate this Agreement or the rights of Hebbia or any third
-                party, or is otherwise inappropriate. Without limitation, Hebbia may deny you access to the Services,
-                or terminate this Agreement and your account, if your use of the Services exceeds the 30-day and 24-hour
-                use limitations set forth under the section titled “License.”</p>
-            <p class="asdf">If you are an Authorized User of an Enterprise Subscriber, and this Agreement or the
-                applicable agreement for Services and Software is terminated in relation to such Enterprise Subscriber,
-                or if you otherwise lose access to the Services and Software via your Enterprise Subscriber (e.g., if
-                you graduate from that Enterprise Subscriber or are no longer employed by that Enterprise Subscriber),
-                Hebbia may elect in its discretion to (a) terminate your account or (b) downgrade your account to an
-                individual subscriber account, at which point you agree that your use of the Services and Software will
-                be as an individual subscriber in accordance with the terms of this Agreement (which Agreement at that
-                point will be solely between you and Hebbia).</p>
-            <p class="asdf">If you are an Authorized User of an Enterprise Subscriber, your Enterprise Subscriber
-                may elect in its discretion and at any time to revoke your Authorized User status and (a) terminate your
-                account or (b) downgrade your account to an individual subscriber account, at which point you agree that
-                your use of the Services and Software will be as an individual subscriber in accordance with the terms
-                of this Agreement (which Agreement at that point will be solely between you and Hebbia).</p>
-            <p class="asdf">Upon termination of your account(s) for any reason, your right to use the Services and
-                Software and to access the Site and any of its content will immediately cease and all content in your
-                account(s) will be deleted. All provisions of this Agreement that by their nature should survive
-                termination shall survive termination, including, without limitation, ownership provisions, warranty
-                disclaimers, indemnity, limitations of liability and miscellaneous provisions.</p>
-            <p class="asdf">Except as may be expressly set forth herein, all Fees paid or accrued in connection with
-                any Services are non-refundable, and Hebbia will not prorate any Fees paid for a subscription that is
-                terminated before the end of its term.</p>
-            <h2 id="termination-of-agreement-with-enterprise-subscriber" class="asdfasdfasdf">Termination of Agreement with
-                Enterprise Subscriber</h2>
-            <p class="asdf">This section titled “Termination of Agreement with Enterprise Subscriber” applies only
-                to Enterprise Subscribers.</p>
-            <p class="asdf">Either Hebbia or you may terminate this Agreement by notice if the other party
-                breaches any material term of this Agreement and fails to cure such breach within thirty (30) days after
-                receipt of notice of the breach from the non-defaulting party. In addition, Hebbia may suspend the
-                Services upon notice if you fail to make any payment when due and fail to cure such breach within ten
-                (10) days after receipt of notice of the breach from Hebbia. Any such suspension or termination shall
-                be without limitation of any other right or remedy available to the terminating party.</p>
-            <p class="asdf">Hebbia may terminate this Agreement for convenience upon sixty (60) days’ prior
-                written notice without liability to you. Following a termination pursuant to the foregoing sentence,
-                Hebbia shall refund the pro rata portion of any Fees relating to the remaining term, as applicable.
-            </p>
-            <p class="asdf">Either Hebbia or you may terminate this Agreement immediately upon notice to the
-                other party if the other party has a receiver or similar party appointed for all or substantially all of
-                its property, is declared insolvent by a court of competent jurisdiction, ceases to do business in the
-                ordinary course, files a petition in bankruptcy or has a petition filed against it in bankruptcy,
-                becomes the subject of any court or administrative proceeding related to its liquidation or insolvency
-                (whether voluntary or involuntary) that is not dismissed within ninety (90) days, or makes an assignment
-                for the benefit of its creditors.</p>
-            <p class="asdf">If this Agreement is terminated or otherwise expires for any reason, you shall promptly
-                return to Hebbia or destroy, as directed by Hebbia, all Confidential Information, Software and
-                other materials in your possession or under your control belonging to Hebbia, and all rights and
-                licenses granted by Hebbia pursuant to this Agreement shall terminate. Upon the expiration or
-                termination of this Agreement, your right to use the Services and Software and to access the Site and
-                any of its content will immediately cease and Hebbia may elect in its discretion to (a) terminate
-                your Authorized Users’ accounts or (b) downgrade your Authorized Users’ accounts to individual
-                subscriber accounts.</p>
-            <p class="asdf">All provisions of this Agreement that by their nature should survive termination shall
-                survive termination, including, without limitation, ownership provisions, warranty disclaimers,
-                indemnity, limitations of liability and miscellaneous provisions.</p>
-            <h2 id="access-to-services" class="asdfasdfasdf">Access to Services</h2>
-            <p class="asdf">You are responsible for obtaining and maintaining any equipment and ancillary services
-                needed to connect to or access the Site or otherwise use the Services, including, without limitation,
-                modems, hardware, software, internet service and telecommunications capacity. You shall be solely
-                responsible for ensuring that such equipment and ancillary services are compatible with the Services and
-                Software.</p>
-            <h2 id="mobile-services" class="asdfasdfasdf">Mobile Services</h2>
-            <p class="asdf">The Site, Software and Services may include products and services that are available via
-                a mobile device, including (i) the ability to upload content to the Services via a mobile device, (ii)
-                the ability to browse the Services and the Site from a mobile device, and (iii) the ability to access
-                certain features through an application downloaded and installed on a mobile device (collectively,
-                “Mobile Services”). To the extent you access the Service through a mobile device, your wireless service
-                carrier’s standard charges, data rates and other fees may apply. In addition, downloading, installing or
-                using certain Mobile Services may be prohibited or restricted by your carrier, and not all Mobile
-                Services may work with all carriers or devices. By using the Mobile Services, you agree that Hebbia
-                may communicate with you regarding Hebbia and other entities by electronic means to your mobile
-                device and that certain information about your usage of the Mobile Services may be communicated to us.
-                In the event you change or deactivate your mobile telephone number, you agree to promptly update your
-                account information to ensure that your messages are not sent to the person that acquires your mobile
-                telephone number.</p>
-            <h2 id="user-content" class="asdfasdfasdf">User Content</h2>
-            <p class="asdf">You are solely responsible for all text, documents or other content or information
-                uploaded, entered or otherwise transmitted by you in connection with your use of the Services and/or
-                Software (“User Content”). User Content includes, among other things, any mistakes contained in the
-                content or information transmitted by you. Hebbia has no obligation to monitor any User Content and
-                shall have no liability to you or any other person or entity with respect thereto, including, without
-                limitation, liability with respect to any information (including your confidential information)
-                contained in or apparent from any User Content. You warrant, represent and covenant that you own or have
-                a valid and enforceable license to use all User Content, and that no User Content infringes,
-                misappropriates or violates the rights (including, without limitation, any copyrights or other
-                intellectual property rights) of any person or entity or any applicable law, rule or regulation of any
-                government authority of competent jurisdiction. Hebbia is not responsible for the loss, corruption or
-                other changes to User Content. Without limiting the foregoing, any feature(s) of the Services and/or
-                Software that may permit you to temporarily save or otherwise store User Content is offered for your
-                convenience only and Hebbia does not guarantee that the User Content will be retrievable. You are
-                solely responsible for saving, storing and otherwise maintaining User Content including by maintaining
-                backup copies of your User Content on appropriate independent systems that do not rely on the Services
-                and/or Software.</p>
-            <p class="asdf">You retain all right, title, and interest in and to your User Content. By uploading or
-                entering any User Content, you give Hebbia (and those it works with) a nonexclusive, worldwide,
-                royalty-free and fully-paid, transferable and sublicensable, perpetual, and irrevocable license to copy,
-                store and use your User Content (and, if you are an Authorized User, your Enterprise Subscriber’s User
-                Content) in connection with the provision of the Software and the Services and to improve the algorithms
-                underlying the Software and the Services.</p>
-            <h2 id="changes-to-services-or-terms" class="asdfasdfasdf">Changes to Services or Terms</h2>
-            <p class="asdf">Hebbia reserves the right at any time to (i) change any information, specifications,
-                features or functions of the Site, Services or Software, including any Trial, (ii) suspend or
-                discontinue, temporarily or permanently, any or all of the Services or any Trial, including the
-                availability of any feature, database or content, or (iii) impose limits on certain features and
-                Services or restrict access to parts or all of the Services, including any Trial, in each case with or
-                without prior notice and without any liability to you or any third party. Hebbia will use its
-                commercially reasonable efforts to notify you of changes to the Services and/or Software that, in
-                Hebbia’s reasonable opinion, have the effect of materially and adversely diminishing the
-                functionality of the Services to which you have subscribed.</p>
-            <p class="asdf">Hebbia may from time to time update or revise this Agreement. If Hebbia updates or
-                revises this Agreement, Hebbia will notify you either by email to your most recently provided email
-                address, by posting the updated or revised Terms of Service and End User License Agreement on the Site
-                or by any other manner chosen by Hebbia in its commercially reasonable discretion. Your use of the
-                Site, Services or Software following any such update or revision constitutes your agreement to be bound
-                by and comply with this Agreement as updated or revised. You can view the most current Terms of Service
-                and End User License Agreement at <a class="asdfasdf"
-                    href="https://hebbia.ai/terms">hebbia.ai/terms</a>. It is your responsibility to review the
-                Terms of Service and End User License Agreement periodically.</p>
-            <p class="asdf">If you cancel your subscription within ten (10) days following such notice by Hebbia
-                in accordance with the two preceding paragraphs, then Hebbia will refund you a pro-rated portion of
-                any pre-paid Fees for the affected Services applicable to the cancelled portion of the pre-paid
-                subscription term, if any.</p>
-            <h2 id="links-to-third-party-sites" class="asdfasdfasdf">Links to third party sites</h2>
-            <p class="asdf">Any links on the Site to third party websites are provided for your convenience only. If
-                you choose to access third party websites or obtain products or services from third parties, you do so
-                entirely at your own risk and such access is between you and such third party. Hebbia does not
-                warrant or make any representation regarding the legality, accuracy or authenticity of content presented
-                by such websites or any products or services offered by third parties and shall have no liability for
-                any loss or damages arising from the access or use of such websites, products or services.</p>
-            <h2 id="consent-to-receive-email" class="asdfasdfasdf">Consent to receive email</h2>
-            <h4 class="_277Af4e">For users located outside of the European Economic Area (EEA):</h4>
-            <p class="asdf">Your registration to use the Site and/or Services constitutes your consent to receive
-                email communications from Hebbia, including messages regarding customer service issues and other
-                matters. You may opt not to receive email correspondence, other than technical notifications and email
-                regarding issues related to your account and your use of the Site and Services, at any time by following
-                the link included in the email messages.</p>
-            <h4 class="_277Af4e">For users located in the European Economic Area (EEA):</h4>
-            <p class="asdf">We only send marketing communications to users located in the European Economic Area
-                (EEA) with your prior consent, and you may withdraw your consent at any time by clicking the
-                “unsubscribe” link found within Hebbia emails and changing your contact preferences. Please note you
-                will continue to receive transactional messages related to our Services, even if you unsubscribe from
-                marketing emails.</p>
-            <h2 id="data-collection-and-privacy" class="asdfasdfasdf">Data collection and privacy</h2>
-            <p class="asdf">Hebbia does not collect personally identifiable information from you except to the
-                extent you have explicitly given such information to Hebbia. Hebbia’s information practices are
-                further described in its privacy policy, which is available at: <a class="asdfasdf"
-                    href="https://hebbia.ai/privacy-policy">hebbia.ai/privacy-policy</a> (the “Privacy Policy”).
-                The Privacy Policy is an integral part of this Agreement and is expressly incorporated by reference, and
-                by entering into this Agreement you agree to (i) all of the terms of the Privacy Policy, and (ii)
-                Hebbia’s use of data as described in the Privacy Policy is not an actionable breach of your privacy
-                or publicity rights.</p>
-            <p class="asdf">Hebbia may from time to time update or revise the Privacy Policy. If Hebbia
-                updates or revises the Privacy Policy, Hebbia will notify you either by email to your most recently
-                provided email address, by posting the updated or revised Privacy Policy on the Site or by any other
-                manner chosen by Hebbia in its commercially reasonable discretion. Your use of the Site, Services or
-                Software following any such update or revision constitutes your agreement to be bound by and comply with
-                the Privacy Policy as updated or revised.</p>
-            <p class="asdf">In addition, Hebbia may engage third parties to conduct risk control and fraud
-                detection/prevention activities. As part of such engagements, if you initiate a transaction on the Site
-                or through the Services, Hebbia may give such third parties access to your pertinent credit card and
-                other personal information. Such third parties may only use such personal information for purposes of
-                performing risk control and fraud detection/prevention activities for us. However, they may also convert
-                such personal information into hashed or encoded representations of such information to be used for
-                statistical and/or fraud prevention purposes. By initiating any such transaction, you hereby consent to
-                the foregoing disclosure and use of your information.</p>
-            <h2 id="ownership" class="asdfasdfasdf">Ownership</h2>
-            <p class="asdf">All intellectual property rights in and to the User Content are and shall remain your
-                property, and Hebbia shall acquire no right of ownership with respect to your User Content.</p>
-            <p class="asdf">All intellectual property rights in and to the Software, Site and Services and other
-                Hebbia IP are and shall remain the sole property of Hebbia and its affiliates and licensors, as
-                applicable, and you shall acquire no right of ownership or use with respect to any Software or other
-                Hebbia IP except as specified in this Agreement. Without limiting the foregoing, you acknowledge that
-                the Software and the Service and the inventions, know-how and methodology embodied therein are
-                proprietary to, and contain valuable trade secrets of, Hebbia and its affiliates and licensors, as
-                applicable, and that the Software constitutes Confidential Information of Hebbia. You may from time
-                to time provide Hebbia with suggestions, comments, recommendations, improvements, solutions, bug
-                fixes, features, concepts, techniques, ideas, know-how and/or any feedback regarding the Services, the
-                Software, the Site and/or any of Hebbia’s related technologies (“Feedback”). Any and all Feedback is
-                and shall be given entirely voluntarily. As between the you, Hebbia and, if applicable, your
-                Enterprise Subscriber, all Feedback shall be exclusively owned by Hebbia, and you hereby make all
-                assignments necessary to accomplish the foregoing ownership, and as a result Hebbia shall be freely
-                entitled to reproduce, prepare derivative works, disclose to third parties, display and perform
-                (publicly or otherwise), sell, lease, license, distribute and otherwise use and exploit any and all such
-                Feedback as it deems appropriate, at its sole discretion, without obligation or liability of any kind to
-                you, your Enterprise Subscriber (if applicable) or any other person or entity.</p>
-            <h2 id="indemnity" class="asdfasdfasdf">Indemnity</h2>
-            <p class="asdf">You shall indemnify, release and hold harmless Hebbia and its parents, subsidiaries,
-                affiliates, licensors and suppliers, and each of their respective officers, directors, employees and
-                agents, from and against any loss, liability (including settlements, judgments, fines and penalties) and
-                costs (including reasonable attorney fees, court costs and other litigation expenses) relating to any
-                claim or demand made by any third party due to or arising out of your access to the Site, use of the
-                Services or Software, violation of this Agreement, or infringement of any intellectual property or other
-                right of any person or entity. If you are a California resident, you waive California Civil Code Section
-                1542, which says: “A general release does not extend to claims which the creditor does not know or
-                suspect to exist in his favor at the time of executing the release, which if known by him must have
-                materially affected his settlement with the debtor.” If you are a resident of another jurisdiction, you
-                waive any comparable statute or doctrine.</p>
-            <h2 id="warranty-disclaimers" class="asdfasdfasdf">Warranty disclaimers</h2>
-            <p class="asdfasdfas">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, Hebbia, ITS LICENSORS AND ITS
-                SUPPLIERS EXPRESSLY DISCLAIM ANY AND ALL WARRANTIES AND CONDITIONS, EXPRESS OR IMPLIED, REGARDING THE
-                SITE, SERVICES, AND SOFTWARE, INCLUDING, BUT NOT LIMITED TO, ANY IMPLIED WARRANTIES OR CONDITIONS OF
-                MERCHANTABILITY, MERCHANTABLE QUALITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NONINFRINGEMENT,
-                SATISFACTORY QUALITY OR ARISING FROM A COURSE OF DEALING, LAW, USAGE, OR TRADE PRACTICE, OR REGARDING
-                SECURITY, QUIET ENJOYMENT, RELIABILITY, TIMELINESS AND PERFORMANCE. YOU AGREE THAT YOUR USE OF THE SITE,
-                SERVICES AND SOFTWARE ARE AT YOUR OWN SOLE RISK AND THAT THE SITE, SERVICES AND ANY SOFTWARE ARE
-                PROVIDED ON AN “AS IS,” “WHERE IS,” “AS AVAILABLE,” “WITH ALL FAULTS” BASIS, WITHOUT WARRANTIES OF ANY
-                KIND, EITHER EXPRESS OR IMPLIED. WITHOUT LIMITING THE FOREGOING, Hebbia AND ITS LICENSORS AND ITS
-                SUPPLIERS DO NOT WARRANT THAT THE OPERATION OF THE SITE, SERVICES AND/OR SOFTWARE WILL MEET YOUR
-                REQUIREMENTS OR WILL BE UNINTERRUPTED OR ERROR-FREE.</p>
-            <h2 id="limitation-of-liability" class="asdfasdfasdf">Limitation of liability</h2>
-            <p class="asdfasdfas">IN NO EVENT SHALL Hebbia BE LIABLE WITH RESPECT TO THE SITE, SERVICES AND/ OR SOFTWARE
-                FOR (I) ANY AMOUNT IN THE AGGREGATE IN EXCESS OF THE FEES YOU HAVE ACTUALLY PAID TO Hebbia DURING THE
-                TWELVE (12) MONTH PERIOD IMMEDIATELY PRECEDING THE EVENT(S) GIVING RISE TO SUCH LIABILITY; (II) ANY LOST
-                PROFITS, LOST OR DAMAGED USER CONTENT OR OTHER DATA, OR FAILURE TO MEET ANY DUTY, INCLUDING WITHOUT
-                LIMITATION GOOD FAITH AND REASONABLE CARE; OR (III) ANY INDIRECT, INCIDENTAL, PUNITIVE, SPECIAL,
-                EXEMPLARY OR CONSEQUENTIAL DAMAGES OF ANY KIND WHATSOEVER.</p>
-            <p class="asdfasdfas">YOU AGREE THAT THIS LIMITATION OF LIABILITY REPRESENTS A REASONABLE ALLOCATION OF RISK
-                AND IS A FUNDAMENTAL ELEMENT OF THE BASIS OF THE BARGAIN BETWEEN Hebbia AND YOU. YOU UNDERSTAND THAT
-                THE SITE, SERVICES AND SOFTWARE WOULD NOT BE PROVIDED WITHOUT SUCH LIMITATIONS.</p>
-            <p class="asdfasdfas">CERTAIN STATES DO NOT ALLOW THE LIMITATION OF CERTAIN DAMAGES, SO SOME OR ALL OF THIS
-                LIMITATION OF LIABILITY MAY NOT APPLY TO YOU AND YOU MAY HAVE ADDITIONAL RIGHTS.</p>
-            <p class="asdfasdfas">IF YOU ARE A USER FROM NEW JERSEY, THE FOREGOING SECTIONS TITLED “WARRANTY DISCLAIMERS”
-                AND “LIMITATION OF LIABILITY” ARE INTENDED TO BE ONLY AS BROAD AS IS PERMITTED UNDER THE LAWS OF THE
-                STATE OF NEW JERSEY. IF ANY PORTION OF THESE SECTIONS IS HELD TO BE INVALID UNDER THE LAWS OF THE STATE
-                OF NEW JERSEY, THE INVALIDITY OF SUCH PORTION SHALL NOT AFFECT THE VALIDITY OF THE REMAINING PORTIONS OF
-                THE APPLICABLE SECTIONS.</p>
-            <h2 id="dispute-resolution-by-binding-arbitration" class="asdfasdfasdf">Dispute resolution by binding arbitration
-            </h2>
-            <p class="asdfasdfas">PLEASE READ THIS SECTION CAREFULLY AS IT AFFECTS YOUR RIGHTS.</p>
-            <h4 id="agreement-to-arbitrate" class="_277Af4e">a. Agreement to Arbitrate</h4>
-            <p class="asdf">This Section titled “Dispute resolution by binding arbitration” is referred to in this
-                Agreement as the “Arbitration Agreement.” You agree that any and all disputes or claims that have arisen
-                or may arise between you and Hebbia, whether arising out of or relating to this Agreement (including
-                any alleged breach thereof), the Site, Software or Services, any advertising or any aspect of the
-                relationship or transactions between us, shall be resolved exclusively through final and binding
-                arbitration, rather than a court, in accordance with the terms of this Arbitration Agreement, except
-                that you may assert individual claims in small claims court, if your claims qualify. Further, this
-                Arbitration Agreement does not preclude you from bringing issues to the attention of federal, state, or
-                local agencies, and such agencies can, if the law allows, seek relief against us on your behalf. You
-                agree that, by entering into this Agreement, you and Hebbia are each waiving the right to a trial by
-                jury or to participate in a class action. Your rights will be determined by a neutral arbitrator, not a
-                judge or jury. The Federal Arbitration Act governs the interpretation and enforcement of this
-                Arbitration Agreement.</p>
-            <h4 id="prohibition-of-class-and-representative-actions-and-non-individualized-relief" class="_277Af4e">b.
-                Prohibition of Class and Representative Actions and Non-Individualized Relief</h4>
-            <p class="asdfasdfas">YOU AND Hebbia AGREE THAT EACH OF US MAY BRING CLAIMS AGAINST THE OTHER ONLY ON AN
-                INDIVIDUAL BASIS AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE ACTION
-                OR PROCEEDING. UNLESS BOTH YOU AND Hebbia AGREE OTHERWISE, THE ARBITRATOR MAY NOT CONSOLIDATE OR JOIN
-                MORE THAN ONE PERSON’S OR PARTY’S CLAIMS AND MAY NOT OTHERWISE PRESIDE OVER ANY FORM OF A CONSOLIDATED,
-                REPRESENTATIVE, OR CLASS PROCEEDING. ALSO, THE ARBITRATOR MAY AWARD RELIEF (INCLUDING MONETARY,
-                INJUNCTIVE, AND DECLARATORY RELIEF) ONLY IN FAVOR OF THE INDIVIDUAL PARTY SEEKING RELIEF AND ONLY TO THE
-                EXTENT NECESSARY TO PROVIDE RELIEF NECESSITATED BY THAT PARTY’S INDIVIDUAL CLAIM(S).</p>
-            <h4 id="pre-arbitration-dispute-resolution" class="_277Af4e">c. Pre-Arbitration Dispute Resolution</h4>
-            <p class="asdf">Hebbia is always interested in resolving disputes amicably and efficiently, and most
-                customer concerns can be resolved quickly and to the customer’s satisfaction by emailing customer
-                support at
-                <!-- --> <a class="asdfasdf" href="mailto:hello%40hebbia.ai">hello@hebbia.ai</a>. If such
-                efforts prove unsuccessful, a party who intends to seek arbitration must first send to the other, by
-                certified mail, a written Notice of Dispute (“Notice”). The Notice to Hebbia should be sent to 548
-                Market Street, #35410, San Francisco, CA 94104, Attn: Operations Department (“Notice Address”). The
-                Notice must (i) describe the nature and basis of the claim or dispute and (ii) set forth the specific
-                relief sought. If Hebbia and you do not resolve the claim within sixty (60) calendar days after the
-                Notice is received, you or Hebbia may commence an arbitration proceeding. During the arbitration, the
-                amount of any settlement offer made by Hebbia or you shall not be disclosed to the arbitrator until
-                after the arbitrator determines the amount, if any, to which you or Hebbia is entitled.</p>
-            <h4 id="arbitration-procedures" class="_277Af4e">d. Arbitration Procedures</h4>
-            <p class="asdf">Arbitration will be conducted by a neutral arbitrator in accordance with the American
-                Arbitration Association’s (“AAA”) rules and procedures, including the AAA’s Supplementary Procedures for
-                Consumer-Related Disputes (collectively, the “AAA Rules”), as modified by this Arbitration Agreement.
-                For information on the AAA, please visit its website, https://www.adr.org. Information about the AAA
-                Rules and fees for consumer disputes can be found at the AAA’s consumer arbitration page,
-                https://www.adr.org/consumer_arbitration. If there is any inconsistency between any term of the AAA
-                Rules and any term of this Arbitration Agreement, the applicable terms of this Arbitration Agreement
-                will control unless the arbitrator determines that the application of the inconsistent Arbitration
-                Agreement terms would not result in a fundamentally fair arbitration. The arbitrator must also follow
-                the provisions of this Agreement as a court would. All issues are for the arbitrator to decide,
-                including, but not limited to, issues relating to the scope, enforceability, and arbitrability of this
-                Arbitration Agreement. Although arbitration proceedings are usually simpler and more streamlined than
-                trials and other judicial proceedings, the arbitrator can award the same damages and relief on an
-                individual basis that a court can award to an individual under this Agreement and applicable law.
-                Decisions by the arbitrator are enforceable in court and may be overturned by a court only for very
-                limited reasons.</p>
-            <p class="asdf">Unless Hebbia and you agree otherwise, any arbitration hearings will take place in a
-                reasonably convenient location for both parties with due consideration of their ability to travel and
-                other pertinent circumstances. If the parties are unable to agree on a location, the determination shall
-                be made by AAA. If your claim is for $10,000 or less, Hebbia agrees that you may choose whether the
-                arbitration will be conducted solely on the basis of documents submitted to the arbitrator, through a
-                telephonic hearing, or by an in-person hearing as established by the AAA Rules. If your claim exceeds
-                $10,000, the right to a hearing will be determined by the AAA Rules. Regardless of the manner in which
-                the arbitration is conducted, the arbitrator shall issue a reasoned written decision sufficient to
-                explain the essential findings and conclusions on which the award is based.</p>
-            <h4 id="costs-of-arbitration" class="_277Af4e">e. Costs of Arbitration</h4>
-            <p class="asdf">Payment of all filing, administration, and arbitrator fees (collectively, the
-                “Arbitration Fees”) will be governed by the AAA Rules, unless otherwise provided in this Arbitration
-                Agreement. If the value of the relief sought is $75,000 or less, at your request, Hebbia will pay all
-                Arbitration Fees. If the value of relief sought is more than $75,000 and you are able to demonstrate to
-                the arbitrator that you are economically unable to pay your portion of the Arbitration Fees or if the
-                arbitrator otherwise determines for any reason that you should not be required to pay your portion of
-                the Arbitration Fees, Hebbia will pay your portion of such fees. In addition, if you demonstrate to
-                the arbitrator that the costs of arbitration will be prohibitive as compared to the costs of litigation,
-                Hebbia will pay as much of the Arbitration Fees as the arbitrator deems necessary to prevent the
-                arbitration from being cost-prohibitive. Finally, if the value of the relief sought is $75,000 or less,
-                Hebbia will pay reasonable attorneys’ fees should you prevail. Hebbia will not seek attorneys’
-                fees from you. But, if you initiate an arbitration in which you seek more than $75,000 in relief, the
-                payment of attorneys’ fees will be governed by the AAA Rules.</p>
-            <h4 id="confidentiality" class="_277Af4e">f. Confidentiality</h4>
-            <p class="asdf">All aspects of the arbitration proceeding, and any ruling, decision, or award by the
-                arbitrator, will be strictly confidential for the benefit of all parties.</p>
-            <h4 id="severability" class="_277Af4e">g. Severability</h4>
-            <p class="asdf">Without limiting the severability provision in the Section titled “General Provisions”
-                of this Agreement, if a court or the arbitrator decides that any term or provision of this Arbitration
-                Agreement other than clause (b) of this Arbitration Agreement is invalid or unenforceable, the parties
-                agree to replace such term or provision with a term or provision that is valid and enforceable and that
-                comes closest to expressing the intention of the invalid or unenforceable term or provision, and this
-                Arbitration Agreement shall be enforceable as so modified. If a court decides that any of the provisions
-                of clause (b) of this Arbitration Agreement is invalid or unenforceable, then the entirety of this
-                Arbitration Agreement shall be null and void, unless such provisions are deemed to be invalid or
-                unenforceable solely with respect to claims for public injunctive relief. The remainder of this
-                Agreement will continue to apply.</p>
-            <h4 id="future-changes-to-arbitration-agreement" class="_277Af4e">h. Future Changes to Arbitration Agreement
-            </h4>
-            <p class="asdf">Notwithstanding any provision in this Agreement to the contrary, Hebbia agrees that
-                if it makes any future change to this Arbitration Agreement (other than a change to the Notice Address)
-                while you are a user of the Services, you may reject any such change by sending Hebbia written notice
-                within thirty (30) calendar days of the change to the Notice Address provided above. By rejecting any
-                future change, you are agreeing that you will arbitrate any dispute between us in accordance with the
-                language of this Arbitration Agreement.</p>
-            <h2 id="general-provisions" class="asdfasdfasdf">General provisions</h2>
-            <p class="asdf">This Agreement shall be governed by, and construed in accordance with, the laws of the
-                State of California, without regard to any choice of law, conflicts of law or other principles that
-                would result in the applicable of the laws or regulations of any other jurisdiction. Subject to the
-                section titled “Arbitration”, any legal action or proceeding relating to this Agreement shall be
-                instituted in a state or federal court in San Francisco County, California. You and Hebbia agree to
-                submit to the jurisdiction of, and agree that venue is proper in, these courts in any such legal action
-                or proceeding.</p>
-            <p class="asdf">This Agreement and the rights and obligations herein are personal to you, and you may
-                not assign or otherwise transfer this Agreement or any of your rights or obligations hereunder, by
-                operation of law or otherwise, without the prior written consent of Hebbia. Hebbia may freely
-                assign this Agreement, including, without limitation, in connection with a merger, acquisition,
-                bankruptcy, reorganization, or sale of some or all of our assets or stock.</p>
-            <p class="asdf">If any one or more of the provisions of this Agreement are for any reason held to be
-                invalid, illegal or unenforceable by a court of competent jurisdiction, the remaining provisions of this
-                Agreement shall be unimpaired and shall remain in full force and effect, and the invalid, illegal or
-                unenforceable provision(s) shall be replaced by a valid, legal and enforceable provision or provisions
-                that comes closest to the intent of the parties underlying the invalid, illegal or unenforceable
-                provision(s).</p>
-            <p class="asdf">The failure of either party to exercise in any respect any right provided for herein
-                shall not be deemed a waiver of any further rights hereunder. A waiver by either party of any term or
-                condition of this Agreement or any breach thereof, in any one instance, will not waive such term or
-                condition or any subsequent breach thereof.</p>
-            <p class="asdf">If Hebbia is unable to perform any obligation under this Agreement because of any
-                matter beyond its reasonable control, such as lightning, flood, exceptionally severe weather, fire,
-                explosion, war, civil disorder, industrial disputes (whether or not involving employees of Hebbia),
-                acts of local or central government or other competent authorities, problems with telecommunications
-                providers, hostile network attacks or other events beyond Hebbia’s reasonable control (each, a “Force
-                Majeure Event”), Hebbia will have no liability to you for such failure to perform; provided, however,
-                that Hebbia shall resume performance promptly upon removal of the circumstances constituting the
-                Force Majeure Event. If any Force Majeure Event continues for more than sixty (60) days, either
-                Hebbia or you may terminate this Agreement by delivery of written notice to the other party. You will
-                remain responsible for all Fees incurred through the last day the Services were available.</p>
-            <p class="asdf">If you and Hebbia have executed a separate Subscription Agreement applicable to your
-                access to and use of the Site, Services and/or Software, then the terms and conditions of such
-                Subscription Agreement shall prevail to the extent of any conflict with the terms and conditions of this
-                Agreement. In all other cases, this Agreement constitutes the entire agreement between Hebbia and you
-                with respect to its subject matter, and supersedes all prior communications and proposals, whether
-                electronic, oral or written, between Hebbia and you. No waiver or modification of any of the
-                provisions of this Agreement shall be binding unless in writing and signed by a duly authorized
-                representative of each party.</p>
-            <h2 id="notice-for-california-users" class="asdfasdfasdf">Notice for California users</h2>
-            <p class="asdf">Under California Civil Code Section 1789.3, users of the Site, Software or Services from
-                California are entitled to the following specific consumer rights notice: The Complaint Assistance Unit
-                of the Division of Consumer Services of the California Department of Consumer Affairs may be contacted
-                in writing at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by telephone at (916)
-                445-1254 or (800) 952-5210. You may contact Hebbia at:</p>
-            <p class="asdf">Hebbia, Inc.<br />615 Montage Circle, <br />East Palo Alto, CA 94303</p>
-        </div>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Permissions to Your User
+                            Content</span><span class="c1">. By making any User
+                            Content available through the Services you hereby grant
+                            to Hebbia a non-exclusive, transferable, worldwide,
+                            royalty-free license, with the right to sublicense, to
+                            use, copy, modify, create derivative works based upon,
+                            distribute, publicly display, and publicly perform your
+                            User Content in connection with operating and providing
+                            the Services and to improve the algorithms underlying
+                            the Services.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Your Responsibility for User
+                            Content</span><span class="c1">. You are solely
+                            responsible for all your User Content. You represent and
+                            warrant that you have (and will have) all rights that
+                            are necessary to grant us the license rights in your
+                            User Content under these Terms. You represent and
+                            warrant that neither your User Content, nor your use and
+                            provision of your User Content to be made available
+                            through the Services, nor any use of your User Content
+                            by Hebbia on or through the Services will infringe,
+                            misappropriate or violate a third party&rsquo;s
+                            intellectual property rights, or rights of publicity or
+                            privacy, or result in the violation of any applicable
+                            law or regulation.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1 c3">Removal of User
+                            Content</span><span class="c1">. You can remove your
+                            User Content by specifically deleting it. You should
+                            know that in certain instances, some of your User
+                            Content (such as posts or comments you make) may not be
+                            completely removed and copies of your User Content may
+                            continue to exist on the Services. To the maximum extent
+                            permitted by law, we are not responsible or liable for
+                            the removal or deletion of (or the failure to remove or
+                            delete) any of your User Content.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Hebbia&rsquo;s Intellectual
+                            Property</span><span class="c1">. We may make available
+                            through the Services content that is subject to
+                            intellectual property rights. We retain all rights to
+                            that content. </span></p>
+                </li>
+            </ol>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">General Restrictions and Hebbia&rsquo;s
+                        Enforcement Rights</span><span class="c1">. You agree
+                        not to do any of the following:</span></p>
+            </li>
+            <ol start="1">
+                <li>
+                    <p style="display:inline"><span class="c1">Use the Services to
+                            check more than </span><span class="c1">one</span><span
+                              class="c1">&nbsp;thousand (1,000) documents or five
+                            hundred thousand (500,000) words in any thirty (30) day
+                            period, or one hundred (100) documents or fifty thousand
+                            (50,000) words in any twenty-four (24) hour
+                            period</span><span class="c1">;</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Post, upload,
+                            publish, submit or transmit any User Content that:
+                            (i)&nbsp;infringes, misappropriates or violates a third
+                            party&rsquo;s patent, copyright, trademark, trade
+                            secret, moral rights or other intellectual property
+                            rights, or rights of publicity or privacy;
+                            (ii)&nbsp;violates, or encourages any conduct that would
+                            violate, any applicable law or regulation or would give
+                            rise to civil liability; (iii)&nbsp;is fraudulent,
+                            false, misleading or deceptive; (iv) is defamatory,
+                            obscene, pornographic, vulgar or offensive;
+                            (v)&nbsp;promotes discrimination, bigotry, racism,
+                            hatred, harassment or harm against any individual or
+                            group; (vi)&nbsp;is violent or threatening or promotes
+                            violence or actions that are threatening to any person
+                            or entity; or (vii)&nbsp;promotes illegal or harmful
+                            activities or substances;</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Use, display, mirror
+                            or frame the Services or any individual element within
+                            the Services, Hebbia&rsquo;s name, any Hebbia trademark,
+                            logo or other proprietary information, or the layout and
+                            design of any page or form contained on a page, without
+                            Hebbia&rsquo;s express written consent; </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Attempt to probe,
+                            scan or test the vulnerability of any Hebbia system or
+                            network or breach any security or authentication
+                            measures; </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Avoid, bypass,
+                            remove, deactivate, impair, descramble or otherwise
+                            circumvent any technological measure implemented by
+                            Hebbia or any of Hebbia&rsquo;s providers or any other
+                            third party (including another user) to protect the
+                            Services; </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Deep-link to the
+                            Services or attempt to access or search the Services or
+                            download,</span><span>&nbsp;</span><span
+                              class="c1">scrape, copy, monitor, or record any
+                            portion of the Services or any data or content contained
+                            within or transmitted by the Services, manually or using
+                            any engine, software, tool, agent, device or mechanism
+                            (including spiders, robots, crawlers, data mining tools,
+                            automated process and/or other devices or the
+                            like),</span><span>&nbsp;</span><span class="c1">or any
+                            other method of screen scraping, other than the software
+                            and/or search agents provided by Hebbia or other
+                            generally available third-party web browsers; </span>
+                    </p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Send any unsolicited
+                            or unauthorized advertising, promotional materials,
+                            email, junk mail, spam, chain letters or other form of
+                            solicitation;</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Use any meta tags or
+                            other hidden text or metadata utilizing a Hebbia
+                            trademark, logo URL or product name without
+                            Hebbia&rsquo;s express written consent; </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Use the Services, or
+                            any portion thereof, for any commercial purpose or for
+                            the benefit of any third party or in any manner not
+                            permitted by these Terms; </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Transfer to any
+                            third party any of your rights under these Terms in any
+                            manner not permitted by these Terms;</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Attempt to decipher,
+                            decompile, disassemble or reverse engineer any of the
+                            software used to provide the Services; </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Interfere with, or
+                            attempt to interfere with, the access of any user, host
+                            or network, including, without limitation, sending a
+                            virus, overloading, flooding, spamming, or mail-bombing
+                            the Services; </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Collect or store any
+                            personally identifiable information from the Services
+                            from other users of the Services without their express
+                            permission;</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Use or access the
+                            Services in order to build a competitive product,
+                            service or solution;</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Impersonate or
+                            misrepresent your affiliation with any person or entity;
+                        </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Violate any
+                            applicable law or regulation; or</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">Encourage or enable
+                            any other individual to do any of the foregoing.</span>
+                    </p>
+                </li>
+            </ol>
+        <p><span class="c2 c1">Hebbia is not obligated to monitor
+                access to or use of the Services or to review or edit any
+                content. However, we have the right to do so for the purpose of
+                operating the Services, to ensure compliance with these Terms
+                and to comply with applicable law or other legal requirements.
+                We reserve the right, but are not obligated, to remove or
+                disable access to any content, including User Content, at any
+                time and without notice, including, but not limited to, if we,
+                at our sole discretion, consider it objectionable or in
+                violation of these Terms. We have the right to investigate
+                violations of these Terms or conduct that affects the Services.
+                We may also consult and cooperate with law enforcement
+                authorities to prosecute users who violate the law.</span></p>
+            <li>
+                <p style="display:inline"><span class="c4">Links
+                        to Third Party Websites or Resources.</span><span
+                          class="c1">&nbsp;The Services may allow you to access
+                        third-party websites or other resources. We provide
+                        access only as a convenience and are not responsible for
+                        the content, products or services on or available from
+                        those resources or links displayed on such websites. You
+                        acknowledge sole responsibility for and assume all risk
+                        arising from, your use of any third-party
+                        resources.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Termination.</span><span
+                          class="c1">&nbsp;We may suspend or terminate your
+                        access to and use of the Services, including suspending
+                        access to or terminating your account, at our sole
+                        discretion, at any time and without notice to you. You
+                        may cancel your account at any time by sending us an
+                        email at </span><span class="c1">hello@hebbia.ai. Upon
+                        any termination, discontinuation or cancellation of the
+                        Services or your account, the following Sections will
+                        survive: 6(a), 6(b), 6(c) (only for payments due and
+                        owing to Hebbia prior to the termination), 8(b), 8(c),
+                        8(e), 9, 11, 12, 13, 14, 15, 16 and 17. Upon expiration
+                        or termination of your access to and use of the Services
+                        or your account for any reason, you shall cease any
+                        further use of the Services and shall promptly destroy
+                        all copies thereof in your possession.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Warranty Disclaimers.</span><span
+                          class="c1">&nbsp;THE SERVICES ARE PROVIDED &ldquo;AS
+                        IS,&rdquo; WITHOUT WARRANTY OF ANY KIND. WITHOUT
+                        LIMITING THE FOREGOING, WE EXPLICITLY DISCLAIM ANY
+                        IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+                        PARTICULAR PURPOSE, QUIET ENJOYMENT AND
+                        NON-INFRINGEMENT, AND ANY WARRANTIES ARISING OUT OF
+                        COURSE OF DEALING OR USAGE OF TRADE. We make no warranty
+                        that the Services will meet your requirements or be
+                        available on an uninterrupted, secure, or error-free
+                        basis. We make no warranty regarding the quality,
+                        accuracy, timeliness, truthfulness, completeness or
+                        reliability of any information or content on the
+                        Services.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Indemnity.</span><span class="c1">&nbsp;You
+                        will indemnify and hold Hebbia and its officers,
+                        directors, employees and agents, harmless from and
+                        against any claims, disputes, demands, liabilities,
+                        damages, losses, and costs and expenses, including,
+                        without limitation, reasonable legal and accounting fees
+                        arising out of or in any way connected with (a) your
+                        access to or use of the Services, (b) your User Content,
+                        or (c) your violation of these Terms.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Limitation of Liability.</span></p>
+            </li>
+            <ol start="1">
+                <li>
+                    <p style="display:inline"><span class="c1">TO THE MAXIMUM
+                            EXTENT PERMITTED BY LAW, NEITHER HEBBIA NOR ITS SERVICE
+                            PROVIDERS INVOLVED IN CREATING, PRODUCING, OR DELIVERING
+                            THE SERVICES WILL BE LIABLE FOR ANY INCIDENTAL, SPECIAL,
+                            EXEMPLARY OR CONSEQUENTIAL DAMAGES, OR DAMAGES FOR LOST
+                            PROFITS, LOST REVENUES, LOST SAVINGS, LOST BUSINESS
+                            OPPORTUNITY, LOSS OF DATA OR GOODWILL, SERVICE
+                            INTERRUPTION, COMPUTER DAMAGE OR SYSTEM FAILURE OR THE
+                            COST OF SUBSTITUTE SERVICES OF ANY KIND ARISING OUT OF
+                            OR IN CONNECTION WITH THESE TERMS OR FROM THE USE OF OR
+                            INABILITY TO USE THE SERVICES, WHETHER BASED ON
+                            WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), PRODUCT
+                            LIABILITY OR ANY OTHER LEGAL THEORY, AND WHETHER OR NOT
+                            HEBBIA OR ITS SERVICE PROVIDERS HAS BEEN INFORMED OF THE
+                            POSSIBILITY OF SUCH DAMAGE, EVEN IF A LIMITED REMEDY SET
+                            FORTH HEREIN IS FOUND TO HAVE FAILED OF ITS ESSENTIAL
+                            PURPOSE. </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">TO THE MAXIMUM
+                            EXTENT PERMITTED BY THE LAW OF THE APPLICABLE
+                            JURISDICTION, IN NO EVENT WILL HEBBIA&rsquo;S TOTAL
+                            LIABILITY ARISING OUT OF OR IN CONNECTION WITH THESE
+                            TERMS OR FROM THE USE OF OR INABILITY TO USE THE
+                            SERVICES EXCEED THE AMOUNTS YOU HAVE PAID OR ARE PAYABLE
+                            BY YOU TO HEBBIA FOR USE OF THE SERVICES OR ONE HUNDRED
+                            DOLLARS ($100), IF YOU HAVE NOT HAD ANY PAYMENT
+                            OBLIGATIONS TO HEBBIA, AS APPLICABLE. </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1">THE EXCLUSIONS AND
+                            LIMITATIONS OF DAMAGES SET FORTH ABOVE ARE FUNDAMENTAL
+                            ELEMENTS OF THE BASIS OF THE BARGAIN BETWEEN HEBBIA AND
+                            YOU.</span></p>
+                </li>
+            </ol>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Governing Law and Forum Choice.</span><span
+                          class="c1">&nbsp;These Terms and any action related
+                        thereto will be governed by the </span><span
+                          class="c1">Federal Arbitration Act, federal
+                        arbitration law, and the </span><span class="c1">laws of
+                        the State of California, without regard to its conflict
+                        of laws provisions. Except as otherwise expressly set
+                        forth in Section 16 &ldquo;Dispute Resolution&rdquo;,
+                        the exclusive jurisdiction for all Disputes (defined
+                        below) that you and Hebbia are not required to arbitrate
+                        will be the state and federal courts located in Santa
+                        Clara County, California, and you and Hebbia each waive
+                        any objection to jurisdiction and venue in such
+                        courts.</span></p>
+            </li>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">Dispute Resolution.</span><span
+                          class="c1">&nbsp;</span></p>
+            </li>
+            <ol start="1">
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Mandatory Arbitration of
+                            Disputes</span><span class="c1">. We each agree that any
+                            dispute, claim or controversy arising out of or relating
+                            to these Terms or the breach, termination, enforcement,
+                            interpretation or validity thereof or the use of the
+                            Services (collectively, &ldquo;</span><span
+                              class="c4">Disputes</span><span class="c1">&rdquo;)
+                            will be resolved </span><span class="c4">solely by
+                            binding, individual arbitration and not in a class,
+                            representative or consolidated action or
+                            proceeding</span><span class="c1">. You and Hebbia agree
+                            that the U.S. Federal Arbitration Act governs the
+                            interpretation and enforcement of these Terms, and that
+                            you and Hebbia are each waiving the right to a trial by
+                            jury or to participate in a class action. This
+                            arbitration provision shall survive termination of these
+                            Terms.</span><span class="c1">&nbsp;</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Exceptions</span><span class="c1">. As
+                            limited exceptions to Section 16(a) above: (i)&nbsp;we
+                            both may seek to resolve a Dispute in small claims court
+                            if it qualifies; and (ii) we each retain the right to
+                            seek injunctive or other equitable relief from a court
+                            to prevent (or enjoin) the infringement or
+                            misappropriation of our intellectual property rights.
+                        </span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Conducting Arbitration and Arbitration
+                            Rules</span><span class="c1">. The arbitration will be
+                            conducted by the American Arbitration Association
+                            (&ldquo;</span><span class="c4">AAA</span><span
+                              class="c1">&rdquo;) under its Consumer Arbitration
+                            Rules (the &ldquo;</span><span class="c4">AAA
+                            Rules</span><span class="c1">&rdquo;) then in effect,
+                            except as modified by these Terms. The AAA Rules are
+                            available at </span><span class="c1 c3"><a
+                              href="https://www.google.com/url?q=http://www.adr.org&amp;sa=D&amp;ust=1606274671821000&amp;usg=AOvVaw3DCxP1iXh3RrJJLPWuReAC">www.adr.org</a></span><span
+                              class="c1">&nbsp;or by calling 1-800-778-7879. A party
+                            who wishes to start arbitration must submit a written
+                            Demand for Arbitration to AAA and give notice to the
+                            other party as specified in the AAA Rules. The AAA
+                            provides a form Demand for Arbitration at </span><span
+                              class="c1 c3"><a
+                              href="https://www.google.com/url?q=http://www.adr.org/aaa/ShowPDF?doc%3DADRSTG_004175&amp;sa=D&amp;ust=1606274671822000&amp;usg=AOvVaw0ta1Xl2NvcGl-iC2UDDC-L">www.adr.org</a></span><span
+                              class="c1">. </span></p>
+                </li>
+                <p><span class="c2 c1">Any arbitration hearings will take
+                        place in the county (or parish) where you live, unless we both
+                        agree to a different location. The parties agree that the
+                        arbitrator shall have exclusive authority to decide all issues
+                        relating to the interpretation, applicability, enforceability
+                        and scope of this arbitration agreement.</span></p>
+                <li>
+                    <p style="display:inline"><span class="c1 c3">Arbitration
+                            Costs</span><span class="c1">. Payment of all filing,
+                            administration and arbitrator fees will be governed by
+                            the AAA Rules, and we won&rsquo;t seek to recover the
+                            administration and arbitrator fees we are responsible
+                            for paying, unless the arbitrator finds your Dispute
+                            frivolous. If we prevail in arbitration we&rsquo;ll pay
+                            all of our attorneys&rsquo; fees and costs and
+                            won&rsquo;t seek to recover them from you. If you
+                            prevail in arbitration you will be entitled to an award
+                            of attorneys&rsquo; fees and expenses to the extent
+                            provided under applicable law.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Injunctive and Declaratory
+                            Relief</span><span class="c1">. Except as provided in
+                            Section 16(b) above, the arbitrator shall determine all
+                            issues of liability on the merits of any claim asserted
+                            by either party and may award declaratory or injunctive
+                            relief only in favor of the individual party seeking
+                            relief and only to the extent necessary to provide
+                            relief warranted by that party&rsquo;s individual claim.
+                            To the extent that you or we prevail on a claim and seek
+                            public injunctive relief (that is, injunctive relief
+                            that has the primary purpose and effect of prohibiting
+                            unlawful acts that threaten future injury to the
+                            public), the entitlement to and extent of such relief
+                            must be litigated in a civil court of competent
+                            jurisdiction and not in arbitration. The parties agree
+                            that litigation of any issues of public injunctive
+                            relief shall be stayed pending the outcome of the merits
+                            of any individual claims in arbitration.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Class Action Waiver</span><span
+                              class="c1">. </span><span class="c4">YOU AND HEBBIA
+                            AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY
+                            IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS A
+                            PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR
+                            REPRESENTATIVE PROCEEDING.</span><span
+                              class="c1">&nbsp;Further, if the parties&rsquo;
+                            Dispute is resolved through arbitration, the arbitrator
+                            may not consolidate another person&rsquo;s claims with
+                            your claims, and may not otherwise preside over any form
+                            of a representative or class proceeding. If this
+                            specific provision is found to be unenforceable, then
+                            the entirety of this Dispute Resolution section shall be
+                            null and void.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Severability</span><span class="c1">.
+                            With the exception of any of the provisions in Section
+                            16(f) of these Terms (&ldquo;</span><span
+                              class="c4">Class Action Waiver</span><span
+                              class="c1">&rdquo;), if an arbitrator or court of
+                            competent jurisdiction decides that any part of these
+                            Terms is invalid or unenforceable, the other parts of
+                            these Terms will still apply.</span></p>
+                </li>
+            </ol>
+            <li>
+                <p style="display:inline"><span
+                          class="c4">General Terms.</span></p>
+            </li>
+            <ol start="1">
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Reservation of Rights</span><span
+                              class="c1">. Hebbia and its licensors exclusively own
+                            all right, title and interest in and to the Services,
+                            including all associated intellectual property rights.
+                            You acknowledge that the Services are protected by
+                            copyright, trademark, and other laws of the United
+                            States and foreign countries. You agree not to remove,
+                            alter or obscure any copyright, trademark, service mark
+                            or other proprietary rights notices incorporated in or
+                            accompanying the Services.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1 c3">Entire
+                            Agreement</span><span class="c1">. These Terms
+                            constitute the entire and exclusive understanding and
+                            agreement between Hebbia and you regarding the Services,
+                            and these Terms supersede and replace all prior oral or
+                            written understandings or agreements between Hebbia and
+                            you regarding the Services. If any provision of these
+                            Terms is held invalid or unenforceable by an arbitrator
+                            or a court of competent jurisdiction, that provision
+                            will be enforced to the maximum extent permissible and
+                            the other provisions of these Terms will remain in full
+                            force and effect. You may not assign or transfer these
+                            Terms, by operation of law or otherwise, without
+                            Hebbia&rsquo;s prior written consent. Any attempt by you
+                            to assign or transfer these Terms, without such consent,
+                            will be null. Hebbia may freely assign or transfer these
+                            Terms without restriction. Subject to the foregoing,
+                            these Terms will bind and inure to the benefit of the
+                            parties, their successors and permitted assigns.</span>
+                    </p>
+                </li>
+                <li>
+                    <p style="display:inline"><span
+                              class="c1 c3">Notices</span><span class="c1">. Any
+                            notices or other communications provided by Hebbia under
+                            these Terms will be given: (i)&nbsp;via email; or
+                            (ii)&nbsp;by posting to the Services. For notices made
+                            by email, the date of receipt will be deemed the date on
+                            which such notice is transmitted.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1 c3">Waiver of
+                            Rights</span><span class="c1">. Hebbia&rsquo;s failure
+                            to enforce any right or provision of these Terms will
+                            not be considered a waiver of such right or provision.
+                            The waiver of any such right or provision will be
+                            effective only if in writing and signed by a duly
+                            authorized representative of Hebbia. Except as expressly
+                            set forth in these Terms, the exercise by either party
+                            of any of its remedies under these Terms will be without
+                            prejudice to its other remedies under these Terms or
+                            otherwise.</span></p>
+                </li>
+                <li>
+                    <p style="display:inline"><span class="c1 c3">Export
+                            Control</span><span class="c1">. You will not export or
+                            re-export, either directly or indirectly, the Services
+                            or any technical data, software, process, product,
+                            service, or system obtained from the Services, without
+                            first complying with the United States and all other
+                            applicable government laws and regulations governing the
+                            export, re-export, and import of those items.</span>
+                    </p>
+                </li>
+            </ol>
+            <li>
+                <p style="display:inline"><span class="c4">Contact
+                        Information.</span><span class="c1">&nbsp;If you have
+                        any questions about these Terms or the Services, please
+                        contact Hebbia at </span><span
+                          class="c1">hello@hebbia.ai. California residents may
+                        reach the Complaint Assistance Unit of the Division of
+                        Consumer Services of the California Department of
+                        Consumer Affairs by mail at 1625 North Market Blvd.,
+                        Sacramento, CA 95834, or by telephone at (916) 445-1254
+                        or (800) 952-5210.</span></p>
+            </li>
+        </ol>
     </div>
 
 </body>

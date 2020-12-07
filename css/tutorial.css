@@ -6,7 +6,21 @@
  * https://raw.github.com/zmyaro/crx-options-page/master/LICENSE.txt
  */
 
- #tutorialContent {
+
+
+
+#absolute_logo{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100000;
+    height: 40px;
+    width: auto;
+    opacity: 77%;
+}
+
+
+#tutorialContent {
     margin: 0px !important;
     font-size: 12px;
     color: rgb(48, 57, 66);
@@ -139,9 +153,201 @@
     border: 0px solid black;
 }
 
-#cover {position: fixed; height: 100%; width: 100%; top:0; left: 0; background: white; z-index:9999;}
+#cover {
+    position: fixed; 
+    height: 100%; 
+    width: 100%; 
+    top:0; 
+    left: 0; 
+    background: white;
+    background: url('/img/sidebackblue.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index:9999;
+}
+
+.signup {
+    position: fixed;
+    height: 440px;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 69420;
+    background: white;
+    box-shadow:  0 calc(10px*0.625) calc(10px*3.5) 0 rgba(198,203,222,.45);/*, 0 0 0px 2000px rgba(255, 255, 255, 0.7);*/
+    border-radius: 4px;
+}
+
+#logo_hebbia {
+    position: relative;
+    width: 144px;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 10px;
+}
+
+.signup_content {
+    position: relative;
+    top: 5%;
+    margin-top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 300;
+    /* font-family: 'Khula',  'sans-serif'; */
+    text-align: center;
+}
+
+.signup_content a {
+    font-weight: 300;
+    color: #5ee4fe;
+}
+
+.signup_content a:visited {
+    color: #34ceec;
+}
+
+.signup_header {
+
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.signup_subheader {
+    margin-top: 5px;
+    font-size: 17px;
+}
+
+#enter_email,#select_cohort {
+    width: 600px;
+}
+
+#email {
+    width: 370px;
+    padding: 10px 17px;
+    box-shadow: 0px 0px 40px 0px rgba(198,203,222,.45);  
+    margin-top:20px;
+    font-size:20px;
+    outline-color: #5ee4fe;
+    outline-width: 0;
+    border-radius: 12px;
+}
+
+#cohort {
+    width: 404px;
+    padding: 9px;
+    box-shadow: 0px 0px 40px 0px rgba(198,203,222,.45);  
+    margin-top:20px;
+    font-size:20px;
+    outline-color: #5ee4fe;
+    outline-width: 0;
+    border-radius: 12px;
+}
+
+.signup_text_small {
+    width: 400px;
+    font-size: 15px;
+    font-weight: 200;
+    color: grey;
+    margin-top:20px;
+}
+
+.signup_later {
+    position: absolute;
+    bottom: 2.5%;
+    top: unset;
+    width: auto;
+    cursor: pointer;
+}
+
+.glow-on-hover {
+    /*width: 240px; */
+    width: 404px; 
+    letter-spacing: 0px !important;
+    padding: 11px 17px;
+    /* padding-top: 12px; */
+    margin-top:15px;
+    /* margin-right:14px; */
+    /* margin-left:1px; */
+    border: none;
+    outline: none;
+    color: black;
+    font-family: 'Khula', 'sans-serif';
+    background-color: rgba(117, 206, 250);
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: linear-gradient(45deg, rgba(152, 245, 255, .9), rgba(50, 205, 235, 0.5), rgba(0, 205, 235, 1), rgba(82, 235, 235, 1), rgba(94, 215, 255, .75),rgb(61, 236, 255));
+    position: absolute;
+    top: 5px;
+    left:5px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(10px);
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    animation: glowing 20s linear infinite;
+    opacity: 1;
+    transition: opacity 0s ease-in-out;
+    background-color: unset;
+    border-radius: 20px;
+}
 
 
+.glow-on-hover:active {
+    color: #000
+}
+
+
+.glow-on-hover:active:after {
+    background: rgba(152, 245, 255, .9);
+    border-radius: 20px;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+    border-radius: 20px;
+
+}
+
+
+.glow-on-hover:hover:after{
+    background-color: rgba(103, 206, 253,0.9);
+    border-radius: 20px;
+
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 0px solid rgb(117, 206, 250, 1);
+    border-radius: 20px;
+
+    background-color: rgba(193, 246, 253,0); /*#eee;/*rgba(193, 246, 253)*/;
+    left: 0;
+    top: 0;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+
+}
 
 .hebbiaDiv{
     /*box-shadow: 0px 0px 30px 10px #5ee4fe;

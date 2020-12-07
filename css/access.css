@@ -382,9 +382,9 @@ section h3 {
     background-color: white;
   }
 
-  iframe{
+  /* iframe{
     display:none !important;
-  }
+  } */
 
   .get-code{
     display:none;
@@ -393,4 +393,7 @@ section h3 {
 
 }
 
-
+#invitecode {
+  height: 300px;
+  overflow: visible;
+}

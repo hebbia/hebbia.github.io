@@ -1,9 +1,7 @@
 //INIT GOOGLE ANALYTICS SHIT
 
 
-var DEBUGGING = false;
-
-if (!DEBUGGING) {
+if (window.location.hostname === "hebbia.ai") {
   // Standard Google Universal Analytics code
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -13,7 +11,9 @@ if (!DEBUGGING) {
   ga('create', 'UA-157284380-2', 'auto'); // Enter your GA identifier
   ga('set', 'checkProtocolTask', function(){}); // Removes failing protocol check. @see: http://stackoverflow.com/a/22152353/1958200
   ga('send', 'pageview', '/tutorial.html'); // Specify the virtual path
-} else ga = function() {};
+} else ga = function() {
+    console.log('ga(' + [...arguments].map(JSON.stringify).join(', ') + ')');
+};
 
 
 
@@ -42,41 +42,103 @@ var buttonsLess = (
     + "<span class=\"subsubtitle\" style=\"display:none;\">Copied to clipboard</span>"
 );
 
- 
+$(window).on('load', function() {
+    const emailForm = document.forms['enter_email'];
+    const cohortForm = document.forms['select_cohort'];
+    document.body.style['overflow-y'] = 'hidden';
+    $(".signup_later").on('click', function() {
+        $("#signup_p1").hide();
+        $("#signup_p2").hide();
+        $("#wikiContent").show();
+        $("#cover").fadeOut(1000)
+        $('#logo_hebbia').hide();
+        document.body.style['overflow-y'] = 'scroll';
+        window.addEventListener("HebbiaExtension", handleStateChange);
+    });
+    emailForm.addEventListener('submit', e => {
+        e.preventDefault();
 
-window.addEventListener("HebbiaExtension", function(event) {
+        const mailingListURL = 'https://api2.hebbia.ai/mailing_list/';
+        const mailingListTags = ["Tutorial Signup"];
+        const mailingListData = JSON.stringify({
+            email: $("#email").val(),
+            tags: mailingListTags
+        });
+        fetch(mailingListURL, {method: 'POST', body: mailingListData})
+            .then(response => {
+                if (!response.ok) {
+                    response.text().then(err => {throw Error(err);});
+                }
+            })
+            .catch(console.error);
+
+        window.postMessage({type: "storeData", field: "email", value: $("#email").val()}, '*');
+        $("#signup_p1").hide();
+        $("#signup_p2").show();
+    });
+    cohortForm.addEventListener('submit', e => {
+        e.preventDefault();
+        window.postMessage({type: "storeData", field: "cohort", value: $("#cohort").val()}, '*');
+        $("#signup_p2").hide();
+        $("#wikiContent").show();
+        $("#cover").fadeOut(1000)
+        $('#logo_hebbia').hide();
+        document.body.style['overflow-y'] = 'scroll';
+        window.addEventListener("HebbiaExtension", handleStateChange);
+    });
+});
+
+function sendAnalytics(action, label=null) {
+    const page = '/tutorial.html';
+    if (label) {
+        ga('send', 'event', 'tutorial', action, label);
+        window.postMessage({type: 'analytics', location: page, data: {
+            eventCategory: 'tutorial',
+            eventAction: action,
+            eventLabel: label
+        }}, '*');
+    } else {
+        ga('send', 'event', 'tutorial', action);
+        window.postMessage({type: 'analytics', location: page, data: {
+            eventCategory: 'tutorial',
+            eventAction: action
+        }}, '*');
+    }
+}
+
+function handleStateChange(event) {
     if (event.detail.type === "popupOpen" && state === "new") {
-        ga('send', 'event', 'tutorial', '1) started');
+        sendAnalytics('1) started');
         currStep = 1;
         timeout = setTimeout(function() {
             state = goToStep(currStep);
         }, 500);
     }
     if (event.detail.type === "enter" && state === "question_typed") {
-        ga('send', 'event', 'tutorial', '2) firstQuery');
+        sendAnalytics('2) firstQuery');
         currStep = 2;
         timeout = setTimeout(function() {
             state = goToStep(currStep);
         }, 500);    }
     if (event.detail.type === "enter" && state === "viewed_results") {
-        ga('send', 'event', 'tutorial', '3) resultsViewed');
+        sendAnalytics('3) resultsViewed');
         currStep = 3;
         timeout = setTimeout(function() {
             state = goToStep(currStep);
         }, 1000);    }
     if (event.detail.type == "labelClicked" && state === "viewed_next_result") {
-        ga('send', 'event', 'tutorial', '4) highlightDoubleClicked');
+        sendAnalytics('4) highlightDoubleClicked');
         currStep = 4;
         timeout = setTimeout(function() {
             state = goToStep(currStep);
         }, 500);    }
     if (event.detail.type == "enter" && state == "freeform_questions") {
-        ga('send', 'event', 'tutorial', '5) additionalQueries');
+        sendAnalytics('5) additionalQueries');
         currStep = 5;
         timeout = setTimeout(function() {
             state = goToStep(currStep);
         }, 500);    }
-});
+}
 
 
 function goToStep(i) {
@@ -162,7 +224,7 @@ function goToStep(i) {
 
 function addCopyListeners() {
     $(".copy").click(function(event) {
-        ga('send', 'event', 'tutorial', 'contentCopied', event.currentTarget.innerText.substr(1));
+        sendAnalytics('contentCopied', event.currentTarget.innerText.substr(1));
         $("#copyHelper").val(event.currentTarget.innerText).focus().select();
         var $temp = $("<input>");
         $("body").append($temp);
@@ -182,12 +244,12 @@ function addCopyListeners() {
 
 function addHistoryListeners() {
     $("#hebbiaDiv1 #next").click(function(event) {
-        ga('send', 'event', 'tutorial', 'history', 'next');
+        sendAnalytics('history', 'next');
         clearTimeout(timeout);
         state = goToStep(++currStep);
     });
     $("#hebbiaDiv1 #prev").click(function(event) {
-        ga('send', 'event', 'tutorial', 'history', 'prev');
+        sendAnalytics('history', 'prev');
         clearTimeout(timeout);
         state = goToStep(--currStep);
     });
@@ -226,7 +288,7 @@ function getOS() {
     } else if (!os && /Linux/.test(platform)) {
         os = 'Linux';
     }
-    ga('send', 'event', 'tutorial', 'OS', os);
+    sendAnalytics('OS', os);
 
     return os;
 }

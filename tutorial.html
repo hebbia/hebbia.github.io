@@ -14,13 +14,70 @@
         <script src="js/tutorial.js"></script>
 
         <link rel="shortcut icon" href="favicon_grey.ico" type="image/x-icon">
-        <script>
-            $(window).on('load', function() {
-                $("#cover").hide();
-            });
-        </script>
     </head>
     <body>
+        <div id="absolute_logo">
+            <img id="logo_hebbia" opacity="80%" src="img/hebbia_logo.png">
+        </div> 
+
+
+        <div class="signup" id="signup_p1">
+            <div class="signup_content signup_header">
+                Hebbia Is Installed
+            </div>
+            <div class="signup_content signup_subheader">
+                Let's get started!
+                <!--Let's start by creating your account.-->
+            </div>
+
+            <form class="signup_content" name="enter_email" id="enter_email" action="#">
+                <input id="email" name="email" type="email" placeholder="Your Email" required>
+                <button class="glow-on-hover" type="submit">
+                    <span>
+                        Sign up
+                    </span>
+                </button>
+            </form>
+            <div class="signup_content signup_text_small">
+                By signing up, you agree to Hebbia's <a href="https://hebbia.ai/terms">Terms and Conditions</a> and <a href="https://hebbia.ai/privacy-policy">Privacy Policy</a>. <!--You also agree to receive product-related marketing emails from Hebbia, which you can unsubscribe from at any time.-->
+            </div>
+            <div class="signup_content signup_text_small signup_later">
+                Sign up later
+            </div>
+        </div>
+
+        <div class="signup" id="signup_p2" style="display: none;">
+            <div class="signup_content signup_header">
+                Help Customize Your Experience
+            </div>
+            <div class="signup_content signup_subheader">
+                How would you describe yourself?
+            </div>
+            <form class="signup_content" name="select_cohort" id="select_cohort" action="#">
+                <select id="cohort" name="cohort" required>
+                    <!-- <option value="" selected></option> -->
+                    <option selected>Student</option>
+                    <option>Financial Analyst</option>
+                    <option>Researcher</option>
+                    <option>Lawyer</option>
+                    <option>Writer</option>
+                    <option>Consultant</option>
+                    <option>Other</option>
+                </select>
+                <button class="glow-on-hover" type="submit">
+                    <span>
+                        Begin Demo
+                    </span>
+                </button>
+            </form>
+            <div class="signup_content signup_text_small">
+                <!--By signing up, you agree to Hebbia's <a href="https://hebbia.ai/terms">Terms and Conditions</a> and <a href="https://hebbia.ai/privacy-policy">Privacy Policy</a>. -->
+            </div>
+            <div class="signup_content signup_text_small signup_later">
+                Skip this step
+            </div>
+        </div>
+
         <div id="cover"></div>
 
         <div id="tutorialContent">
@@ -45,7 +102,7 @@
                 </div>
             </div>
         </div>
-        <div id="wikiContent">
+        <div id="wikiContent" style="display: none;">
 
             <h1 id="articleHeader"> Demo Article <span class="lighter"> | COVID-19 pandemic </span></h1>
 
