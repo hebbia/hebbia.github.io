@@ -430,7 +430,7 @@
 
         <form name="submit-to-google-sheet" action="#">
 
-          <input id="email" class="emails mobile_show" name="email" type="email" placeholder="Your email" required>
+          <!-- <input id="email" class="emails mobile_show" name="email" type="email" placeholder="Your email" required> -->
           <!--<input class="emails" name="message" type="text" placeholder="text here" required> -->
 
           <button class="mobile_show" id="submit_button_boi" type="submit"> <span>&#65310;
@@ -465,16 +465,16 @@
           form.addEventListener('submit', e => {
             e.preventDefault();
 
-            let formData = new FormData(form);
-            let emailEntered = document.getElementById('email').value;
-            let mailingListData = JSON.stringify({
-              email: emailEntered,
-              tags: mailingListTags
-            })
+            const formData = new FormData(form);
+            // const emailEntered = document.getElementById('email').value;
+            // const mailingListData = JSON.stringify({
+            //   email: emailEntered,
+            //   tags: mailingListTags
+            // })
 
             Promise.allSettled([
-              fetch(scriptURL, {method: 'POST', body: formData}),
-              fetch(mailingListURL, {method: 'POST', body: mailingListData})
+              fetch(scriptURL, {method: 'POST', body: formData})
+              // , fetch(mailingListURL, {method: 'POST', body: mailingListData})
             ])
               .then(responses => responses.map(response => 
                 response.status === "fulfilled" ? response.value
