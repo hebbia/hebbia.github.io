@@ -29,14 +29,14 @@ let thanksTimeout;
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  let formData = new FormData(form);
-  let promoEntered = document.getElementById('access-code').value;
-  let promoCodeURL = promoCodeBaseURL + promoEntered;
-  let emailEntered = document.getElementById('email').value;
-  let mailingListData = JSON.stringify({
-    email: emailEntered,
-    tags: mailingListTags
-  })
+  const formData = new FormData(form);
+  const promoEntered = document.getElementById('access-code').value;
+  const promoCodeURL = promoCodeBaseURL + promoEntered;
+  // const emailEntered = document.getElementById('email').value;
+  // const mailingListData = JSON.stringify({
+  //   email: emailEntered,
+  //   tags: mailingListTags
+  // })
 
   if(promoEntered){
     fetch(promoCodeURL, {method: 'GET'})
@@ -46,9 +46,9 @@ form.addEventListener('submit', e => {
           console.log('Correct code');
 
           Promise.allSettled([
-            response.text(),
-            fetch(scriptURL, {method: 'POST', body: formData}),
-            fetch(mailingListURL, {method: 'POST', body: mailingListData})
+            response.text()
+            , fetch(scriptURL, {method: 'POST', body: formData})
+            // , fetch(mailingListURL, {method: 'POST', body: mailingListData})
           ])
 
             .then(responses => responses.map(response => 
@@ -78,8 +78,7 @@ form.addEventListener('submit', e => {
 
       })
 
-      .catch(error => error.message)
-      .then(console.error);
+      .catch(console.error);
   }
   
 
