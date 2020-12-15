@@ -184,18 +184,16 @@ function goToStep(i) {
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like. We've generated sample questions for you.");
             $("#hebbiaDiv1 .subtitle").html("");
             $("#hebbiaDiv1").addClass("showQuestions");
-            document.getElementById("hebbiaDiv1").id = "hebbiaDiv2";
+            $("#hebbiaDiv1").css('top', 350);
 
             return "freeform_questions";
 
         case 5:
-            document.getElementById("hebbiaDiv2").id = "hebbiaDiv1";
+            $("#hebbiaDiv1").css('top', 175);
             $("#hebbiaDiv1").removeClass("showQuestions");
             $("#hebbiaDiv1 #next").hide();
             $("#hebbiaDiv1 #prev").show()
             $("#hebbiaDiv1 #goPrevNext").show();
-
-            // $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
             $("#hebbiaDiv1 h1").html("You're good to go!");
 
             $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Hebbia lights up blue when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
