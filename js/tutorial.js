@@ -183,11 +183,14 @@ function goToStep(i) {
             $("#hebbiaDiv1 #prev").hide();
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like. We've generated sample questions for you.");
             $("#hebbiaDiv1 .subtitle").html("");
+            $("#hebbiaDiv1").addClass("showQuestions");
             document.getElementById("hebbiaDiv1").id = "hebbiaDiv2";
 
             return "freeform_questions";
 
         case 5:
+            document.getElementById("hebbiaDiv2").id = "hebbiaDiv1";
+            $("#hebbiaDiv1").removeClass("showQuestions");
             $("#hebbiaDiv1 #next").hide();
             $("#hebbiaDiv1 #prev").show()
             $("#hebbiaDiv1 #goPrevNext").show();
