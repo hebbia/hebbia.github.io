@@ -180,7 +180,8 @@ function goToStep(i) {
             return "viewed_next_result";
 
         case 4:
-            $("#hebbiaDiv1 #prev").hide();
+            $("#hebbiaDiv1 #goPrevNext").hide();
+
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like. We've generated sample questions for you.");
             $("#hebbiaDiv1 .subtitle").html("");
             $("#hebbiaDiv1").addClass("showQuestions");
