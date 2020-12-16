@@ -198,7 +198,7 @@ function goToStep(i) {
             $("#hebbiaDiv1 #goPrevNext").show();
             $("#hebbiaDiv1 h1").html("You're good to go!");
 
-            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Hebbia lights up blue when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
+            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Hebbia pops up when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
             addCopyListeners();
 
             return "done";
