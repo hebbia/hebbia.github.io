@@ -185,12 +185,12 @@ function goToStep(i) {
             $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like. We've generated sample questions for you.");
             $("#hebbiaDiv1 .subtitle").html("");
             $("#hebbiaDiv1").addClass("showQuestions");
-            $("#hebbiaDiv1").css('top', 350);
+            $("#hebbiaDiv1").css('top', 320);
 
             return "freeform_questions";
 
         case 5:
-            $("#hebbiaDiv1").css('top', 175);
+            $("#hebbiaDiv1").css('top', 145);
             $("#hebbiaDiv1").removeClass("showQuestions");
             $("#hebbiaDiv1 #next").hide();
             $("#hebbiaDiv1 #prev").show()
