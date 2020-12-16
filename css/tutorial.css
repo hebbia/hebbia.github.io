@@ -159,8 +159,8 @@
     width: 100%; 
     top:0; 
     left: 0; 
-    background: white;
     background: url('/img/sidebackblue.png');
+    background-color: white;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
