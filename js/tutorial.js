@@ -67,10 +67,11 @@ $(window).on('load', function() {
         fetch(mailingListURL, {method: 'POST', body: mailingListData})
             .then(response => {
                 if (!response.ok) {
-                    response.text().then(err => {throw Error(err);});
+                    return response.text();
                 }
             })
-            .catch(console.error);
+            .then(err => {if (err) throw Error(err);})
+            .catch(console.log);
 
         window.postMessage({type: "storeData", field: "email", value: $("#email").val()}, '*');
         $("#signup_p1").hide();
