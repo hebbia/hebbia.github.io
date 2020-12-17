@@ -257,6 +257,7 @@
 .signup_later {
     position: absolute;
     bottom: 2.5%;
+    font-size: 14px;
     top: unset;
     width: auto;
     cursor: pointer;
