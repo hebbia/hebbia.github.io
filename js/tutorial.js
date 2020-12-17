@@ -67,10 +67,11 @@ $(window).on('load', function() {
         fetch(mailingListURL, {method: 'POST', body: mailingListData})
             .then(response => {
                 if (!response.ok) {
-                    response.text().then(err => {throw Error(err);});
+                    return response.text();
                 }
             })
-            .catch(console.error);
+            .then(err => {if (err) throw Error(err);})
+            .catch(console.log);
 
         window.postMessage({type: "storeData", field: "email", value: $("#email").val()}, '*');
         $("#signup_p1").hide();
@@ -180,28 +181,24 @@ function goToStep(i) {
             return "viewed_next_result";
 
         case 4:
-            $("#hebbiaDiv1 #prev").hide()
-            $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
-            $("#hebbiaDiv1 .subtitle").html("");
+            $("#hebbiaDiv1 #goPrevNext").hide();
 
-            timeout = setTimeout(function() {
-                $("#hebbiaDiv1 .subtitle").html("<br /> Click to copy an example question:" + buttonsLess + "<br /> ...and start a search with "+commandKeyName+" + H");
-                addCopyListeners();
-                
-                $("#hebbiaDiv1 #next").show()
-            }, 1000);
+            $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like. We've generated sample questions for you.");
+            $("#hebbiaDiv1 .subtitle").html("");
+            $("#hebbiaDiv1").addClass("showQuestions");
+            $("#hebbiaDiv1").css('top', 320);
 
             return "freeform_questions";
 
         case 5:
+            $("#hebbiaDiv1").css('top', 145);
+            $("#hebbiaDiv1").removeClass("showQuestions");
             $("#hebbiaDiv1 #next").hide();
             $("#hebbiaDiv1 #prev").show()
             $("#hebbiaDiv1 #goPrevNext").show();
-
-            // $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like.");
             $("#hebbiaDiv1 h1").html("You're good to go!");
 
-            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Hebbia lights up blue when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
+            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Hebbia pops up when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
             addCopyListeners();
 
             return "done";

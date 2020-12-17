@@ -159,8 +159,8 @@
     width: 100%; 
     top:0; 
     left: 0; 
-    background: white;
     background: url('/img/sidebackblue.png');
+    background-color: white;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -358,9 +358,9 @@
     pointer-events: none;
     /* We add 21px to account for the 21px top margin of the h1 header */
     /*padding: 1.4vh 3vw calc(21px + 1.4vh) 3vw;*/
-    padding: 4vh 3vw 4vh 3vw;
+    padding: 20px 35px 20px 35px;
     font-size: 1.5em;
-    width: min(400px, 27vw);
+    width: 380px;
     z-index: 100;
     position: fixed;
     background: white;
@@ -423,7 +423,7 @@
 }
 
 #hebbiaDiv1{
-    top: 50px;
+    top: 145px;
 }
 
 .shortcut {
