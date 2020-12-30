@@ -91,20 +91,14 @@ $(window).on('load', function() {
 
 function sendAnalytics(action, label=null) {
     const page = '/tutorial.html';
-    if (label) {
-        ga('send', 'event', 'tutorial', action, label);
-        window.postMessage({type: 'analytics', location: page, data: {
-            eventCategory: 'tutorial',
-            eventAction: action,
-            eventLabel: label
-        }}, '*');
-    } else {
-        ga('send', 'event', 'tutorial', action);
-        window.postMessage({type: 'analytics', location: page, data: {
-            eventCategory: 'tutorial',
-            eventAction: action
-        }}, '*');
-    }
+    let analyticsData = {
+        eventCategory: 'tutorial',
+        eventAction: action
+    };
+    if (label) analyticsData.eventLabel = label;
+    
+    ga('send', 'event', analyticsData);
+    window.postMessage({type: 'analytics', data: analyticsData, location: page}, '*');
 }
 
 function handleStateChange(event) {
