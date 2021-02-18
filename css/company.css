@@ -178,7 +178,7 @@ h1 {
   font-family: 'Jost','Futura', 'Inter', 'sans-serif';
   font-weight: 100;
   letter-spacing: 0px;
-  font-size: 40px;
+  font-size: 30px;
   margin-block-start: 0em;
   margin-block-end: 0em;
   margin-inline-start: 0px;
@@ -650,22 +650,21 @@ header {
 
 
 
-#HilbertBack
-    {
-      position:fixed;
-      z-index: -10;
-      margin-left:15%;
-      margin-top: 42px;
-      height: 400px;
+#HilbertBack {
+  position:fixed;
+  z-index: -10;
+  margin-left:15%;
+  margin-top: 42px;
+  height: 300px;
 
-    }
+}
 
 #Hilbert {
       position:absolute;
       z-index: 2;
       scroll-behavior: smooth;
       margin-left:15%;
-      height: 400px; 
+      height:300px; 
       margin-top: 42px;
 
       opacity: 0;
@@ -746,11 +745,13 @@ header {
   z-index: 2;
   scroll-behavior: smooth;
   margin-left:15%;
-  top:442px;
+  top:342px;
 
   margin-top: 20px;
   /*background-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.4));*/
 }
+
+
 
 
 
@@ -771,11 +772,10 @@ header {
 
 }
 
-  #logo{
+#logo{
+  display: none;
 
-        display: none;
-
-       }
+}
 
 
 
@@ -803,10 +803,10 @@ h2{
 
 footer{
 
-        background: black;
-        color:white;
-        padding: 35px;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
+  background: black;
+  color:white;
+  padding: 35px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1));
 
 }
 
@@ -816,7 +816,7 @@ footer{
 
 #name_logo{
   margin-left: -5px;
-  max-width: 400px;
+  max-width: 300px;
   /*-webkit-filter: drop-shadow(5px 5px 0px lightblue);
   filter: drop-shadow(5px 5px 0px lightblue);*/
 
@@ -849,6 +849,28 @@ footer{
   border: 1px solid white;*/
 }
 
+
+
+@media(min-height:825px) {
+
+  #HelvLight{
+
+    top:444px;
+  }
+
+
+  #HilbertBack {
+    height: 400px;
+
+  }
+
+  #Hilbert {
+    height:400px; 
+
+  }
+
+
+}
 
 
 @media(max-width:825px) {
