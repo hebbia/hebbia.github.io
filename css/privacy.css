@@ -110,6 +110,12 @@ section{
 	background: #fff;
 }
 
+table, th, td {
+	margin: auto;
+	padding: 20px;
+	border: 2px solid #000;
+	border-collapse: collapse;
+}
 
 button, select:not([size]), select[size="1"], input[type="checkbox"], input[type="radio"] {
 	-webkit-appearance: none;
