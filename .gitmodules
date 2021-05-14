@@ -1,0 +1,3 @@
+[submodule "Hebbia_Full_Stack"]
+	path = Hebbia_Full_Stack
+	url = https://github.com/gsivulka/Hebbia_Full_Stack.git
