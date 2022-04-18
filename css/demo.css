@@ -1,0 +1,45 @@
+#absolute_logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100000;
+    width: auto;
+}
+
+#logo_hebbia {
+    position: relative;
+    width: 144px;
+    opacity: 75%;
+}
+
+/* #logo_blur {
+    position: absolute;
+    width: 144px;
+    filter: invert(100) blur(2px);
+} */
+
+#blur {
+    position: absolute;
+    padding: 40px 144px 0 0;
+    background-color: rgb(255,255,255);
+    filter: blur(15px);
+    transform: scale(1.1);
+    opacity: 75%;
+}
+
+#iframe {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    border: 0;
+}
+
+#cannotLoad {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 50%);
+    font-size: large;
+}
