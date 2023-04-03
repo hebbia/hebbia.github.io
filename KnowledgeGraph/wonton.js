@@ -197,11 +197,11 @@ function macNCheese(selector, data, form) {
         const chunkJSON = JSON.stringify(Object.assign({}, sentenceArray));
         const sendingJSON = JSON.stringify({chunk: chunkJSON});
         const proxyurl = 'https://cors-anywhere.herokuapp.com/';
-        fetch(proxyurl + 'http://api.hebbia.ai/chunk_embeddings/', {
+        fetch(proxyurl + 'http://api./chunk_embeddings/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'api.hebbia.ai/*'
+                'Access-Control-Allow-Origin': 'api./*'
             },
             body: sendingJSON
         }).then(response => response.json()).then(response => sentencesAdd(response));

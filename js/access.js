@@ -1,7 +1,7 @@
 //INIT GOOGLE ANALYTICS SHIT
 
 
-if (window.location.hostname === "hebbia.ai") {
+if (window.location.hostname === "") {
   // Standard Google Universal Analytics code
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,8 +20,8 @@ if (window.location.hostname === "hebbia.ai") {
 const form = document.forms['submit-to-google-sheet'];
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ9Jung9Yd-fMDobAnIBPiuuwkRrCkjqNqwiJEqZCQ0q23gFB-/exec';
-const promoCodeBaseURL = 'https://api2.hebbia.ai/promo_code_check/?promo_code=';
-const mailingListURL = 'https://api2.hebbia.ai/mailing_list/';
+const promoCodeBaseURL = 'https://api2./promo_code_check/?promo_code=';
+const mailingListURL = 'https://api2./mailing_list/';
 
 const mailingListTags = ["Access Code Signup"];
 

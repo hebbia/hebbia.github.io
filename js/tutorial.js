@@ -1,7 +1,7 @@
 //INIT GOOGLE ANALYTICS SHIT
 
 
-if (window.location.hostname === "hebbia.ai") {
+if (window.location.hostname === "") {
   // Standard Google Universal Analytics code
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -58,7 +58,7 @@ $(window).on('load', function() {
     emailForm.addEventListener('submit', e => {
         e.preventDefault();
 
-        const mailingListURL = 'https://api2.hebbia.ai/mailing_list/';
+        const mailingListURL = 'https://api2./mailing_list/';
         const mailingListTags = ["Tutorial Signup"];
         const mailingListData = JSON.stringify({
             email: $("#email").val(),
@@ -183,7 +183,7 @@ function goToStep(i) {
         case 4:
             $("#hebbiaDiv1 #goPrevNext").hide();
 
-            $("#hebbiaDiv1 h1").html("Great! To see the power of Hebbia, ask <em>anything</em> you'd like. We've generated sample questions for you.");
+            $("#hebbiaDiv1 h1").html("Great! To see the power of Cmd-H, ask <em>anything</em> you'd like. We've generated sample questions for you.");
             $("#hebbiaDiv1 .subtitle").html("");
             $("#hebbiaDiv1").addClass("showQuestions");
             $("#hebbiaDiv1").css('top', 320);

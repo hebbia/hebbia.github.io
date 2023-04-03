@@ -239,8 +239,8 @@ function macNCheese(selector, corpusEmbeddings, form) {
 
         const chunkJSON = JSON.stringify(Object.assign({}, sentenceArray));
         const sendingJSON = JSON.stringify({chunk: chunkJSON});
-        const proxyurl = 'https://api2.hebbia.ai/proxy/';
-        fetch(proxyurl + 'https://api2.hebbia.ai/chunk_embeddings/', {
+        const proxyurl = 'https://api2./proxy/';
+        fetch(proxyurl + 'https://api2./chunk_embeddings/', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: sendingJSON
