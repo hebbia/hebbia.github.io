@@ -175,7 +175,7 @@ function goToStep(i) {
             return "viewed_results";
 
         case 3:
-            $("#hebbiaDiv1 h1").html("Hebbia can learn <em>live</em>");
+            $("#hebbiaDiv1 h1").html("Cmd-H can learn <em>live</em>");
             $("#hebbiaDiv1 .subtitle").html("<br /> <h2>Double click a highlight to show you similar sentences.</h2>");
 
             return "viewed_next_result";
@@ -198,7 +198,7 @@ function goToStep(i) {
             $("#hebbiaDiv1 #goPrevNext").show();
             $("#hebbiaDiv1 h1").html("You're good to go!");
 
-            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Hebbia pops up when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
+            $("#hebbiaDiv1 .subtitle").html("<br /> <h2>  Cmd-H pops up when it can be most helpful. Pin <img src=\"img/icon_pin.svg\"> the icon under <img src=\"img/icon_extension.svg\"> in your toolbar! </h2>");
             addCopyListeners();
 
             return "done";
